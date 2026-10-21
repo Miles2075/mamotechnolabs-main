@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                 </button>
 
                 {coursesOpen && (
-                  <div className="absolute top-full left-0 w-[620px] bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 p-6 mt-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full left-0 w-[640px] xl:w-[680px] bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 p-6 mt-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
                     <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                       <div>
                         <h3 className="font-extrabold text-slate-900 text-sm">Flagship Career Programs</h3>
@@ -158,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-3.5">
                       {/* AI Master Tools */}
                       <button
                         onClick={() => handleNav('course-detail', 'ai-tools')}
@@ -167,16 +167,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                           <Brain className="w-5 h-5" />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
                               AI Master Tools
                             </h4>
-                            <span className="text-[9px] px-1.5 py-0.2 bg-blue-100 text-blue-700 font-bold rounded-full">
+                            <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full whitespace-nowrap shrink-0 leading-none">
                               Popular
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5 font-medium">₹3 - ₹10 LPA • 2 Months</p>
+                          <p className="text-xs text-slate-500 mt-1 font-medium">₹3 - ₹10 LPA • 2 Months</p>
                         </div>
                       </button>
 
@@ -188,16 +188,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                           <Bot className="w-5 h-5" />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
                               Machine Learning
                             </h4>
-                            <span className="text-[9px] px-1.5 py-0.2 bg-amber-100 text-amber-700 font-bold rounded-full">
+                            <span className="text-[10px] font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full whitespace-nowrap shrink-0 leading-none">
                               Trending
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5 font-medium">₹6 - ₹15 LPA • 3 Months</p>
+                          <p className="text-xs text-slate-500 mt-1 font-medium">₹6 - ₹15 LPA • 3 Months</p>
                         </div>
                       </button>
 
@@ -209,16 +209,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                           <Cpu className="w-5 h-5" />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
                               Artificial Intelligence
                             </h4>
-                            <span className="text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-700 font-bold rounded-full">
+                            <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full whitespace-nowrap shrink-0 leading-none">
                               Top Rated
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5 font-medium">₹8 - ₹18 LPA • 4 Months</p>
+                          <p className="text-xs text-slate-500 mt-1 font-medium">₹8 - ₹18 LPA • 4 Months</p>
                         </div>
                       </button>
 
@@ -230,16 +230,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                           <PenTool className="w-5 h-5" />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
                               Prompt Engineering
                             </h4>
-                            <span className="text-[9px] px-1.5 py-0.2 bg-teal-100 text-teal-700 font-bold rounded-full">
+                            <span className="text-[10px] font-bold px-2 py-0.5 bg-teal-100 text-teal-800 rounded-full whitespace-nowrap shrink-0 leading-none">
                               GenAI
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5 font-medium">₹6 - ₹15 LPA • 1.5 Months</p>
+                          <p className="text-xs text-slate-500 mt-1 font-medium">₹6 - ₹15 LPA • 1.5 Months</p>
                         </div>
                       </button>
 
@@ -251,16 +251,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                           <BarChart2 className="w-5 h-5" />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
                               Data Science
                             </h4>
-                            <span className="text-[9px] px-1.5 py-0.2 bg-blue-100 text-blue-700 font-bold rounded-full">
+                            <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full whitespace-nowrap shrink-0 leading-none">
                               In-Demand
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5 font-medium">₹6 - ₹16 LPA • 3 Months</p>
+                          <p className="text-xs text-slate-500 mt-1 font-medium">₹6 - ₹16 LPA • 3 Months</p>
                         </div>
                       </button>
 
@@ -272,16 +272,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                           <Sparkles className="w-5 h-5" />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
                               Generative AI
                             </h4>
-                            <span className="text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-700 font-bold rounded-full">
+                            <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full whitespace-nowrap shrink-0 leading-none">
                               Hot
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5 font-medium">₹7 - ₹18 LPA • 2.5 Months</p>
+                          <p className="text-xs text-slate-500 mt-1 font-medium">₹7 - ₹18 LPA • 2.5 Months</p>
                         </div>
                       </button>
                     </div>
