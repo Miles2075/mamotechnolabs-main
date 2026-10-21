@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RouteType } from '../../types';
-import { Building, Phone, Mail, ChevronRight, CheckCircle2, ZoomIn, X } from 'lucide-react';
+import { Building, Phone, Mail, ChevronRight, CheckCircle2, ZoomIn, X, Building2, Calendar, Users } from 'lucide-react';
 
 interface IndustrialVisitPageProps {
   navigateTo: (route: RouteType) => void;
@@ -14,32 +14,32 @@ export const IndustrialVisitPage: React.FC<IndustrialVisitPageProps> = ({ naviga
   const galleryImages = [
     {
       url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
-      tag: 'RMS Polytechnic',
+      tag: 'RMS Polytechnic Campus',
       college: 'rms'
     },
     {
       url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
-      tag: 'Parul University',
+      tag: 'Parul University Engineering Batch',
       college: 'parul'
     },
     {
       url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-      tag: 'RK University',
+      tag: 'RK University Tech Visit',
       college: 'rk'
     },
     {
       url: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=800&q=80',
-      tag: 'TeamLease Skills University',
+      tag: 'TeamLease Skills University Students',
       college: 'teamlease'
     },
     {
       url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
-      tag: 'Neotech Institute',
+      tag: 'Neotech Institute Tech Demo',
       college: 'neotech'
     },
     {
       url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
-      tag: 'TMES Institute',
+      tag: 'TMES Institute Live Session',
       college: 'tmes'
     }
   ];
@@ -47,157 +47,87 @@ export const IndustrialVisitPage: React.FC<IndustrialVisitPageProps> = ({ naviga
   const filteredImages = galleryImages.filter(img => selectedFilter === 'all' || img.college === selectedFilter);
 
   return (
-    <div className="pt-20">
-      
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-navy-950 via-slate-900 to-navy-900 py-16 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-400 block mb-2">
-            Campus Collaboration
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
-            Industrial Visit For <span className="text-brand-500">Your Students</span>
+    <div className="pt-24 sm:pt-28">
+      {/* ─────────────────────────────────────────────────────────
+          1. HERO BANNER
+         ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 py-16 lg:py-20 text-white text-center relative overflow-hidden border-b border-slate-800">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+            <Building2 className="w-3.5 h-3.5" />
+            <span>Academic Campus Collaboration</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            Industrial Visits for <br />
+            <span className="text-gradient-brand">Engineering & BCA Colleges</span>
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mt-2">
-            Connecting engineering, science, and diploma colleges with real IT production floors and tech infrastructure.
+          <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Invite your college cohort for an immersive 1-day tech visit at Mamo TechnoLabs. Students explore live client projects, interact with software architects, and witness real production deployments.
           </p>
         </div>
       </section>
 
-      {/* Why Industrial Visits */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-5">
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-                Why Industrial Visits Are Important For Student Development?
-              </h2>
-
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Industrial visits are crucial in creating a comprehensive learning experience for students, providing both theoretical knowledge and practical insight.
-              </p>
-
-              <div className="space-y-4 pt-2">
-                <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-sm text-gray-900">Industry Insights</h4>
-                    <p className="text-xs text-gray-600 mt-1">Students gain insight into the latest tools, technologies, and agile workflows used by IT firms, extending knowledge beyond textbooks.</p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-sm text-gray-900">Networking Opportunities</h4>
-                    <p className="text-xs text-gray-600 mt-1">Interacting with software architects and developers opens doors to future internships, mentorship, and career placements.</p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-sm text-gray-900">Enhanced Practical Skill</h4>
-                    <p className="text-xs text-gray-600 mt-1">Observing operations in an industrial setting provides students with problem-solving acumen, adaptability, and real-world clarity.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 text-center">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
-                <img
-                  src="https://www.vtechlabs.com/wp-content/uploads/2026/05/Student_Development.jpg"
-                  alt="Student Development"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Plan Corporate Visit Banner */}
-      <section className="py-12 bg-gradient-to-r from-purple-950 via-indigo-900 to-navy-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-          <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-black">Plan Your College’s Visit At Mamo TechnoLabs!</h2>
-            <p className="text-xs sm:text-sm text-purple-200">We host departmental groups from diploma, BCA, MCA, and engineering faculties.</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => openCounseling('Industrial Visit')}
-              className="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 font-bold text-xs uppercase tracking-wider text-white shadow-md"
-            >
-              SCHEDULE VISIT
-            </button>
-            <a
-              href="tel:+919325910095"
-              className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 font-bold text-xs uppercase tracking-wider text-white"
-            >
-              CALL NOW
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Visual Impressions Gallery */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─────────────────────────────────────────────────────────
+          2. GALLERY & COLLEGE FILTER
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-slate-50/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Visual Impressions: Industrial Visits In Pictures
-            </h2>
-            <p className="text-xs text-gray-500 mt-1">Moments captured during university delegations to our software labs</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                Past University Visits & Seminars
+              </h2>
+              <p className="text-xs text-slate-500 mt-1">Glimpses of students engaging with live production teams</p>
+            </div>
 
             {/* Filter Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
               {[
-                { label: 'All Colleges', id: 'all' },
-                { label: 'RMS Polytechnic', id: 'rms' },
-                { label: 'Parul University', id: 'parul' },
-                { label: 'RK University', id: 'rk' },
-                { label: 'TeamLease University', id: 'teamlease' },
-                { label: 'Neotech Institute', id: 'neotech' },
-                { label: 'TMES Institute', id: 'tmes' }
-              ].map(tab => (
+                { id: 'all', label: 'All Institutions' },
+                { id: 'rms', label: 'RMS' },
+                { id: 'parul', label: 'Parul Uni.' },
+                { id: 'rk', label: 'RK Uni.' },
+                { id: 'teamlease', label: 'TeamLease' },
+                { id: 'neotech', label: 'Neotech' }
+              ].map(f => (
                 <button
-                  key={tab.id}
-                  onClick={() => setSelectedFilter(tab.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                    selectedFilter === tab.id
-                      ? 'bg-brand-600 text-white shadow-sm'
-                      : 'bg-white text-gray-700 border border-gray-200 hover:border-brand-300'
+                  key={f.id}
+                  onClick={() => setSelectedFilter(f.id)}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                    selectedFilter === f.id
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300'
                   }`}
                 >
-                  {tab.label}
+                  {f.label}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredImages.map((img, i) => (
               <div
                 key={i}
                 onClick={() => setLightboxImg(img.url)}
-                className="h-64 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all relative group cursor-pointer bg-gray-100"
+                className="group relative rounded-3xl overflow-hidden aspect-[4/3] bg-slate-900 cursor-pointer shadow-sm hover:shadow-card-hover border border-slate-200/80"
               >
                 <img
                   src={img.url}
                   alt={img.tag}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                    <ZoomIn className="w-6 h-6" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-5">
+                  <div className="flex items-center justify-between w-full text-white">
+                    <span className="font-bold text-xs">{img.tag}</span>
+                    <span className="p-2 rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-brand-500 transition-colors">
+                      <ZoomIn className="w-3.5 h-3.5" />
+                    </span>
                   </div>
-                </div>
-                <div className="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-xl text-xs font-bold text-gray-900 flex items-center justify-between">
-                  <span>{img.tag}</span>
                 </div>
               </div>
             ))}
@@ -206,24 +136,66 @@ export const IndustrialVisitPage: React.FC<IndustrialVisitPageProps> = ({ naviga
         </div>
       </section>
 
+      {/* ─────────────────────────────────────────────────────────
+          3. WHAT STUDENTS EXPERIENCE
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              What Students Experience During the Visit
+            </h2>
+            <p className="text-slate-600 text-sm">
+              Tailored agendas designed to spark curiosity and show scholars how modern tech teams function.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: 'Live Coding Architecture', desc: 'Watch senior engineers design microservices and deploy live on cloud infrastructure.' },
+              { title: 'AI & LLM Demonstrations', desc: 'Hands-on interactions with generative models, agentic workflows, and prompt tuning.' },
+              { title: 'Career Guidance Keynote', desc: 'In-depth seminar on salary trends, high-demand skills, and clearing off-campus drives.' },
+              { title: 'Q&A with Lead Developers', desc: 'Unfiltered discussions regarding daily workflows, interview preparation, and internships.' }
+            ].map((item, idx) => (
+              <div key={idx} className="p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs">
+                  0{idx + 1}
+                </div>
+                <h4 className="font-bold text-base text-slate-900">{item.title}</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center pt-4">
+            <button
+              onClick={() => openCounseling('Industrial Visit')}
+              className="px-8 py-4 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs uppercase tracking-wider shadow-md transition-colors"
+            >
+              Schedule an Industrial Visit For Your College
+            </button>
+          </div>
+
+        </div>
+      </section>
+
       {/* Lightbox Modal */}
       {lightboxImg && (
-        <div
-          onClick={() => setLightboxImg(null)}
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm"
-        >
-          <div className="relative max-w-4xl max-h-[90vh]">
-            <img src={lightboxImg} alt="Enlarged" className="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
+          <div className="relative max-w-4xl w-full">
             <button
               onClick={() => setLightboxImg(null)}
-              className="absolute -top-10 right-0 text-white hover:text-gray-300"
+              className="absolute -top-12 right-0 p-2 text-white hover:text-brand-400"
             >
-              <X className="w-8 h-8" />
+              <X className="w-6 h-6" />
             </button>
+            <img src={lightboxImg} alt="Enlarged Campus View" className="w-full h-auto rounded-3xl shadow-2xl" />
           </div>
         </div>
       )}
-
     </div>
   );
 };
+
+export default IndustrialVisitPage;

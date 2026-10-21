@@ -7,7 +7,10 @@ import {
   CheckCircle2,
   ShieldCheck,
   Send,
-  MessageSquare
+  MessageSquare,
+  Clock,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 
 interface ContactPageProps {
@@ -31,253 +34,243 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.isRobotChecked) {
-      alert('Please confirm you are not a robot.');
+      alert('Please confirm verification.');
       return;
     }
     setSubmitted(true);
   };
 
   return (
-    <div className="pt-20">
-      
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-navy-950 via-slate-900 to-navy-900 py-16 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-400 block mb-2">
-            Connect With Us
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
-            Contact <span className="text-brand-500">Us</span>
+    <div className="pt-24 sm:pt-28">
+      {/* ─────────────────────────────────────────────────────────
+          1. HERO BANNER
+         ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 py-16 lg:py-20 text-white text-center relative overflow-hidden border-b border-slate-800">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+            <Mail className="w-3.5 h-3.5" />
+            <span>Admissions & Recruitment Helpdesk</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            Let's Talk About Your <br />
+            <span className="text-gradient-brand">Future in Tech</span>
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mt-2">
-            Have questions about syllabus, batches, fees, or placement partnerships? We're here to help.
+          <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Have questions about upcoming batches, syllabus deep-dives, placement drives, or corporate hiring? Reach out directly to our advisors.
           </p>
         </div>
       </section>
 
-      {/* Get In Touch Cards */}
-      <section className="py-16 bg-white">
+      {/* ─────────────────────────────────────────────────────────
+          2. DIRECT CONTACT INFO CARDS
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-              Get In Touch Today For <span className="text-brand-600">Expert Assistance!</span>
-            </h2>
-            <p className="text-xs text-gray-500 mt-1">Direct communication with admissions and placement departments</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             
             {/* Card 1: Email */}
-            <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-brand-200 transition-all text-center space-y-3 group shadow-xs">
-              <div className="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                <Mail className="w-7 h-7" />
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 transition-all text-center space-y-2 group shadow-xs">
+              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                <Mail className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-gray-900 text-base">Email Address</h3>
-              <p className="text-xs text-gray-600">General queries & partnerships</p>
+              <h3 className="font-bold text-slate-900 text-sm">Email Admissions</h3>
+              <p className="text-xs text-slate-500">General queries & applications</p>
               <a
                 href="mailto:info@mamotechnolabs.com"
-                className="text-sm font-bold text-brand-600 hover:underline block pt-1"
+                className="text-xs font-bold text-brand-600 hover:underline block pt-1"
               >
                 info@mamotechnolabs.com
               </a>
             </div>
 
             {/* Card 2: Phone */}
-            <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-brand-200 transition-all text-center space-y-3 group shadow-xs">
-              <div className="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                <Phone className="w-7 h-7" />
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 transition-all text-center space-y-2 group shadow-xs">
+              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                <Phone className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-gray-900 text-base">Phone Number</h3>
-              <p className="text-xs text-gray-600">Counseling & Admissions Hotline</p>
+              <h3 className="font-bold text-slate-900 text-sm">Direct Phone</h3>
+              <p className="text-xs text-slate-500">Instant counselor consultation</p>
               <a
-                href="tel:+919325910095"
-                className="text-sm font-bold text-brand-600 hover:underline block pt-1"
+                href="tel:+917622990059"
+                className="text-xs font-bold text-brand-600 hover:underline block pt-1"
               >
-                +91 9325910095
+                +91 76229 90059
               </a>
             </div>
 
-            {/* Card 3: Office */}
-            <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-brand-200 transition-all text-center space-y-3 group shadow-xs">
-              <div className="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                <MapPin className="w-7 h-7" />
+            {/* Card 3: Address */}
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 transition-all text-center space-y-2 group shadow-xs">
+              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-gray-900 text-base">Our Corporate Office</h3>
-              <p className="text-xs text-gray-600 leading-relaxed max-w-xs mx-auto">
-                4th Floor, Office No 27, near Shell Petrol Pump, RAAMA EMPERRO, Vadodara, Gujarat 390011
-              </p>
+              <h3 className="font-bold text-slate-900 text-sm">Vadodara Center</h3>
+              <p className="text-xs text-slate-500">Sayajiganj / Alkapuri</p>
+              <span className="text-xs font-bold text-slate-700 block pt-1">
+                Vadodara, Gujarat 390005
+              </span>
+            </div>
+
+            {/* Card 4: Hours */}
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 transition-all text-center space-y-2 group shadow-xs">
+              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                <Clock className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-slate-900 text-sm">Working Hours</h3>
+              <p className="text-xs text-slate-500">Mon - Sat: 9:00 AM - 7:30 PM</p>
+              <span className="text-xs font-bold text-emerald-600 block pt-1">
+                Sunday: By Prior Appointment
+              </span>
             </div>
 
           </div>
-
         </div>
       </section>
 
-      {/* Map & Inquiry Form */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100">
+      {/* ─────────────────────────────────────────────────────────
+          3. INTERACTIVE MAP & INQUIRY FORM
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
-            {/* Left: Google Maps Embed */}
-            <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-gray-200 shadow-sm min-h-[420px] bg-white flex flex-col">
-              <div className="p-4 bg-gray-900 text-white flex items-center gap-2 text-xs font-bold">
-                <MapPin className="w-4 h-4 text-brand-400" />
-                <span>Mamo TechnoLabs Location</span>
+            {/* Map & Location */}
+            <div className="lg:col-span-6 space-y-4">
+              <div>
+                <h3 className="text-2xl font-black text-slate-900">Visit Our Training Campus</h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  Located in the educational heart of Vadodara with easy transit connectivity from railway and bus stations.
+                </p>
               </div>
-              <iframe
-                title="Google Maps Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.303409444175!2d73.19888377554179!3d22.266493744119447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5284d11c2af%3A0x2a911801d39003f2!2sMaMo%20TechnoLabs%20LLP%20-%20IT%20Staffing%20%26%20Software%20Development!5e0!3m2!1sen!2sin!4v1790589642576!5m2!1sen!2sin"
-                className="w-full flex-1 border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+
+              <div className="rounded-3xl overflow-hidden border border-slate-200/80 shadow-md h-[440px] bg-white">
+                <iframe
+                  title="Mamo TechnoLabs Vadodara Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.68202027552!2d73.10304618778643!3d22.28882046465494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc626786a9d03%3A0x9d7a229a17387e08!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
-            {/* Right: Detailed Inquiry Form */}
-            <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-xl flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-black text-gray-900 tracking-tight">
-                  Send Detailed Inquiry
-                </h3>
-                <p className="text-xs text-gray-500 mt-1 mb-6">
-                  Fill out the parameters below and our academic coordinator will arrange a free trial class.
-                </p>
+            {/* Direct Form */}
+            <div className="lg:col-span-6 bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm">
+              <div className="space-y-1 mb-6">
+                <h3 className="text-xl font-black text-slate-900">Send an Inquiry</h3>
+                <p className="text-xs text-slate-500">Our academic counselors respond within 2 working hours.</p>
+              </div>
 
-                {submitted ? (
-                  <div className="p-8 text-center bg-brand-50 rounded-2xl border border-brand-200 space-y-3">
-                    <CheckCircle2 className="w-12 h-12 text-brand-600 mx-auto" />
-                    <h4 className="text-lg font-bold text-gray-900">Inquiry Sent Successfully!</h4>
-                    <p className="text-xs text-gray-600 max-w-sm mx-auto">
-                      Thank you, <span className="font-bold text-gray-800">{formData.name}</span>. An admissions counselor has received your note and will reach out to <span className="font-bold text-gray-800">{formData.phone}</span> today.
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="px-6 py-2 rounded-xl bg-brand-600 text-white font-bold text-xs"
-                    >
-                      Send Another Message
-                    </button>
+              {submitted ? (
+                <div className="text-center py-12 space-y-3">
+                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <h4 className="text-xl font-black text-slate-900">Thank You!</h4>
+                  <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
+                    Your inquiry has been logged. An academic counselor will reach out via call/WhatsApp shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
                       <input
                         type="text"
                         required
-                        placeholder="Your Name *"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
-                      />
-                      <input
-                        type="email"
-                        required
-                        placeholder="Email Address *"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+                        placeholder="John Doe"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none"
                       />
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
                       <input
                         type="tel"
                         required
-                        placeholder="Contact Number *"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+                        placeholder="+91 98765 43210"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none"
                       />
-                      <select
-                        value={formData.type}
-                        onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white text-gray-700"
-                      >
-                        <option value="training">Training Certification</option>
-                        <option value="internship">IT Internship</option>
-                      </select>
                     </div>
+                  </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@example.com"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Interested Track</label>
                       <select
                         value={formData.technology}
                         onChange={(e) => setFormData({ ...formData, technology: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white text-gray-700"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none"
                       >
-                        <option value="python">Python / Data Science / AI</option>
-                        <option value="gen-ai">Generative AI & LLM Systems</option>
-                        <option value="web">Full Stack Web Development</option>
-                        <option value="digital-marketing">Digital Marketing</option>
-                        <option value="testing">QA & Test Automation</option>
-                      </select>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Location / City *"
-                        value={formData.city}
-                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
-                      />
-                    </div>
-
-                    <div>
-                      <select
-                        value={formData.source}
-                        onChange={(e) => setFormData({ ...formData, source: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white text-gray-700"
-                      >
-                        <option value="google">How You Heard: Google Search</option>
-                        <option value="social">How You Heard: Social Media (Instagram / LinkedIn)</option>
-                        <option value="friend">How You Heard: Friend / Alumni Referral</option>
-                        <option value="college">How You Heard: College Seminar / Placement Cell</option>
+                        <option value="ai">Artificial Intelligence & Deep Learning</option>
+                        <option value="ai-tools">AI Master Tools & Prompt Engineering</option>
+                        <option value="ml">Machine Learning</option>
+                        <option value="ds">Data Science & Analytics</option>
+                        <option value="web">Full-Stack Web Development</option>
+                        <option value="internship">IT Internship Program</option>
+                        <option value="other">Other / Corporate Inquiry</option>
                       </select>
                     </div>
+                  </div>
 
-                    <div>
-                      <textarea
-                        required
-                        rows={4}
-                        placeholder="Your Message / Query details *"
-                        value={formData.comments}
-                        onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
-                      />
-                    </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Your Message or Questions</label>
+                    <textarea
+                      rows={3}
+                      value={formData.comments}
+                      onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+                      placeholder="Ask about batch timings, fees, eligibility, or syllabus details..."
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none resize-none"
+                    />
+                  </div>
 
-                    {/* Mock reCAPTCHA */}
-                    <div className="flex items-center justify-between p-3 rounded-xl border border-gray-200 bg-gray-50 text-xs">
-                      <label className="flex items-center gap-2 cursor-pointer select-none">
-                        <input
-                          type="checkbox"
-                          checked={formData.isRobotChecked}
-                          onChange={(e) => setFormData({ ...formData, isRobotChecked: e.target.checked })}
-                          className="w-4 h-4 rounded text-brand-600 focus:ring-brand-400 border-gray-300"
-                        />
-                        <span className="font-medium text-gray-700">I'm not a robot</span>
-                      </label>
-                      <div className="flex items-center gap-1.5 text-[10px] text-gray-400">
-                        <ShieldCheck className="w-4 h-4 text-brand-600" />
-                        <span>reCAPTCHA</span>
-                      </div>
-                    </div>
+                  <div className="flex items-center gap-2 pt-1">
+                    <input
+                      type="checkbox"
+                      id="contactRobot"
+                      checked={formData.isRobotChecked}
+                      onChange={(e) => setFormData({ ...formData, isRobotChecked: e.target.checked })}
+                      className="rounded text-brand-600 focus:ring-brand-400 w-4 h-4"
+                    />
+                    <label htmlFor="contactRobot" className="text-xs text-slate-600">
+                      I agree to receive course updates & counseling advice
+                    </label>
+                  </div>
 
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-98 text-white font-black text-xs shadow-lg shadow-brand-600/30 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>SEND INQUIRY</span>
-                    </button>
-                  </form>
-                )}
-              </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 transition-all shadow-md"
+                  >
+                    Send Inquiry
+                  </button>
+                </form>
+              )}
             </div>
 
           </div>
         </div>
       </section>
-
     </div>
   );
 };
+
+export default ContactPage;

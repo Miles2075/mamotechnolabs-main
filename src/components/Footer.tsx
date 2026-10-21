@@ -8,7 +8,10 @@ import {
   Facebook,
   Linkedin,
   Instagram,
-  Heart
+  Heart,
+  ArrowRight,
+  ShieldCheck,
+  Award
 } from 'lucide-react';
 
 interface FooterProps {
@@ -17,15 +20,15 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
   return (
-    <footer className="bg-navy-950 text-gray-300 pt-16 pb-8 border-t border-navy-800">
+    <footer className="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* 4 Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           
           {/* Column 1: Logo & Company About */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               <img
                 src="/logomamo.png"
                 alt="MaMo TechnoLabs Logo"
@@ -35,12 +38,12 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                 }}
               />
               <span className="text-xl font-black text-white tracking-tight">
-                Mamo<span className="text-brand-500">TechnoLabs</span>
+                Mamo<span className="text-gradient-brand">TechnoLabs</span>
               </span>
             </div>
             
-            <p className="text-xs text-gray-400 leading-relaxed">
-              MaMo TechnoLabs is a CMMI Level 3 certified global technology company delivering end-to-end software, web, and digital solutions to startups, SMEs, and enterprises worldwide, bringing innovation, quality, and reliability to every project. Your growth is our mission from Vadodara to the world.
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Mamo TechnoLabs LLP is an ISO 9001:2015 and CMMI Level 3 certified global IT finishing school and software engineering company empowering individuals and enterprises with modern tech skills.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -49,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-brand-600 text-slate-400 hover:text-white flex items-center justify-center transition-colors shadow-sm border border-slate-800"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -58,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-brand-600 text-slate-400 hover:text-white flex items-center justify-center transition-colors shadow-sm border border-slate-800"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -67,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-brand-600 text-slate-400 hover:text-white flex items-center justify-center transition-colors shadow-sm border border-slate-800"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -76,10 +79,10 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-sm tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
-              Quick Links
+            <h3 className="text-white font-black text-xs tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
+              Quick Navigation
             </h3>
-            <ul className="space-y-2.5 text-xs text-gray-400">
+            <ul className="space-y-2 text-xs">
               <li>
                 <button
                   onClick={() => navigateTo('home')}
@@ -101,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('courses')}
                   className="hover:text-brand-400 transition-colors"
                 >
-                  All Courses
+                  All 16 IT Courses
                 </button>
               </li>
               <li>
@@ -109,15 +112,23 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('placements')}
                   className="hover:text-brand-400 transition-colors"
                 >
-                  Placements & Hiring
+                  Placement Cell
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => navigateTo('blog')}
+                  onClick={() => navigateTo('hire')}
                   className="hover:text-brand-400 transition-colors"
                 >
-                  Student Blog
+                  Hire From Us (Zero-Cost)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('skill')}
+                  className="hover:text-brand-400 transition-colors"
+                >
+                  Skill Certification Tests
                 </button>
               </li>
               <li>
@@ -125,81 +136,119 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('contact')}
                   className="hover:text-brand-400 transition-colors"
                 >
-                  Contact Us
+                  Contact Admissions
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 3: Flagship Courses */}
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-sm tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
-              Services
+            <h3 className="text-white font-black text-xs tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
+              Flagship Programs
             </h3>
-            <ul className="space-y-2.5 text-xs text-gray-400">
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">Software Development</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">Web Development</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">Mobile Apps (iOS & Android)</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">Frontend Development (React, Next)</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">Web Portal Development</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">QA & Automated Testing</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">UI/UX Design Systems</li>
-              <li className="hover:text-brand-400 transition-colors cursor-pointer">Graphic Design & Branding</li>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <button
+                  onClick={() => navigateTo('course-detail', 'ai-tools')}
+                  className="hover:text-brand-400 transition-colors text-left"
+                >
+                  AI Master Tools
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('course-detail', 'ml')}
+                  className="hover:text-brand-400 transition-colors text-left"
+                >
+                  Machine Learning
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('course-detail', 'ai')}
+                  className="hover:text-brand-400 transition-colors text-left"
+                >
+                  Artificial Intelligence
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('course-detail', 'pe')}
+                  className="hover:text-brand-400 transition-colors text-left"
+                >
+                  Prompt Engineering
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('course-detail', 'ds')}
+                  className="hover:text-brand-400 transition-colors text-left"
+                >
+                  Data Science
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('course-detail', 'gen-ai')}
+                  className="hover:text-brand-400 transition-colors text-left"
+                >
+                  Generative AI
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Column 4: Get In Touch */}
+          {/* Column 4: Contact & Locations */}
           <div className="space-y-4">
-            <h3 className="text-white font-bold text-sm tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
-              Get In Touch
+            <h3 className="text-white font-black text-xs tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
+              Campus Headquarters
             </h3>
             
-            <div className="flex items-start gap-2.5 text-xs text-gray-400">
-              <MapPin className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
-              <div>
-                <strong className="text-gray-200 block">Global Headquarters:</strong>
-                <p>4th Floor, Office No. 27, RAAMA EMPERRO, Vadodara, Gujarat 390011, India</p>
+            <div className="space-y-3 text-xs">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  Mamo TechnoLabs Campus, Sayajiganj / Alkapuri, Vadodara, Gujarat 390005, India
+                </p>
               </div>
-            </div>
 
-            <div className="space-y-1 text-xs text-gray-400">
-              <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-brand-500 shrink-0" />
-                <strong className="text-gray-200">We Serve Clients In:</strong>
-              </div>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['🇺🇸 USA', '🇬🇧 UK', '🇨🇦 Canada', '🇦🇺 Australia', '🇦🇪 UAE', '🇸🇬 Singapore', '🇪🇺 Europe'].map((c, i) => (
-                  <span key={i} className="px-2 py-0.5 bg-gray-900 border border-gray-800 rounded text-[11px] text-gray-300">
-                    {c}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-2 space-y-1.5 text-xs text-gray-300">
-              <a href="tel:+919325910095" className="flex items-center gap-2 hover:text-brand-400 transition-colors">
+              <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-500 shrink-0" />
-                <span>+91 9325910095</span>
-              </a>
-              <a href="mailto:info@mamotechnolabs.com" className="flex items-center gap-2 hover:text-brand-400 transition-colors">
-                <Mail className="w-4 h-4 text-brand-500 shrink-0" />
-                <span>info@mamotechnolabs.com</span>
-              </a>
-            </div>
+                <a href="tel:+917622990059" className="hover:text-white font-semibold">
+                  +91 76229 90059
+                </a>
+              </div>
 
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-brand-500 shrink-0" />
+                <a href="mailto:info@mamotechnolabs.com" className="hover:text-white">
+                  info@mamotechnolabs.com
+                </a>
+              </div>
+
+              <div className="pt-2">
+                <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+                  <span className="text-[11px] font-bold text-emerald-400 block">Admissions Open 2026</span>
+                  <p className="text-[10px] text-slate-400">Weekdays & Weekend batches available</p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-          <p>© 2026 MaMo TechnoLabs. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-xs">
-            <a href="#" className="hover:text-gray-400 transition-colors">Terms & Conditions</a>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+          <p>© {new Date().getFullYear()} Mamo TechnoLabs LLP. All Rights Reserved.</p>
+          <div className="flex items-center gap-6">
+            <span>ISO 9001:2015 Certified</span>
             <span>•</span>
-            <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
+            <span>CMMI Level 3</span>
             <span>•</span>
-            <a href="#" className="hover:text-gray-400 transition-colors">Disclaimer</a>
+            <button onClick={() => navigateTo('contact')} className="hover:text-slate-300">
+              Privacy & Terms
+            </button>
           </div>
         </div>
 
@@ -207,3 +256,5 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
     </footer>
   );
 };
+
+export default Footer;

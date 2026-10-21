@@ -15,7 +15,15 @@ import {
   Brain,
   Send,
   HelpCircle,
-  Briefcase
+  Briefcase,
+  TrendingUp,
+  Download,
+  Calendar,
+  Users,
+  Building,
+  Check,
+  FileCode,
+  ShieldCheck
 } from 'lucide-react';
 
 interface CourseDetailPageProps {
@@ -32,87 +40,167 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
   const course = detailedCourses[courseId] || detailedCourses['ai'];
   const [openModule, setOpenModule] = useState<number | null>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
+
+  const handleDownloadBrochure = () => {
+    setDownloadSuccess(true);
+    setTimeout(() => setDownloadSuccess(false), 4000);
+  };
 
   return (
-    <div className="pt-20">
-      
+    <div className="pt-24 sm:pt-28">
       {/* ─────────────────────────────────────────────────────────
-          1. HERO SECTION
+          1. REFRESHED HERO BANNER (Modern Dark Tech Aesthetic)
          ───────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-b from-brand-50/70 via-white to-white py-16 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white py-16 lg:py-20 border-b border-slate-800 relative overflow-hidden">
+        {/* Ambient radial glows */}
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 left-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Column: Image / Visual */}
-            <div className="lg:col-span-5 text-center">
-              <div className="relative rounded-3xl bg-gradient-to-tr from-brand-100 via-white to-brand-50 p-6 border border-brand-100 shadow-xl overflow-hidden">
-                <img
-                  src="https://www.vtechlabs.com/wp-content/uploads/2026/08/1.png"
-                  alt={course.title}
-                  className="w-full h-auto max-h-[350px] object-contain mx-auto drop-shadow-md"
-                />
-                <div className="absolute top-4 left-4 bg-brand-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  {course.duration} Program
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Title & Stats */}
-            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-100 text-brand-800 text-xs font-bold rounded-full border border-brand-200">
-                <Award className="w-3.5 h-3.5 text-brand-600" />
-                <span>{course.tag}</span>
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+              
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+                  <Award className="w-3.5 h-3.5" />
+                  {course.tag}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold">
+                  {course.duration} Intensive
+                </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
                 {course.title} <br />
-                <span className="text-brand-600">{course.subtitle}</span>
+                <span className="text-gradient-brand">{course.subtitle}</span>
               </h1>
 
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
                 {course.description}
               </p>
 
-              {/* Stats Bar */}
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {/* Rating */}
-                <div className="p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-sm">
-                    G
+              {/* High-Impact Stat Chips */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left">
+                {/* Rating Card */}
+                <div className="p-3.5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+                  <div className="flex items-center gap-1 text-amber-400 font-black text-sm">
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <span>{course.rating} / 5.0</span>
                   </div>
-                  <div className="text-left text-xs">
-                    <div className="flex items-center gap-1 font-bold text-gray-900">
-                      <span>{course.rating}</span>
-                      <div className="flex text-amber-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-current" />
-                        ))}
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-gray-500">{course.reviewsCount}</span>
-                  </div>
+                  <span className="text-[11px] text-slate-400 mt-1 block">{course.reviewsCount}</span>
                 </div>
 
-                {/* Salary */}
-                <div className="p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs text-left">
-                  <h4 className="font-black text-base text-gray-900 leading-tight">{course.avgSalary}</h4>
-                  <span className="text-[10px] font-bold uppercase text-brand-600">Average Salary</span>
+                {/* Salary Package */}
+                <div className="p-3.5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+                  <div className="flex items-center gap-1.5 text-brand-400 font-black text-sm">
+                    <TrendingUp className="w-4 h-4" />
+                    <span>{course.avgSalary}</span>
+                  </div>
+                  <span className="text-[11px] text-slate-400 mt-1 block">Expected CTC Range</span>
                 </div>
 
-                {/* Inquire Button */}
+                {/* Placement Guarantee */}
+                <div className="p-3.5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 col-span-2 sm:col-span-1">
+                  <div className="flex items-center gap-1.5 text-emerald-400 font-black text-sm">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>100% Placement</span>
+                  </div>
+                  <span className="text-[11px] text-slate-400 mt-1 block">Assistance Guarantee</span>
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <button
                   onClick={() => openCounseling(course.title)}
-                  className="w-full py-3.5 px-4 rounded-2xl bg-brand-600 hover:bg-brand-700 active:scale-95 text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-brand-600/30 flex items-center justify-center gap-2 transition-all"
+                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 hover:from-brand-500 hover:to-teal-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all flex items-center justify-center gap-2"
                 >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>INQUIRE NOW</span>
+                  <span>Enroll in Next Batch</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={handleDownloadBrochure}
+                  className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/15 transition-all flex items-center justify-center gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>{downloadSuccess ? 'Brochure Downloaded!' : 'Download Syllabus PDF'}</span>
                 </button>
               </div>
 
-              <p className="text-xs text-gray-500 leading-relaxed pt-2">
-                {course.fullOverview}
-              </p>
+            </div>
 
+            {/* Right Column: Interactive Course Overview Card */}
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-6 sm:p-8 shadow-2xl backdrop-blur-xl space-y-6">
+                
+                <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Format</span>
+                    <h4 className="text-sm font-bold text-white">Classroom & Hybrid Labs</h4>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                    Live Mentor-Led
+                  </span>
+                </div>
+
+                <div className="space-y-3.5 text-xs">
+                  <div className="flex items-center justify-between py-1 border-b border-slate-800/60">
+                    <span className="text-slate-400 flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-brand-400" />
+                      Duration
+                    </span>
+                    <span className="font-bold text-white">{course.duration}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1 border-b border-slate-800/60">
+                    <span className="text-slate-400 flex items-center gap-2">
+                      <Layers className="w-4 h-4 text-brand-400" />
+                      Curriculum Modules
+                    </span>
+                    <span className="font-bold text-white">{course.syllabus.length} Core Modules</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1 border-b border-slate-800/60">
+                    <span className="text-slate-400 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-brand-400" />
+                      Certification
+                    </span>
+                    <span className="font-bold text-white">ISO & CMMI Verified</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1 border-b border-slate-800/60">
+                    <span className="text-slate-400 flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-brand-400" />
+                      Upcoming Cohort
+                    </span>
+                    <span className="font-bold text-brand-400">Monday / Weekend Batches</span>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-2">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                    Tools You Will Master:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {course.tools.map((tool, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700"
+                      >
+                        {tool.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => openCounseling(course.title)}
+                  className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-brand-400 to-emerald-400 hover:opacity-95 transition-opacity shadow-md text-center"
+                >
+                  Book Free Demo Class
+                </button>
+
+              </div>
             </div>
 
           </div>
@@ -120,157 +208,66 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          2. MASTER MODERN DEVELOPMENT (3 CARDS)
+          2. CURRICULUM SYLLABUS ACCORDION
          ───────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-gray-50/70 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-slate-50/70">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Master Modern Development
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-bold">
+              <FileCode className="w-3.5 h-3.5 text-brand-600" />
+              <span>Step-by-Step Practical Learning</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Curriculum Syllabus & Modules
             </h2>
-            <p className="text-xs text-gray-500 mt-1">Key program components designed for production readiness</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-            
-            {/* Card 1: Key Features */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-base text-gray-900">Course Key Features</h3>
-                </div>
-
-                <ul className="space-y-3 pt-2">
-                  {course.features.map((feat, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-gray-100">
-                <span className="text-[10px] text-brand-600 font-bold uppercase tracking-wider">
-                  Hands-on Project Guided
-                </span>
-              </div>
-            </div>
-
-            {/* Card 2: Skills Covered (Dark Theme) */}
-            <div className="p-8 rounded-3xl bg-navy-950 text-white shadow-xl flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold">
-                    <Brain className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-base text-white">Skills Covered</h3>
-                </div>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {course.skills.map((skill, i) => (
-                    <div
-                      key={i}
-                      className="px-3 py-2 rounded-xl bg-gray-900/80 border border-gray-800 text-xs text-gray-200 leading-relaxed"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-gray-800">
-                <span className="text-[10px] text-brand-400 font-bold uppercase tracking-wider">
-                  100% Industry Aligned Tech Stack
-                </span>
-              </div>
-            </div>
-
-            {/* Card 3: Job Roles */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-                    <Briefcase className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-base text-gray-900">Career & Job Roles</h3>
-                </div>
-
-                <div className="space-y-2.5 pt-2">
-                  {course.jobRoles.map((role, i) => (
-                    <div
-                      key={i}
-                      className="p-3 rounded-2xl bg-gray-50 border border-gray-100 text-xs font-semibold text-gray-800 flex items-center gap-2"
-                    >
-                      <ArrowRight className="w-3.5 h-3.5 text-brand-600 shrink-0" />
-                      <span>{role}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-gray-100">
-                <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
-                  Guaranteed Interview Opportunities
-                </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────
-          3. COURSE SYLLABUS ACCORDION
-         ───────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold text-brand-600 uppercase tracking-widest block mb-1">
-              Structured Modules
-            </span>
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Course Syllabus & Curriculum
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">
-              Click any module to inspect detailed daily lesson plans and hands-on laboratory exercises
+            <p className="text-slate-600 text-sm">
+              Crafted in collaboration with senior software architects to ensure zero fluff and 100% production readiness.
             </p>
           </div>
 
-          <div className="space-y-3">
-            {course.syllabus.map((mod, idx) => {
+          <div className="space-y-4">
+            {course.syllabus.map((m, idx) => {
               const isOpen = openModule === idx;
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-gray-200 overflow-hidden shadow-xs transition-all"
+                  className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden transition-all"
                 >
                   <button
                     onClick={() => setOpenModule(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between font-bold text-sm text-gray-900 hover:text-brand-600 bg-gray-50/50 hover:bg-gray-50 transition-colors"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-slate-50/50 transition-colors"
                   >
-                    <span>{mod.title}</span>
+                    <div className="flex items-center gap-4">
+                      <span className="w-10 h-10 rounded-2xl bg-brand-50 border border-brand-200 text-brand-700 font-black text-sm flex items-center justify-center shrink-0">
+                        0{idx + 1}
+                      </span>
+                      <div>
+                        <h4 className="text-base font-black text-slate-900">
+                          {m.title}
+                        </h4>
+                        <span className="text-xs text-slate-500 font-semibold">
+                          {m.topics.length} Key Topics Covered
+                        </span>
+                      </div>
+                    </div>
                     <ChevronDown
-                      className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                      className={`w-5 h-5 text-slate-400 transition-transform duration-200 shrink-0 ${
                         isOpen ? 'rotate-180 text-brand-600' : ''
                       }`}
                     />
                   </button>
 
                   {isOpen && (
-                    <div className="p-5 bg-white border-t border-gray-100 space-y-2.5 animate-in fade-in duration-150">
-                      {mod.topics.map((t, tIdx) => (
-                        <div key={tIdx} className="flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed">
-                          <CheckCircle2 className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
-                          <span>{t}</span>
-                        </div>
-                      ))}
+                    <div className="px-6 pb-6 pt-2 border-t border-slate-100 bg-slate-50/40 animate-in fade-in duration-200">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        {m.topics.map((t, tIdx) => (
+                          <div key={tIdx} className="flex items-start gap-2.5 text-xs text-slate-700 bg-white p-3 rounded-2xl border border-slate-200/60 shadow-xs">
+                            <CheckCircle2 className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
+                            <span className="font-semibold leading-relaxed">{t}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -282,81 +279,116 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          4. TOOLS & TECHNOLOGIES
+          3. CAREER ROLES & SALARIES
          ───────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-black text-gray-900 tracking-tight mb-2">
-            Tools & Frameworks Covered
-          </h2>
-          <p className="text-xs text-gray-500 mb-8">Master the same tooling deployed at tech scale-ups</p>
+      <section className="py-20 bg-white border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              Target Job Roles & Industry Compensation
+            </h2>
+            <p className="text-slate-600 text-sm">
+              Roles you will be eligible for immediately upon completing this certification program.
+            </p>
+          </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
-            {course.tools.map((tool, idx) => (
-              <span
-                key={idx}
-                className="px-5 py-2.5 rounded-2xl bg-white border border-gray-200 shadow-xs text-xs font-bold text-gray-800 hover:border-brand-300 hover:text-brand-600 transition-colors"
-              >
-                {tool.name}
-              </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { role: `${course.title} Engineer`, salary: course.avgSalary, exp: 'Fresher to 1 Year' },
+              { role: 'Senior Technical Associate', salary: '₹8 - ₹14 LPA', exp: '1 to 3 Years' },
+              { role: 'Applied Solutions Specialist', salary: '₹10 - ₹18 LPA', exp: '2 to 4 Years' },
+              { role: 'Lead Architect / Consultant', salary: '₹16 - ₹25+ LPA', exp: '4+ Years' }
+            ].map((r, i) => (
+              <div key={i} className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3 hover:border-brand-300 transition-colors">
+                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                  {r.exp}
+                </span>
+                <h4 className="text-base font-black text-slate-900 leading-snug">{r.role}</h4>
+                <div className="pt-2 border-t border-slate-200">
+                  <span className="text-sm font-black text-brand-600">{r.salary}</span>
+                  <p className="text-[10px] text-slate-500">Average National Package</p>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="mt-10">
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          4. COURSE SPECIFIC FAQS
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/70 border-t border-slate-200/60">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              Frequently Asked Questions for {course.title}
+            </h2>
+            <p className="text-slate-600 text-sm">
+              Got doubts? Here are the most common questions prospective students ask our mentors.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {course.faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white border border-slate-200/80 shadow-xs overflow-hidden transition-colors"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full p-5 text-left font-bold text-sm text-slate-900 flex items-center justify-between gap-4"
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0 ${
+                      openFaq === idx ? 'rotate-180 text-brand-600' : ''
+                    }`}
+                  />
+                </button>
+                {openFaq === idx && (
+                  <div className="px-5 pb-5 pt-1 text-xs text-slate-600 leading-relaxed border-t border-slate-100 animate-in fade-in duration-200">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          5. BOTTOM ENROLL CTA
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-700 text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
+            Seats Filling Fast for the Next {course.title} Cohort
+          </h2>
+          <p className="text-brand-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            Batch size is capped at 15 scholars to guarantee 1-on-1 code reviews and direct recruiter introduction.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => openCounseling(course.title)}
-              className="px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-600/30 transition-all"
+              className="px-8 py-4 rounded-full bg-white text-slate-900 font-extrabold text-xs uppercase tracking-wider shadow-xl hover:bg-slate-100 transition-colors"
             >
-              Enroll In {course.title}
+              Reserve Seat with ₹0 Down
+            </button>
+            <button
+              onClick={() => navigateTo('courses')}
+              className="px-8 py-4 rounded-full bg-slate-900/40 hover:bg-slate-900/60 border border-white/20 text-white font-extrabold text-xs uppercase tracking-wider transition-colors"
+            >
+              Compare Other Courses
             </button>
           </div>
         </div>
       </section>
-
-      {/* ─────────────────────────────────────────────────────────
-          5. FAQS
-         ───────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Course Frequently Asked Questions
-            </h2>
-          </div>
-
-          <div className="space-y-3">
-            {course.faqs.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className="rounded-2xl border border-gray-200/80 overflow-hidden shadow-xs transition-all"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between font-bold text-sm text-gray-900 hover:text-brand-600 transition-colors"
-                  >
-                    <span>{faq.question}</span>
-                    <ChevronDown
-                      className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-brand-600' : ''
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-in fade-in duration-150">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
     </div>
   );
 };
+
+export default CourseDetailPage;

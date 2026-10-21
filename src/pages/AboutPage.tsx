@@ -11,7 +11,10 @@ import {
   Laptop,
   Users,
   Target,
-  Quote
+  Quote,
+  Building2,
+  Award,
+  Check
 } from 'lucide-react';
 
 interface AboutPageProps {
@@ -21,254 +24,169 @@ interface AboutPageProps {
 
 export const AboutPage: React.FC<AboutPageProps> = ({ navigateTo, openCounseling }) => {
   return (
-    <div className="pt-20">
-      
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-navy-950 via-slate-900 to-navy-900 py-16 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-400 block mb-2">
-            Mamo TechnoLabs
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
-            About <span className="text-brand-500">Us</span>
+    <div className="pt-24 sm:pt-28">
+      {/* ─────────────────────────────────────────────────────────
+          1. HERO BANNER
+         ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 py-16 lg:py-20 text-white text-center relative overflow-hidden border-b border-slate-800">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+            <Award className="w-3.5 h-3.5" />
+            <span>ISO 9001:2015 & CMMI Level 3 Standard</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            Bridging Academia & <br />
+            <span className="text-gradient-brand">Real-World IT Engineering</span>
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mt-2">
-            Bridging the gap between academia and industry with certified, high-impact practical IT training.
+          <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Founded with a singular mission: to empower students with production-grade coding skills and guide them to high-paying careers in world-class tech firms.
           </p>
         </div>
       </section>
 
-      {/* Advance Your Career / Know Us Better */}
+      {/* ─────────────────────────────────────────────────────────
+          2. MISSION & VISION BENTO
+         ───────────────────────────────────────────────────────── */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
-              <span className="inline-block px-3 py-1 bg-brand-50 text-brand-700 text-xs font-bold rounded-full border border-brand-200">
-                KNOW US BETTER
-              </span>
-
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-                Advance Your Career By <br />
-                <span className="text-brand-600">Upskilling Yourself</span>
-              </h2>
-
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Take the leap towards an extraordinary tech career with guidance from mentors who have spent decades engineering enterprise software.
-              </p>
-
-              <div>
-                <button
-                  onClick={() => openCounseling()}
-                  className="px-8 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs shadow-lg shadow-brand-600/30 uppercase tracking-wider transition-all"
-                >
-                  SEND INQUIRY NOW
-                </button>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 bg-gray-50 p-8 sm:p-10 rounded-3xl border border-gray-100 space-y-4 text-xs sm:text-sm text-gray-700 leading-relaxed">
-              <p>
-                <strong>
-                  We understand that recent graduates must first complete extensive workforce training to succeed in the highly competitive landscape. That's why our ultimate aim is to bridge the widening gap between industry and academia by assisting students in receiving guidance and mentorship from industry experts on the latest tools and technologies employed in current settings.
-                </strong>
-              </p>
-              <p>
-                <strong>
-                  We strive to provide tailored and hands-on learning experiences to our students so they can overcome their technical and behavioural shortcomings and get the opportunity to build their careers in leading IT organisations worldwide.
-                </strong>
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-16 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
             {/* Mission */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm space-y-4 hover:border-brand-300 transition-colors">
-              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center font-black text-lg">
-                <Target className="w-6 h-6 text-brand-600" />
+            <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 text-white shadow-xl space-y-5 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute right-0 top-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="space-y-4 z-10">
+                <div className="w-12 h-12 rounded-2xl bg-brand-500 text-slate-950 flex items-center justify-center font-black">
+                  <Target className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black">Our Core Mission</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  To serve as India's premier IT finishing school, empowering students from all academic backgrounds to master modern software engineering, cloud computing, and artificial intelligence. We replace outdated rote-learning with live code reviews and production project sprints.
+                </p>
               </div>
-              <h3 className="text-2xl font-black text-gray-900">Our Mission</h3>
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                The IT training courses at Mamo TechnoLabs are designed to assist individuals in evolving into successful digital professionals. As one of Vadodara's top IT training institutes, Mamo TechnoLabs is pushing hard to accommodate a growing number of motivated students. We intend to achieve our goal by instructing our learners in the most up-to-date methodologies of Generative AI, Data Science, Full-Stack Development, and enterprise cloud solutions.
-              </p>
+              <div className="pt-4 border-t border-slate-800 flex items-center gap-2 text-xs font-bold text-brand-400 z-10">
+                <span>Job-Guaranteed Career Launchpad</span>
+                <Check className="w-4 h-4" />
+              </div>
             </div>
 
             {/* Vision */}
-            <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm space-y-4 hover:border-brand-300 transition-colors">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-black text-lg">
-                <Sparkles className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-black text-gray-900">Our Vision</h3>
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                To be the world’s most trusted technical finishing school, empowering individuals from all educational disciplines to master practical software engineering, cloud computing, and artificial intelligence, transforming raw passion into high-impact global careers.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* What We Provide */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
-                What We Provide?
-              </h2>
-
+            <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-sm space-y-5 flex flex-col justify-between hover:border-brand-300 transition-colors">
               <div className="space-y-4">
-                {[
-                  {
-                    title: 'Modern Training Rooms',
-                    desc: 'Equipped with advanced technology and high-performance computing systems, our spacious training rooms offer the perfect setting for interactive learning.'
-                  },
-                  {
-                    title: 'High-speed Internet',
-                    desc: 'Gigabit fiber connectivity is essential to maintain a seamless coding and cloud computing experience without interruptions.'
-                  },
-                  {
-                    title: 'Ergonomic seating arrangements',
-                    desc: 'Our facilities are ergonomically designed to enhance comfort and productivity during intensive coding and project sprints.'
-                  },
-                  {
-                    title: 'Flexible Spaces',
-                    desc: 'Whether you need a traditional classroom setup or a collaborative hackathon environment, our flexible spaces meet every project need.'
-                  },
-                  {
-                    title: 'Training Experts',
-                    desc: 'We provide you with seasoned industry practitioners who mentor you directly on production workflows and architectural standards.'
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                    <CheckCircle2 className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-bold text-sm text-gray-900">{item.title}</h4>
-                      <p className="text-xs text-gray-600 mt-1 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 text-center">
-              <div className="relative rounded-3xl bg-gradient-to-tr from-brand-100 via-white to-brand-50 p-6 border border-brand-100 shadow-xl">
-                <img
-                  src="https://www.vtechlabs.com/wp-content/uploads/2026/05/What-We-Provide-3.png"
-                  alt="Student with books"
-                  className="w-full max-h-[380px] object-contain mx-auto drop-shadow-md"
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Passion for Skills */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-6 space-y-6">
-              <span className="px-3 py-1 bg-brand-100 text-brand-800 text-xs font-bold rounded-full">
-                Sharpening
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-                Your Skills Is Our Passion.
-              </h2>
-              
-              <div className="p-6 rounded-3xl bg-white border border-brand-200 shadow-sm relative">
-                <Quote className="w-8 h-8 text-brand-500 opacity-30 mb-2" />
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
-                  At Mamo TechnoLabs, we don’t just teach technology, we build careers. From your first line of code to your first job offer, we walk with you every step of the way. With industry-expert mentors, live projects, and 100% placement assistance, your growth is our greatest achievement.
+                <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-black">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900">Our Strategic Vision</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  To be the global benchmark for practical IT talent development, fostering an ecosystem where university scholars transition effortlessly into senior engineering and leadership roles across multinational software enterprises.
                 </p>
               </div>
-
-              <div>
-                <button
-                  onClick={() => navigateTo('courses')}
-                  className="px-8 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider shadow-md"
-                >
-                  Explore All Programs
-                </button>
+              <div className="pt-4 border-t border-slate-200 flex items-center gap-2 text-xs font-bold text-blue-600">
+                <span>100+ Hiring Partnerships Across India</span>
+                <Check className="w-4 h-4" />
               </div>
             </div>
-
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <div className="rounded-2xl overflow-hidden shadow-sm h-48 bg-gray-100">
-                <img
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80"
-                  alt="Mentorship"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-sm h-48 bg-gray-100">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80"
-                  alt="Lab"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-sm h-48 bg-gray-100">
-                <img
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80"
-                  alt="Discussion"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-sm h-48 bg-gray-100">
-                <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80"
-                  alt="Teamwork"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
           </div>
+
         </div>
       </section>
 
-      {/* University Tie-ups */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold text-brand-600 uppercase tracking-widest block mb-1">
-              Official Collaborations
-            </span>
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Tie-Ups With Top-Ranked Indian Universities
+      {/* ─────────────────────────────────────────────────────────
+          3. CAMPUS FACILITIES & LABS
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/70 border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              State-of-the-Art Training Facilities
             </h2>
-            <p className="text-xs sm:text-sm text-gray-600 mt-2">
-              We partner with prestigious higher education institutions to provide accredited practical training.
+            <p className="text-slate-600 text-sm">
+              An enterprise-grade campus designed for collaborative hacking, smart presentations, and deep work.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {universityPartners.map((uni, i) => (
-              <div key={i} className="p-6 rounded-3xl bg-gray-50 border border-gray-100 shadow-xs text-center space-y-3">
-                <div className="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center p-2 mx-auto">
-                  <img src={uni.img} alt={uni.name} className="max-w-full max-h-full object-contain" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'High-Tech Coding Laboratories', desc: 'Equipped with multi-monitor developer workstations, high-speed RAM, and GPU rigs for AI training.', icon: Laptop },
+              { title: 'Redundant Gigabit Fiber', desc: 'Gigabit fiber connectivity guarantees uninterrupted cloud deployments, Docker builds, and live streaming.', icon: Wifi },
+              { title: 'Collaborative Sprint Rooms', desc: 'Flexible hackathon setups where students pair-program, hold daily standups, and present sprint demos.', icon: Users },
+              { title: 'Smart Interactive Classrooms', desc: 'Digital recording setups, high-fidelity projection, and hybrid conferencing tools.', icon: GraduationCap },
+              { title: 'Dedicated Placement Cell', desc: 'Private interview suites for conducting HR interviews, mock technical rounds, and coding tests.', icon: ShieldCheck },
+              { title: 'Executive Mentorship Lounge', desc: '1-on-1 consultation pods where students review resumes and portfolio codebases with senior mentors.', icon: Award }
+            ].map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div key={i} className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm space-y-3 hover:border-brand-300 transition-colors">
+                  <div className="w-10 h-10 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-base text-slate-900">{f.title}</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">{f.desc}</p>
                 </div>
-                <h4 className="font-bold text-sm text-gray-900">{uni.name}</h4>
-                <span className="inline-block px-3 py-1 bg-brand-100 text-brand-800 text-[10px] font-bold rounded-full">
-                  {uni.badge}
-                </span>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          4. UNIVERSITY PARTNERSHIPS
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              Academic Collaborations
+            </h2>
+            <p className="text-slate-600 text-sm">
+              We work hand-in-hand with renowned academic universities to upskill students during their diploma, degree, and postgraduate tenures.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {universityPartners.map((u) => (
+              <div key={u.name} className="p-6 rounded-3xl bg-slate-50 border border-slate-200 text-center space-y-3">
+                <div className="h-16 flex items-center justify-center p-2 bg-white rounded-2xl border border-slate-100">
+                  {u.img ? (
+                    <img src={u.img} alt={u.name} className="max-h-12 max-w-full object-contain" />
+                  ) : (
+                    <span className="font-black text-sm text-slate-900">{u.name}</span>
+                  )}
+                </div>
+                <span className="font-black text-sm text-slate-900 block">{u.name}</span>
+                <div className="pt-2 border-t border-slate-200">
+                  <span className="text-[11px] font-bold text-brand-600">{u.badge}</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ─────────────────────────────────────────────────────────
+          5. CTA BANNER
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-700 text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
+            Visit Our Vadodara Campus
+          </h2>
+          <p className="text-brand-100 text-sm max-w-xl mx-auto leading-relaxed">
+            Walk into our center, meet our faculty, tour our labs, and discuss your career trajectory with our advisors.
+          </p>
+          <button
+            onClick={openCounseling}
+            className="px-8 py-4 rounded-full bg-white text-slate-900 font-extrabold text-xs uppercase tracking-wider shadow-xl hover:bg-slate-100 transition-colors"
+          >
+            Book Free Campus Visit
+          </button>
+        </div>
+      </section>
     </div>
   );
 };
+
+export default AboutPage;

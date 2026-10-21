@@ -13,7 +13,13 @@ import {
   ShieldCheck,
   Send,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  TrendingUp,
+  Award,
+  Users,
+  Briefcase,
+  ExternalLink,
+  Star
 } from 'lucide-react';
 
 interface PlacementsPageProps {
@@ -42,306 +48,216 @@ export const PlacementsPage: React.FC<PlacementsPageProps> = ({ navigateTo, open
   };
 
   return (
-    <div className="pt-20">
-      
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-navy-950 via-slate-900 to-navy-900 py-16 text-white text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-400 block mb-2">
-            Career Transformation
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
-            IT Job Consultancy <br />
-            <span className="text-brand-500">In Vadodara</span>
+    <div className="pt-24 sm:pt-28">
+      {/* ─────────────────────────────────────────────────────────
+          1. REFRESHED HERO BANNER
+         ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 py-16 lg:py-20 text-white text-center relative overflow-hidden border-b border-slate-800">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+            <Award className="w-3.5 h-3.5" />
+            <span>Dedicated Placement Cell</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            Transforming Passion Into <br />
+            <span className="text-gradient-brand">High-Impact Tech Careers</span>
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mt-2">
-            Connecting trained IT freshers and experienced candidates directly with hiring companies.
+          <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            100% placement support with campus recruitment drives, mock technical interviews, and direct referrals to over 100+ partner companies.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <button
+              onClick={openCounseling}
+              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-glow transition-all"
+            >
+              Register for Placement Drives
+            </button>
+            <button
+              onClick={() => navigateTo('hire')}
+              className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all"
+            >
+              For Recruiters: Hire From Us
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* IT Recruitment Consultant Top */}
-      <section className="py-20 bg-white">
+      {/* ─────────────────────────────────────────────────────────
+          2. PLACEMENT METRICS DASHBOARD
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-5">
-              <span className="px-3 py-1 bg-brand-50 text-brand-700 text-xs font-bold rounded-full border border-brand-200">
-                Staffing & Placements
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight leading-tight">
-                IT Recruitment Consultant – Best Platform To Meet Your IT Job Needs
-              </h2>
-              <div className="space-y-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
-                <p>
-                  If you are on the lookout for the best IT job consultancy and recruitment agency in Vadodara then you are at the right place. With our help, you can get the right type of job in the IT industry for your talent and experience. We have been in the IT manpower recruitment business for quite some time now, and our IT manpower services are rated among the best.
-                </p>
-                <p>
-                  To get started with our IT staffing process, you will need to just let us know the details of your learning and past work experience. Also, tell us what kind of salary you expect. We will search for a suitable IT job within our network of 100+ hiring companies.
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <button
-                  onClick={openCounseling}
-                  className="px-8 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs shadow-md uppercase tracking-wider"
-                >
-                  REGISTER FOR PLACEMENT ASSISTANCE
-                </button>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-1">
+              <span className="text-3xl sm:text-4xl font-black text-slate-900">340+</span>
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Students Placed (2025-26)</p>
             </div>
-
-            <div className="lg:col-span-5 text-center">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
-                <img
-                  src="https://www.vtechlabs.com/wp-content/uploads/2026/05/Recruitment-Consultant.jpg"
-                  alt="IT Recruitment Consultant"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-1">
+              <span className="text-3xl sm:text-4xl font-black text-brand-600">₹18.4 LPA</span>
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Highest Package Offered</p>
             </div>
-
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-1">
+              <span className="text-3xl sm:text-4xl font-black text-slate-900">₹6.8 LPA</span>
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Average Batch CTC</p>
+            </div>
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-1">
+              <span className="text-3xl sm:text-4xl font-black text-slate-900">100+</span>
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Hiring Partner Companies</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Performance Stats */}
-      <section className="py-16 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {placementStats.map((stat, i) => (
-              <div
-                key={i}
-                className={`p-6 rounded-3xl border text-center space-y-2 ${
-                  i % 2 === 0
-                    ? 'bg-gradient-to-br from-brand-600 to-emerald-700 text-white border-transparent shadow-lg shadow-brand-600/20'
-                    : 'bg-white border-gray-200/80 text-gray-900 shadow-xs'
-                }`}
-              >
-                <div className="text-3xl sm:text-4xl font-black">{stat.value}</div>
-                <div className={`text-xs font-bold uppercase tracking-wider ${i % 2 === 0 ? 'text-brand-100' : 'text-brand-700'}`}>
-                  {stat.label}
-                </div>
-                <p className={`text-[11px] leading-relaxed ${i % 2 === 0 ? 'text-brand-100/90' : 'text-gray-500'}`}>
-                  {stat.subtext}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Recent Placements Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─────────────────────────────────────────────────────────
+          3. RECENT PLACEMENT SUCCESS STORIES
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold text-brand-600 uppercase tracking-widest block mb-1">
-              Alumni Success
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
-              Recent Placements
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold">
+              <Users className="w-3.5 h-3.5 text-brand-600" />
+              <span>Verified Alumni Success</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Recent Student Placements
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">
-              Our students consistently secure roles across software development, data science, and digital marketing.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {recentPlacements.map((candidate) => (
-              <div
-                key={candidate.id}
-                className="p-5 rounded-3xl bg-gray-50 border border-gray-100 shadow-xs hover:shadow-lg hover:border-brand-300 transition-all text-center flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-3 ring-4 ring-white shadow-md bg-white">
-                    <img
-                      src={candidate.studentImg}
-                      alt={candidate.studentName}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 className="font-bold text-sm text-gray-900">{candidate.studentName}</h4>
-                  <p className="text-xs text-brand-600 font-semibold mt-0.5">{candidate.role}</p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-gray-200/80 flex items-center justify-center h-10">
-                  <img
-                    src={candidate.companyLogo}
-                    alt={candidate.companyName}
-                    className="max-h-7 max-w-[90px] object-contain opacity-80"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Profile Building Sessions (Flip Cards) */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold text-brand-600 uppercase tracking-widest block mb-1">
-              Comprehensive Prep
-            </span>
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Profile Building Sessions
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">
-              Four dedicated steps every candidate completes prior to company interviews
+            <p className="text-slate-600 text-sm">
+              Meet our proud scholars who turned their hard work into high-paying job offers in top IT companies.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {/* Step 1 */}
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm space-y-3 hover:border-brand-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
-                <FileText className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-base text-gray-900">1. Resume Preparation</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Get your resume professionally crafted to highlight your technical stack and stand out to top tech recruiters.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm space-y-3 hover:border-brand-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-                <MessageSquare className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-base text-gray-900">2. Mock Interview</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Practice real-time technical and HR mock interviews with expert feedback to improve confidence, communication & performance.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm space-y-3 hover:border-brand-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
-                <Globe className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-base text-gray-900">3. Web Portfolio</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Build live industry-grade web portfolio projects hosted in the cloud to showcase your practical coding skills to employers.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm space-y-3 hover:border-brand-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
-                <GitBranch className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-base text-gray-900">4. Git & GitHub Training</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Master version control with Git & GitHub through hands-on collaborative repository workflows and branching.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* Start Learning Today Form */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Start Learning Today
-            </h2>
-            <p className="text-xs text-gray-500 mt-1">Not sure where to start? Let Us Help You</p>
-          </div>
-
-          <div className="bg-gray-50 p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm">
-            {learningFormSubmitted ? (
-              <div className="text-center py-6 space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-brand-600 mx-auto" />
-                <h4 className="text-lg font-bold text-gray-900">Request Sent!</h4>
-                <p className="text-xs text-gray-600">
-                  Thank you! Our placement advisor will get in touch with you shortly.
-                </p>
-                <button
-                  onClick={() => setLearningFormSubmitted(false)}
-                  className="px-6 py-2 rounded-xl bg-brand-600 text-white font-bold text-xs"
-                >
-                  Submit Another
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    required
-                    placeholder="Your Name *"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white"
-                  />
-                  <input
-                    type="email"
-                    required
-                    placeholder="E-mail Address *"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="tel"
-                    required
-                    placeholder="Phone Number *"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white"
-                  />
-                  <input
-                    type="text"
-                    required
-                    placeholder="Preferred Domain (e.g. AI, Web, Data) *"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white"
-                  />
-                </div>
-
-                {/* Mock reCAPTCHA */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-gray-200 bg-white text-xs">
-                  <label className="flex items-center gap-2 cursor-pointer select-none">
-                    <input
-                      type="checkbox"
-                      checked={formData.robotCheck}
-                      onChange={(e) => setFormData({ ...formData, robotCheck: e.target.checked })}
-                      className="w-4 h-4 rounded text-brand-600 focus:ring-brand-400 border-gray-300"
+            {recentPlacements.map((p, idx) => (
+              <div
+                key={p.id || idx}
+                className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm hover:shadow-card-hover hover:border-brand-300 transition-all duration-300 flex flex-col justify-between group space-y-5"
+              >
+                <div className="space-y-4">
+                  {/* Photo & Badge */}
+                  <div className="flex items-center gap-3.5">
+                    <img
+                      src={p.studentImg}
+                      alt={p.studentName}
+                      className="w-14 h-14 rounded-2xl object-cover ring-2 ring-slate-100 group-hover:scale-105 transition-transform"
                     />
-                    <span className="font-medium text-gray-700">I'm not a robot</span>
-                  </label>
-                  <div className="flex items-center gap-1.5 text-[10px] text-gray-400">
-                    <ShieldCheck className="w-4 h-4 text-brand-600" />
-                    <span>reCAPTCHA Privacy</span>
+                    <div>
+                      <h4 className="font-black text-sm text-slate-900">{p.studentName}</h4>
+                      <p className="text-xs text-slate-500">{p.role}</p>
+                    </div>
                   </div>
+
+                  {/* Company & Package Tag */}
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">Placed At:</span>
+                      <span className="font-bold text-slate-900">{p.companyName}</span>
+                    </div>
+                    {p.companyLogo && (
+                      <div className="h-8 flex items-center pt-1 border-t border-slate-200/60">
+                        <img src={p.companyLogo} alt={p.companyName} className="max-h-6 max-w-full object-contain" />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Testimonial snippet */}
+                  <p className="text-xs text-slate-600 italic leading-relaxed">
+                    "Successfully placed at {p.companyName} as {p.role} after practical project training at Mamo TechnoLabs."
+                  </p>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-98 text-white font-black text-xs shadow-lg shadow-brand-600/30 uppercase tracking-wider transition-all"
-                >
-                  SUBMIT FOR CAREER COUNSELING
-                </button>
-              </form>
-            )}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+                  <span className="flex items-center gap-1 text-emerald-600 font-bold">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Verified Placement
+                  </span>
+                  <span>Alumni Batch</span>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>
       </section>
 
+      {/* ─────────────────────────────────────────────────────────
+          4. 5-STEP PLACEMENT ACCELERATION PROCESS
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              How Our Placement Cell Prepares You
+            </h2>
+            <p className="text-slate-600 text-sm">
+              A structured roadmap ensuring you clear every technical screening and HR round with confidence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {[
+              { step: '01', title: 'Technical Mastery', desc: 'Intensive code sprints and live capstone architecture reviews.' },
+              { step: '02', title: 'GitHub & Portfolio', desc: 'Craft clean production repositories and deploy live applications.' },
+              { step: '03', title: 'Resume Makeover', desc: 'ATS-optimized resume tailoring for specific high-growth tech positions.' },
+              { step: '04', title: 'Mock Technical Rounds', desc: 'DSA, system architecture, and algorithmic interviews with senior engineers.' },
+              { step: '05', title: 'Direct Interviews', desc: 'Curated recruitment drives with 100+ partner companies until you sign your offer.' }
+            ].map((s, i) => (
+              <div key={i} className="p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-3 text-center md:text-left relative">
+                <span className="text-2xl font-black text-brand-600">{s.step}</span>
+                <h4 className="font-bold text-sm text-slate-900">{s.title}</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          5. HIRING PARTNERS GRID
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-slate-50/70 border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+          <h3 className="text-xl font-black text-slate-900">
+            Top Companies Recruiting from Mamo TechnoLabs
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {hiringPartners.map((partner, idx) => (
+              <span
+                key={idx}
+                className="px-4 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs font-bold text-slate-700 shadow-xs"
+              >
+                {partner.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          6. BOTTOM ENROLL CTA
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-700 text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
+            Ready to Land Your Dream IT Offer?
+          </h2>
+          <p className="text-brand-100 text-sm max-w-xl mx-auto leading-relaxed">
+            Register today and let our corporate placement specialists connect your profile directly with hiring managers.
+          </p>
+          <button
+            onClick={openCounseling}
+            className="px-8 py-4 rounded-full bg-white text-slate-900 font-extrabold text-xs uppercase tracking-wider shadow-xl hover:bg-slate-100 transition-colors"
+          >
+            Schedule Free Placement Consultation
+          </button>
+        </div>
+      </section>
     </div>
   );
 };
+
+export default PlacementsPage;

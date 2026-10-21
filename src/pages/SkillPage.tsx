@@ -13,7 +13,11 @@ import {
   ArrowRight,
   ShieldCheck,
   Printer,
-  X
+  X,
+  Check,
+  Zap,
+  Download,
+  Share2
 } from 'lucide-react';
 
 interface SkillPageProps {
@@ -65,270 +69,148 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
   };
 
   return (
-    <div className="pt-20">
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-brand-50 via-white to-white py-16 lg:py-20 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <span className="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-bold border border-brand-200">
-                Skill Assessment & Certification
-              </span>
+    <div className="pt-24 sm:pt-28">
+      {/* ─────────────────────────────────────────────────────────
+          1. REFRESHED HERO BANNER
+         ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 py-16 lg:py-20 text-white text-center relative overflow-hidden border-b border-slate-800">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
-                Test Your Tech Skills <br />
-                <span className="text-brand-600">Get Certified</span>
-              </h1>
-
-              <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Select a technology, take a quick interactive quiz, validate your practical knowledge, and earn a shareable certificate to showcase to recruiters.
-              </p>
-
-              <div>
-                <a
-                  href="#assessment-grid"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-600/30 transition-all"
-                >
-                  <Brain className="w-4 h-4" />
-                  <span>START A QUIZ</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 text-center">
-              <div className="rounded-3xl bg-gradient-to-tr from-brand-100 via-white to-brand-50 p-6 border border-brand-100 shadow-xl">
-                <img
-                  src="https://pngimg.com/uploads/student/student_PNG62538.png"
-                  alt="Certified Students"
-                  className="w-full max-h-[350px] object-contain mx-auto drop-shadow-md"
-                />
-              </div>
-            </div>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+            <Award className="w-3.5 h-3.5" />
+            <span>Official Skill Verification Center</span>
           </div>
-        </div>
-      </section>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+            Assess Your Coding Skills. <br />
+            <span className="text-gradient-brand">Earn Verified Certifications.</span>
+          </h1>
+          <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Take a 10-minute practical technical quiz, evaluate your conceptual mastery, and generate an authenticated certificate to feature on LinkedIn and your resume.
+          </p>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-4">
-              <h3 className="text-3xl font-black text-gray-900">10,000+</h3>
-              <p className="text-xs text-gray-500 font-semibold uppercase mt-1">Quizzes Taken</p>
-            </div>
-            <div className="p-4">
-              <h3 className="text-3xl font-black text-brand-600">5,000+</h3>
-              <p className="text-xs text-gray-500 font-semibold uppercase mt-1">Certificates Issued</p>
-            </div>
-            <div className="p-4">
-              <h3 className="text-3xl font-black text-amber-500 flex items-center justify-center gap-1">
-                4.8 <Star className="w-5 h-5 fill-current" />
-              </h3>
-              <p className="text-xs text-gray-500 font-semibold uppercase mt-1">Average Rating</p>
-            </div>
-            <div className="p-4">
-              <h3 className="text-3xl font-black text-gray-900">30 mins</h3>
-              <p className="text-xs text-gray-500 font-semibold uppercase mt-1">To Get Certified</p>
+          {/* Quick Search */}
+          <div className="max-w-md mx-auto pt-4">
+            <div className="relative flex items-center bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-1.5 focus-within:border-brand-400">
+              <Search className="w-4 h-4 text-slate-300 ml-3" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search certificate by language (Python, React, AI...)"
+                className="w-full px-3 py-2 text-xs text-white placeholder-slate-400 bg-transparent focus:outline-none"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Our Quiz Platform */}
-      <section className="py-20 bg-gray-50/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─────────────────────────────────────────────────────────
+          2. CERTIFICATION DIRECTORY
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-slate-50/70" id="assessment-grid">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">
-              Why Choose Our Quiz Platform?
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">
-              Engineered by experienced IT architects to test applied industry thinking
-            </p>
+          {/* Category Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            {skillCategories.map((cat, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all ${
+                  selectedCategory === cat
+                    ? 'bg-slate-900 text-white shadow-md'
+                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
-                <Brain className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-sm text-gray-900">Multiple Technologies</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Choose from 46+ in-demand technologies across AI, Full-Stack, Cloud, and QA.
-              </p>
-            </div>
+          {/* Certificate Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredCerts.map((cert) => (
+              <div
+                key={cert.id}
+                className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm hover:shadow-card-hover hover:border-brand-300 transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-600 group-hover:scale-105 transition-transform">
+                      <Brain className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+                      {cert.category}
+                    </span>
+                  </div>
 
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-                <Clock className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-sm text-gray-900">Instant Results</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Receive your score calculation and detailed answers immediately after submitting.
-              </p>
-            </div>
+                  <div>
+                    <h3 className="text-lg font-black text-slate-900 group-hover:text-brand-600 transition-colors">
+                      {cert.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+                      {cert.desc}
+                    </p>
+                  </div>
 
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
-                <Award className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-sm text-gray-900">Verified Certificate</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Download and share your credential directly on LinkedIn or your tech resume.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
-                <Sparkles className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-sm text-gray-900">Beginner to Advanced</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Assessment questions graded for students, junior developers, and experienced pros.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Main Assessment List Section */}
-      <section className="py-20 bg-white" id="assessment-grid">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
-              Test Your Skills. Get Certified.
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-500 mt-2">
-              Prove your expertise in high-demand technologies with assessment-based certification designed for career growth.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            {/* Sidebar Filters */}
-            <aside className="lg:col-span-4 space-y-6">
-              
-              {/* Search Box */}
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search certificate..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 rounded-2xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
-                />
-                <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
-              </div>
-
-              {/* Categories */}
-              <div className="bg-gray-50 p-5 rounded-3xl border border-gray-100 space-y-2">
-                <h3 className="font-bold text-xs uppercase tracking-wider text-gray-500 mb-3 px-2">
-                  Categories
-                </h3>
-                <div className="space-y-1">
-                  {skillCategories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => setSelectedCategory(cat)}
-                      className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                        selectedCategory === cat
-                          ? 'bg-brand-600 text-white shadow-sm'
-                          : 'text-gray-700 hover:bg-gray-100 hover:text-brand-600'
-                      }`}
-                    >
-                      {cat}
-                    </button>
-                  ))}
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span className="flex items-center gap-1 font-semibold">
+                      <Clock className="w-3.5 h-3.5 text-brand-600" />
+                      10 Mins • 5-10 MCQs
+                    </span>
+                    <span className="text-emerald-600 font-bold">Free Instant Certificate</span>
+                  </div>
                 </div>
 
-                <div className="pt-3 border-t border-gray-200">
+                <div className="pt-5 mt-5 border-t border-slate-100">
                   <button
-                    onClick={() => {
-                      setSelectedCategory('All');
-                      setSearchQuery('');
-                    }}
-                    className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-gray-600 hover:bg-gray-200 transition-colors"
+                    onClick={() => startQuiz(cert)}
+                    className="w-full py-3 rounded-2xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-xs group-hover:shadow-md"
                   >
-                    <RotateCcw className="w-3.5 h-3.5" />
-                    <span>RESET FILTERS</span>
+                    <Award className="w-4 h-4 text-brand-400 group-hover:text-white" />
+                    <span>Take Assessment & Get Certified</span>
                   </button>
                 </div>
               </div>
-
-            </aside>
-
-            {/* Assessment Cards Grid */}
-            <div className="lg:col-span-8">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold text-gray-500">
-                  {filteredCerts.length} Certificates Available
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {filteredCerts.map((cert) => (
-                  <div
-                    key={cert.id}
-                    className="bg-white rounded-3xl border border-gray-100 hover:border-brand-300 shadow-xs hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group"
-                  >
-                    <div>
-                      {/* Gradient Badge Header */}
-                      <div className={`p-6 bg-gradient-to-r ${cert.gradientClass} text-white flex items-center justify-between`}>
-                        <span className="font-black text-sm tracking-wider uppercase">
-                          {cert.badgeCode}
-                        </span>
-                        <Award className="w-6 h-6 text-white/80" />
-                      </div>
-
-                      <div className="p-6 space-y-2">
-                        <span className="text-[10px] font-bold text-brand-600 uppercase tracking-wider">
-                          {cert.category}
-                        </span>
-                        <h3 className="font-bold text-base text-gray-900 group-hover:text-brand-600 transition-colors">
-                          {cert.name}
-                        </h3>
-                        <p className="text-xs text-gray-500 leading-relaxed">
-                          {cert.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-6 pt-0">
-                      <button
-                        onClick={() => startQuiz(cert)}
-                        className="w-full py-3 rounded-xl bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 border border-brand-200 hover:border-brand-600 shadow-xs"
-                      >
-                        <Award className="w-4 h-4" />
-                        <span>Get Certified (Take Quiz)</span>
-                      </button>
-                    </div>
-
-                  </div>
-                ))}
-              </div>
-
-            </div>
-
+            ))}
           </div>
+
+          {filteredCerts.length === 0 && (
+            <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
+              <p className="text-slate-500 text-sm">No assessments found matching your search.</p>
+              <button
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setSearchQuery('');
+                }}
+                className="text-xs font-bold text-brand-600 underline"
+              >
+                Reset filters
+              </button>
+            </div>
+          )}
 
         </div>
       </section>
 
-      {/* Interactive Quiz Modal */}
+      {/* ─────────────────────────────────────────────────────────
+          3. INTERACTIVE QUIZ & CERTIFICATE MODAL
+         ───────────────────────────────────────────────────────── */}
       {activeQuiz && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/70 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] flex flex-col">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col">
             
-            {/* Header */}
-            <div className="p-5 bg-gradient-to-r from-brand-700 to-brand-600 text-white flex items-center justify-between">
-              <div>
-                <span className="text-[10px] text-brand-100 uppercase tracking-widest font-bold">Certification Assessment</span>
-                <h3 className="text-lg font-black">{activeQuiz.name}</h3>
+            {/* Modal Header */}
+            <div className="p-5 bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center">
+                  <Award className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-brand-400 uppercase tracking-widest font-bold block">Certification Exam</span>
+                  <h3 className="text-base font-black">{activeQuiz.name}</h3>
+                </div>
               </div>
               <button
                 onClick={() => setActiveQuiz(null)}
@@ -338,21 +220,21 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
               </button>
             </div>
 
-            {/* Content */}
+            {/* Modal Content */}
             <div className="p-6 overflow-y-auto flex-1">
               {!quizCompleted ? (
                 <div>
                   {activeQuiz.questions && activeQuiz.questions.length > 0 ? (
-                    <div>
+                    <div className="space-y-6">
                       {/* Progress Bar */}
-                      <div className="mb-6">
-                        <div className="flex items-center justify-between text-xs text-gray-500 font-bold mb-1">
+                      <div>
+                        <div className="flex items-center justify-between text-xs text-slate-500 font-bold mb-1.5">
                           <span>Question {currentQuestionIdx + 1} of {activeQuiz.questions.length}</span>
-                          <span>{Math.round(((currentQuestionIdx + 1) / activeQuiz.questions.length) * 100)}%</span>
+                          <span>{Math.round(((currentQuestionIdx + 1) / activeQuiz.questions.length) * 100)}% Completed</span>
                         </div>
-                        <div className="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+                        <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
                           <div
-                            className="h-full bg-brand-500 transition-all duration-300"
+                            className="h-full bg-gradient-to-r from-brand-500 to-emerald-500 transition-all duration-300 rounded-full"
                             style={{ width: `${((currentQuestionIdx + 1) / activeQuiz.questions.length) * 100}%` }}
                           />
                         </div>
@@ -360,7 +242,7 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
 
                       {/* Question */}
                       <div className="space-y-4">
-                        <h4 className="text-base font-bold text-gray-900 leading-snug">
+                        <h4 className="text-base font-black text-slate-900 leading-snug">
                           {activeQuiz.questions[currentQuestionIdx].question}
                         </h4>
 
@@ -371,8 +253,8 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                               onClick={() => handleSelectAnswer(currentQuestionIdx, optIdx)}
                               className={`w-full p-4 rounded-2xl border text-xs leading-relaxed flex items-center gap-3 cursor-pointer transition-all ${
                                 selectedAnswers[currentQuestionIdx] === optIdx
-                                  ? 'border-brand-500 bg-brand-50/70 text-brand-900 font-bold shadow-xs'
-                                  : 'border-gray-200 hover:border-brand-200 text-gray-700'
+                                  ? 'border-brand-500 bg-brand-50/80 text-brand-950 font-bold shadow-xs'
+                                  : 'border-slate-200 hover:border-slate-300 text-slate-700 hover:bg-slate-50'
                               }`}
                             >
                               <input
@@ -388,11 +270,11 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                         </div>
 
                         {/* Navigation buttons */}
-                        <div className="pt-6 flex items-center justify-between">
+                        <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
                           <button
                             disabled={currentQuestionIdx === 0}
                             onClick={() => setCurrentQuestionIdx(currentQuestionIdx - 1)}
-                            className="px-5 py-2.5 rounded-xl border border-gray-200 text-xs font-bold text-gray-600 disabled:opacity-40"
+                            className="px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 disabled:opacity-30 hover:bg-slate-50"
                           >
                             Previous
                           </button>
@@ -401,7 +283,7 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                             <button
                               disabled={selectedAnswers[currentQuestionIdx] === undefined}
                               onClick={() => setCurrentQuestionIdx(currentQuestionIdx + 1)}
-                              className="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs disabled:opacity-40"
+                              className="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs disabled:opacity-30"
                             >
                               Next Question →
                             </button>
@@ -409,9 +291,9 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                             <button
                               disabled={selectedAnswers[currentQuestionIdx] === undefined}
                               onClick={() => setQuizCompleted(true)}
-                              className="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs disabled:opacity-40 shadow-md"
+                              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-bold text-xs disabled:opacity-30 shadow-md"
                             >
-                              Submit Assessment
+                              Finish & View Score
                             </button>
                           )}
                         </div>
@@ -419,92 +301,109 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                       </div>
                     </div>
                   ) : (
-                    <p className="text-center text-sm text-gray-500">Assessment questions loading...</p>
+                    <p className="text-center text-sm text-slate-500 py-8">Assessment questions loading...</p>
                   )}
                 </div>
               ) : !certificateGenerated ? (
                 /* Results View */
-                <div className="text-center py-6 space-y-5 animate-in zoom-in-95 duration-200">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto">
-                    <Award className="w-10 h-10" />
+                <div className="text-center py-6 space-y-6 animate-in zoom-in-95 duration-200">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto shadow-sm">
+                    <Award className="w-8 h-8" />
                   </div>
-                  <h4 className="text-2xl font-black text-gray-900">Assessment Completed!</h4>
-                  <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100 max-w-sm mx-auto">
-                    <span className="text-xs text-gray-500 block uppercase font-bold">Your Score</span>
-                    <span className="text-4xl font-black text-brand-600">
+                  
+                  <div className="space-y-1">
+                    <h4 className="text-2xl font-black text-slate-900">Assessment Completed!</h4>
+                    <p className="text-xs text-slate-500">You demonstrated practical conceptual proficiency.</p>
+                  </div>
+
+                  <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 max-w-sm mx-auto space-y-1">
+                    <span className="text-[11px] text-slate-500 uppercase font-bold tracking-wider">Your Final Score</span>
+                    <div className="text-4xl font-black text-brand-600">
                       {calculateScore().percentage}%
-                    </span>
-                    <p className="text-xs text-gray-600 mt-1">
-                      {calculateScore().score} out of {calculateScore().total} questions correct
+                    </div>
+                    <p className="text-xs text-slate-600">
+                      {calculateScore().score} of {calculateScore().total} questions answered correctly
                     </p>
                   </div>
 
                   <div className="max-w-sm mx-auto text-left space-y-2 pt-2">
-                    <label className="block text-xs font-bold text-gray-700 uppercase">
-                      Enter Name For Certificate *
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      Full Name For Certificate Verification *
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Priya Sharma"
+                      placeholder="e.g. Rahul Sharma"
                       value={candidateName}
                       onChange={(e) => setCandidateName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                     <button
                       disabled={!candidateName.trim()}
                       onClick={() => setCertificateGenerated(true)}
-                      className="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider disabled:opacity-40 shadow-md transition-all mt-2"
+                      className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 disabled:opacity-40 shadow-md mt-2"
                     >
-                      Generate My Certificate Now
+                      Generate Official Certificate
                     </button>
                   </div>
                 </div>
               ) : (
-                /* Certificate View */
-                <div className="space-y-4 text-center py-2 animate-in zoom-in-95 duration-200">
-                  <div className="p-8 rounded-3xl border-4 border-double border-amber-400 bg-gradient-to-br from-amber-50/40 via-white to-amber-50/20 shadow-lg relative text-center">
+                /* Official Certificate Display */
+                <div className="space-y-6 text-center animate-in zoom-in-95 duration-200">
+                  <div className="p-8 sm:p-10 rounded-3xl border-4 border-amber-500/40 bg-gradient-to-b from-amber-50/30 via-white to-amber-50/20 text-slate-900 shadow-xl relative overflow-hidden">
+                    <div className="absolute top-2 left-2 text-[9px] font-mono text-slate-400">
+                      CERT-ID: MAMO-2026-{Math.floor(100000 + Math.random() * 900000)}
+                    </div>
                     
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <Award className="w-8 h-8 text-amber-500" />
-                      <span className="text-lg font-black tracking-wider text-gray-900 uppercase">
-                        Mamo<span className="text-brand-600">TechnoLabs</span>
-                      </span>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <Award className="w-8 h-8 text-amber-500" />
+                        <span className="text-xs uppercase tracking-widest font-black text-slate-500">Mamo TechnoLabs LLP</span>
+                      </div>
+                      
+                      <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 font-serif">
+                        Certificate of Achievement
+                      </h3>
+
+                      <p className="text-xs text-slate-500">This is to officially certify that</p>
+                      
+                      <div className="text-2xl sm:text-3xl font-black text-brand-700 border-b-2 border-brand-200 inline-block px-8 py-1">
+                        {candidateName}
+                      </div>
+
+                      <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed pt-2">
+                        has successfully passed the verified skill assessment for <strong className="text-slate-900">{activeQuiz.name}</strong> with a passing score of <strong className="text-brand-600">{calculateScore().percentage}%</strong>.
+                      </p>
+
+                      <div className="pt-6 flex items-center justify-between border-t border-amber-200/60 text-[11px] text-slate-500 max-w-md mx-auto">
+                        <div className="text-left">
+                          <span className="block font-bold text-slate-900">Academic Director</span>
+                          <span>Mamo TechnoLabs LLP</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="block font-bold text-slate-900">ISO 9001:2015</span>
+                          <span>Verified Credential</span>
+                        </div>
+                      </div>
                     </div>
-
-                    <p className="text-[10px] tracking-widest text-amber-700 font-bold uppercase mb-4">
-                      Certificate of Achievement
-                    </p>
-
-                    <p className="text-xs text-gray-500">This is proudly presented to</p>
-                    <h3 className="text-2xl font-black text-gray-900 border-b border-gray-300 pb-2 inline-block px-8 my-2">
-                      {candidateName}
-                    </h3>
-
-                    <p className="text-xs text-gray-600 max-w-md mx-auto leading-relaxed mt-2">
-                      For demonstrating verified technical competence in <strong className="text-gray-900">{activeQuiz.name}</strong> through the Mamo TechnoLabs Assessment Framework.
-                    </p>
-
-                    <div className="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-500 font-medium px-4">
-                      <span>Date: {new Date().toLocaleDateString('en-GB')}</span>
-                      <span>Verified ID: MAMO-{Math.floor(100000 + Math.random() * 900000)}</span>
-                      <span>CMMI Level 3 Certified</span>
-                    </div>
-
                   </div>
 
-                  <div className="flex items-center justify-center gap-3 pt-2">
+                  <div className="flex items-center justify-center gap-3">
                     <button
                       onClick={() => window.print()}
-                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gray-900 hover:bg-black text-white font-bold text-xs shadow-md"
+                      className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-sm"
                     >
                       <Printer className="w-4 h-4" />
                       <span>Print / Save as PDF</span>
                     </button>
                     <button
-                      onClick={() => setActiveQuiz(null)}
-                      className="px-6 py-2.5 rounded-xl border border-gray-200 text-gray-700 font-bold text-xs hover:bg-gray-50"
+                      onClick={() => {
+                        setActiveQuiz(null);
+                        setQuizCompleted(false);
+                        setCertificateGenerated(false);
+                      }}
+                      className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs"
                     >
-                      Done
+                      Close Window
                     </button>
                   </div>
                 </div>
@@ -514,7 +413,8 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
+
+export default SkillPage;
