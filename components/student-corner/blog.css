@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #F7F5F0;
+    color: #0f2410;
+    margin: 0; /* Body ke default margin ko remove karne ke liye */
+    padding: 85px 0 0 0; /* Navbar ke liye space */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling effect ke liye */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed !important; /* Navbar ko screen ke top par fix karne ke liye */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Taaki yeh baaki content ke hamesha upar rahe */
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  
+  /* Koi transition ya animation nahi hai */
+}
+
+/* The magic happens here using Flexbox */
+.brand-container {
+    display: flex;
+    align-items: center; /* Aligns text vertically with the center of the image */
+    gap: 15px;           /* Creates space between the image and the text */
+}
+
+.brand-logo {
+    width: 250px;         /* Adjust the size of your image here */
+    height: auto;
+}
+
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #a7f3d0;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #16a34a;
+}
+
+.nav-links i {
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-skill {
+    background: transparent;
+    border: 2px solid #16a34a;
+    color: #16a34a;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-hire {
+    background: #16a34a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Menu Box with Smooth Animation */
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Thoda sa niche se slide hote hue aayega */
+    position: absolute;
+    background-color: #F7F5F0;
+    min-width: 260px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    z-index: 1000;
+    top: 130%;
+    left: 0;
+    padding: 10px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth duration */
+}
+
+/* Dropdown Links Styling */
+.dropdown-content a {
+    color: #0f2410 !important;
+    padding: 12px 22px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover Effect on Dropdown Items */
+.dropdown-content a:hover {
+    background-color: #ecfdf5;
+    color: #166534 !important;
+}
+
+/* Show Dropdown Smoothly on Mouse Hover */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Apni original position par aa jayega */
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 5% 0 5%;
+    position: relative;
+    overflow: hidden;
+    min-height: 550px;
+}
+
+/* Banner Content ("About Us") */
+.banner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.banner-content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* blogs-section */
+
+.blogs-section {
+  background-color: #F7F5F0;
+  padding: 80px 6%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.blogs-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.blogs-container h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  margin-bottom: 30px;
+}
+
+/* Filter Pills */
+.blog-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.blog-pill {
+  background-color: #F7F5F0;
+  color: #333333;
+  border: 1px solid #d1d5db;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.blog-pill:hover, .blog-pill.active {
+  background-color: #166534;
+  color:#ffffff;
+  border-color: #ffffff;
+}
+
+/* Blog Cards Grid */
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.blog-card {
+  background-color: #F7F5F0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Curved bottom edge for blog images */
+.blog-img-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.blog-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.blog-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.blog-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f2410;
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 15px;
+}
+
+.read-more-btn {
+  background-color: transparent;
+  color: #166534; /* Deep purple button outline style */
+  border: 1.5px solid #166534;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.read-more-btn:hover {
+  background-color: #166534;
+  color:#ffffff;
+}
+
+.blog-date {
+  font-size: 12px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-num, .page-next {
+  background-color: #F7F5F0;
+  color: #333333;
+  border: 1px solid #bbf7d0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-num.active, .page-num:hover, .page-next:hover {
+  background-color: #166534;
+  color:#ffffff;
+  border-color: #ffffff;
+}
+
+.dots {
+  color: #64748b;
+  padding: 0 4px;
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+  .blogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .blogs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer Main Wrapper */
+.site-footer {
+    background-color: #161616; /* Dark charcoal/black matching screenshot */
+    color: #e5e7eb;
+    padding: 70px 6%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr 1.3fr;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Headings Styling */
+.footer-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #16a34a; /* Yellow/Gold accent matching screenshot */
+    margin-bottom: 25px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Column 1: Brand */
+.footer-logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.v-green {
+    color: #22c55e;
+}
+
+.labs-white {
+    color: #ffffff;
+}
+
+.copyright-text {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.footer-divider {
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.social-icons a:hover {
+    background-color: #F7F5F0;
+    color: #161616;
+    border-color: #ffffff;
+}
+
+/* QR Code Section */
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.qr-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #d1d5db;
+}
+
+.qr-box {
+    background-color: #F7F5F0;
+    width: 115px;
+    height: 115px;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Footer Links Lists */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #a7f3d0;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+    color: #22c55e;
+}
+
+/* Contact Us Column */
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #a7f3d0;
+}
+
+.contact-list li i {
+    color: #16a34a;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.contact-list li a {
+    text-decoration: none;
+    color: #a7f3d0;
+    transition: color 0.2s;
+}
+
+.contact-list li a:hover {
+    color: #22c55e;
+}
+
+.address-item span {
+    line-height: 1.5;
+}
+
+/* Responsive adjustment for tablets/mobiles */
+@media (max-width: 1000px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Floating WhatsApp Button Styling */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366; /* Official WhatsApp Green */
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 99999; /* Taaki yeh sabhi sections aur layers ke upar rahe */
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect jab mouse icon par jaye */
+.whatsapp-float:hover {
+  background-color: #20ba5a;
+  transform: scale(1.1); /* Thoda sa zoom ho jayega */
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Mobile Screens ke liye thoda chota size */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}

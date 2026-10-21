@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamo Technolabs - Innovations Unlimited</title>
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <link rel="stylesheet" href="sr.css">
+    <link rel="stylesheet" href="../../footer.css">
+    <link rel="stylesheet" href="../../navbar.css">
+        <!-- Google Fonts: Roboto -->
+    <link rel=preconnect href="https://fonts.googleapis.com">
+    <link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../../partials/header.js" defer></script>
+</head>
+<body>
+
+    <!-- Hero / Banner Section -->
+    <section class="hero-section">
+        <div class="banner-content">
+            <h1>Student <span class="highlight-text">Reviews</span></h1>
+        </div>
+    </section>
+
+    <section class="student-experience-section">
+        <div class="experience-container">
+            <!-- Header with Top Pill and Filter Dropdown -->
+            <div class="experience-header-row">
+            <div class="header-titles">
+                <span class="top-pill">What Our Students Say</span>
+                <h2>About Their Learning Experience</h2>
+            </div>
+
+            <!-- Filter Dropdown -->
+            <div class="dropdown-wrapper">
+                <button class="dropdown-toggle" onclick="toggleDropdown()">
+                <span id="selectedFilterText">All Reviews</span>
+                <i class="fa-solid fa-sliders"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-item active" onclick="selectFilter('All Reviews')">All Reviews</div>
+                <div class="dropdown-item" onclick="selectFilter('Google Reviews')">Google Reviews</div>
+                <div class="dropdown-item" onclick="selectFilter('YouTube Reviews')">YouTube Reviews</div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Cards Grid (Expanded with 6 Reviews) -->
+            <div class="experience-grid">
+            <!-- 1. Video Review (Devesh Jadav) -->
+            <div class="exp-card video-card" data-category="youtube">
+                <div class="video-bg-wrapper">
+                <img src="https://www.vtechlabs.com/wp-content/uploads/2026/05/student-devesh.jpg" alt="Devesh Jadav" />
+                <div class="video-overlay-gradient"></div>
+                <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                <div class="video-top-info">
+                    <div class="student-avatar-small"><img src="https://www.vtechlabs.com/wp-content/uploads/2026/05/vtech-logo.png" alt="VTechLabs" /></div>
+                    <div>
+                    <strong>Devesh Jadav’s journey proves that the...</strong>
+                    <span>VTechLabs Institute</span>
+                    </div>
+                </div>
+                <div class="video-bottom-info">
+                    <div class="student-details-bottom">
+                    <h4>Devesh Jadav</h4>
+                    <span>June 26, 2026</span>
+                    </div>
+                    <a href="#" class="watch-youtube-link"><i class="fa-brands fa-youtube"></i> Watch on <strong>YouTube</strong></a>
+                </div>
+                </div>
+            </div>
+
+            <!-- 2. Google Review (Zeel Ketan Panchal) -->
+            <div class="exp-card text-card" data-category="google">
+                <div class="text-card-header">
+                <div class="user-avatar-blue">Z</div>
+                <div>
+                    <h4>Zeel Ketan Panchal</h4>
+                    <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <span class="review-date">June 26, 2026</span>
+                </div>
+                <p class="review-body">
+                Had a great internship experience at VTechLabs. The work environment was supportive and I got the opportunity to learn many new things. The team members were helpful and guided me throughout the internship. I gained practical experience, improved my skills, and got exposure to real-world projects.
+                </p>
+            </div>
+
+            <!-- 3. Video Review (Akhil Hingrajiya) -->
+            <div class="exp-card video-card" data-category="youtube">
+                <div class="video-bg-wrapper">
+                <img src="https://www.vtechlabs.com/wp-content/uploads/2026/05/student-akhil.jpg" alt="Akhil Hingrajiya" />
+                <div class="video-overlay-gradient"></div>
+                <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                <div class="video-top-info">
+                    <div class="student-avatar-small"><img src="https://www.vtechlabs.com/wp-content/uploads/2026/05/vtech-logo.png" alt="VTechLabs" /></div>
+                    <div>
+                    <strong>Akhil Hingrajiya’s journey...</strong>
+                    <span>VTechLabs Institute</span>
+                    </div>
+                </div>
+                <div class="video-bottom-info">
+                    <div class="student-details-bottom">
+                    <h4>Akhil Hingrajiya</h4>
+                    <span>June 3, 2026</span>
+                    </div>
+                    <a href="#" class="watch-youtube-link"><i class="fa-brands fa-youtube"></i> Watch on <strong>YouTube</strong></a>
+                </div>
+                </div>
+            </div>
+
+            <!-- 4. Google Review (Tejasvi Brahmbhatt) -->
+            <div class="exp-card text-card" data-category="google">
+                <div class="text-card-header">
+                <div class="user-avatar-blue">T</div>
+                <div>
+                    <h4>Tejasvi Brahmbhatt</h4>
+                    <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <span class="review-date">June 10, 2026</span>
+                </div>
+                <p class="review-body">
+                The training has been instrumental in my development and understanding. I would highly recommend VTechLabs to any student looking for professional IT training and live project experience.
+                </p>
+            </div>
+
+            <!-- 5. Video Review (Aarti Barot - PHP Course) -->
+            <div class="exp-card video-card" data-category="youtube">
+                <div class="video-bg-wrapper">
+                <img src="https://www.vtechlabs.com/wp-content/uploads/2026/05/student-aarti.jpg" alt="Aarti Barot" />
+                <div class="video-overlay-gradient"></div>
+                <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                <div class="video-top-info">
+                    <div class="student-avatar-small"><img src="https://www.vtechlabs.com/wp-content/uploads/2026/05/vtech-logo.png" alt="VTechLabs" /></div>
+                    <div>
+                    <strong>PHP course review by Aarti Barot</strong>
+                    <span>VTechLabs Institute</span>
+                    </div>
+                </div>
+                <div class="video-bottom-info">
+                    <div class="student-details-bottom">
+                    <h4>Aarti Barot</h4>
+                    <span>June 5, 2026</span>
+                    </div>
+                    <a href="#" class="watch-youtube-link"><i class="fa-brands fa-youtube"></i> Watch on <strong>YouTube</strong></a>
+                </div>
+                </div>
+            </div>
+
+            <!-- 6. Google Review (Diya) -->
+            <div class="exp-card text-card" data-category="google">
+                <div class="text-card-header">
+                <div class="user-avatar-blue">D</div>
+                <div>
+                    <h4>Diya</h4>
+                    <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <span class="review-date">May 28, 2026</span>
+                </div>
+                <p class="review-body">
+                My experience with VTech Labs has been really wonderful. The trainers are patient and explain complex coding concepts very easily. Excellent platform for beginners!
+                </p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="careers-banner-section">
+        <div class="careers-banner-container">
+            <!-- Background Faint Watermark Text -->
+            <div class="watermark-bg">Where Skills Become Careers</div>
+            
+            <!-- Foreground Bold Text -->
+            <div class="foreground-text">Where Skills Become Careers</div>
+        </div>
+    </section>
+
+    <!-- Still Confused Section -->
+    <section class="confused-section">
+        <div class="confused-container">
+            
+            <!-- Left Side: Student Graphic -->
+            <div class="confused-left">
+                <img src="https://www.vtechlabs.com/wp-content/uploads/2026/04/student.png" alt="Confused Student">
+            </div>
+
+            <!-- Right Side: Heading & Form -->
+            <div class="confused-right">
+                <h2 class="confused-title">
+                    Still Confused? <br>
+                    Let’s Talk.
+                </h2>
+
+                <form class="confused-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <input type="tel" placeholder="Contact Number" required>
+                        <select required>
+                            <option value="" disabled selected>Select Training</option>
+                            <option value="python">Advanced Python</option>
+                            <option value="ai">Generative AI</option>
+                            <option value="web">Full Stack Web Dev</option>
+                        </select>
+                    </div>
+
+                    <!-- Mock reCAPTCHA Box -->
+                    <div class="recaptcha-row">
+                        <div class="recaptcha-box">
+                            <div class="recaptcha-content">
+                                <input type="checkbox" id="robot-check">
+                                <label for="robot-check">I'm not a robot</label>
+                            </div>
+                            <div class="recaptcha-brand">
+                                <i class="fa-solid fa-rotate-right"></i>
+                                <span>reCAPTCHA</span>
+                                <small>Privacy - Terms</small>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-book">BOOK FREE COUNSELLING</button>
+                    
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+
+        <!-- Column 1: Logo & About -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand-container">
+            <img src="../../logomamo.png" alt="MaMo TechnoLabs Logo" class="footer-logo">
+          </div>
+          <p class="footer-desc">
+            MaMo TechnoLabs is a CMMI Level 3 certified global technology company delivering end-to-end software, web, and digital solutions to startups, SMEs, and enterprises worldwide — bringing innovation, quality, and reliability to every project. Your growth is our mission from Vadodara to the world.
+          </p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/mannu.lala.7" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/mamotechnolabs/posts/?feedView=all" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/mamotechnolabs" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col links-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../components/about.html">About Us</a></li>
+            <li><a href="../../components/placment.html">Placements</a></li>
+            <li><a href="../../components/student-corner/blog.html">Blog</a></li>
+            <li><a href="../../components/contect.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col services-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Software Development</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Mobile Apps</a></li>
+            <li><a href="#">Frontend Development</a></li>
+            <li><a href="#">Web Portal Development</a></li>
+            <li><a href="#">QA &amp; Testing</a></li>
+            <li><a href="#">UI/UX Design</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Get In Touch -->
+        <div class="footer-col contact-col">
+          <h3>Get In Touch</h3>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot location-icon"></i>
+            <div>
+              <strong>Global Headquarters:</strong>
+              <p>4th Floor, Office No. 27, RAAMA EMPERRO, Vadodara, Gujarat 390011, India</p>
+            </div>
+          </div>
+
+          <div class="contact-item clients-item">
+            <i class="fa-solid fa-globe globe-icon"></i>
+            <div>
+              <strong>We Serve Clients In:</strong>
+              <div class="country-grid">
+                <span>🇺🇸 USA</span>
+                <span>🇬🇧 UK</span>
+                <span>🇨🇦 Canada</span>
+                <span>🇦🇺 Australia</span>
+                <span>🇦🇪 UAE</span>
+                <span>🇸🇬 Singapore</span>
+                <span>🇪🇺 Europe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item direct-contact">
+            <p><i class="fa-solid fa-phone"></i> +91 9325910095</p>
+            <p><i class="fa-solid fa-envelope"></i> info@mamotechnolabs.com</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 MaMo TechnoLabs. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Terms &amp; Conditions</a>
+          <span>•</span>
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="https://wa.me/919325910095?text=Hello,%20I%20want%20to%20know%20more%20about%20your%20IT%20courses." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+<script src="sr.js"></script>
+<script src="../../slider.js"></script>
+</body>
+</html>

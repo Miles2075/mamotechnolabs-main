@@ -1,0 +1,1556 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #F7F5F0;
+    color: #0f2410;
+    padding: 85px 0 0 0; /* Navbar ke liye space */
+    margin: 0; /* Body ke default margin ko remove karne ke liye */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling effect ke liye */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed !important; /* Navbar ko screen ke top par fix karne ke liye */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Taaki yeh baaki content ke hamesha upar rahe */
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  
+  /* Koi transition ya animation nahi hai */
+}
+
+/* The magic happens here using Flexbox */
+.brand-container {
+    display: flex;
+    align-items: center; /* Aligns text vertically with the center of the image */
+    gap: 15px;           /* Creates space between the image and the text */
+}
+
+.brand-logo {
+    width: 250px;         /* Adjust the size of your image here */
+    height: auto;
+}
+
+
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #a7f3d0;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #16a34a;
+}
+
+.nav-links i {
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-skill {
+    background: transparent;
+    border: 2px solid #16a34a;
+    color: #16a34a;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-hire {
+    background: #16a34a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Menu Box with Smooth Animation */
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Thoda sa niche se slide hote hue aayega */
+    position: absolute;
+    background-color: #F7F5F0;
+    min-width: 260px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    z-index: 1000;
+    top: 130%;
+    left: 0;
+    padding: 10px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth duration */
+}
+
+/* Dropdown Links Styling */
+.dropdown-content a {
+    color: #0f2410 !important;
+    padding: 12px 22px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover Effect on Dropdown Items */
+.dropdown-content a:hover {
+    background-color: #ecfdf5;
+    color: #166534 !important;
+}
+
+/* Show Dropdown Smoothly on Mouse Hover */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Apni original position par aa jayega */
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 5% 0 5%;
+    position: relative;
+    overflow: hidden;
+    min-height: 550px;
+}
+
+/* Banner Content ("About Us") */
+.banner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.banner-content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.highlight-text {
+  color: #16a34a; /* Yellow accent for "Us" */
+  font-style: italic;
+}
+
+/* project-training-section  */
+
+.project-training-section {
+  background-color: #F7F5F0;
+  padding: 90px 6%;
+  font-family: "Roboto", sans-serif;
+}
+
+.project-training-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Left Single Image Wrapper */
+.project-training-image-single {
+  flex: 1;
+}
+
+.project-training-image-single img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+
+/* Right Content Column */
+.project-training-content {
+  flex: 1.2;
+}
+
+/* Green Outline Pill Badge */
+.learn-badge {
+  display: inline-block;
+  background: transparent;
+  border: 1.5px solid #16a34a;
+  color: #16a34a;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.project-training-content h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  line-height: 1.3;
+  margin-bottom: 25px;
+}
+
+.project-training-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.project-training-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 968px) {
+  .project-training-container {
+    flex-direction: column;
+  }
+}
+
+/* What We Provide Section */
+
+.what-we-provide-section {
+  background-color: #F7F5F0;
+  padding: 80px 5%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.provide-header {
+  margin-bottom: 50px;
+}
+
+.provide-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #10b981; /* Vibrant teal/green heading */
+  margin: 0;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 38px;
+  color: #166534; /* Deep purple icon color */
+}
+
+.feature-text p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f2410;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 968px) {
+  .features-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Overlapping Ribbons Styling (Forced Normal Background) */
+.ribbon-container {
+    position: relative;
+    height: 90px;
+    margin-bottom: 40px;
+}
+
+.ribbon {
+    position: absolute;
+    width: 110vw;
+    left: -5vw;
+    padding: 12px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Strict Deep Purple Background */
+.purple-ribbon {
+    background-color: #16a34a;
+    transform: rotate(-2deg);
+    top: 28px;
+    z-index: 1;
+    color: #ffffff;
+}
+
+/* Strict Teal / Green Background */
+.teal-ribbon {
+    background-color: #0f2410;
+    transform: rotate(-3deg);
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: #ffffff;
+}
+
+.ribbon-track {
+  display: inline-block !important;
+  animation: scrollRibbon 20s linear infinite !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 2px !important;
+  color: #ffffff !important;
+}
+
+@keyframes scrollRibbon {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Start Learning Section Styling */
+.start-learning-section {
+  background: linear-gradient(135deg, #f5faeb 0%, #d8ebd4 100%);
+  padding: 80px 8% 90px 8%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.form-header {
+  margin-bottom: 40px;
+}
+
+.form-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #166534;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+}
+
+.learning-form {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: #F7F5F0;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #0f2410;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #166534;
+}
+
+.captcha-row {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.recaptcha-box {
+  background: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  padding: 10px 14px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.recaptcha-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.recaptcha-inner input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.recaptcha-inner label {
+  font-size: 14px;
+  color: #222222;
+  cursor: pointer;
+}
+
+.recaptcha-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #555555;
+}
+
+.recaptcha-logo img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px;
+}
+
+.submit-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background-color: green;
+  color:#ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(63, 29, 203, 0.3);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
+}
+
+/* full-benefits-training-section */
+
+.full-benefits-training-section{
+    background-color: #F7F5F0;
+}
+
+/* benefits-training-section */
+.benefits-training-section {
+  background: linear-gradient(135deg, #14532d 0%, #170d3f 100%);
+  padding: 90px 6%;
+  font-family: "Roboto", sans-serif;
+  color:#ffffff;
+  border-radius: 25px;
+}
+
+.benefits-training-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.benefits-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.benefits-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #16a34a; /* Golden-yellow accent color */
+  margin-bottom: 15px;
+}
+
+.benefits-header p {
+  font-size: 16px;
+  color: white;
+  margin: 0;
+}
+
+/* Two Column Layout with Center Dotted Divider */
+.benefits-grid-two-col {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  position: relative;
+}
+
+/* Vertical Dotted Divider Line in the Middle */
+.benefits-grid-two-col::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  border-left: 2px dotted rgba(255, 255, 255, 0.3);
+  transform: translateX(-50%);
+}
+
+.benefits-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  padding: 0 15px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.benefit-icon {
+  background-color: yellow;
+  color: black;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.benefit-text h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: yellow;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.benefit-text p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: white;
+  margin: 0;
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 968px) {
+  .benefits-grid-two-col {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .benefits-grid-two-col::after {
+    display: none; /* Hide vertical line on smaller screens */
+  }
+}
+
+/* success-tips-section */
+
+.success-tips-section {
+  background-color: #F7F5F0;
+  padding: 90px 8%;
+  font-family: "Roboto", sans-serif;
+}
+
+.success-tips-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* Heading Styling */
+.success-tips-section h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 45px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+/* Intro Paragraph */
+.section-intro {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #222222;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* Tips List */
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tips-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.tip-icon {
+  background-color: #10b981; /* Green checkmark icon background */
+  color: #ffffff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.tip-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+.tip-text strong {
+  color: #166534; /* Highlighted tip titles in deep purple */
+  font-weight: 700;
+}
+
+/* req-training-section */
+
+.req-training-section, .conclusion-section {
+  background-color: #F7F5F0;
+  padding: 80px 6%;
+  font-family: "Roboto", sans-serif;
+}
+
+.req-training-container, .conclusion-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Image Styling */
+.req-training-image, .conclusion-image {
+  flex: 1;
+}
+
+.req-training-image img, .conclusion-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+
+/* Content Styling */
+.req-training-content, .conclusion-content {
+  flex: 1.2;
+}
+
+.req-training-content h2, .conclusion-content h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #10b981; /* Vibrant teal/green heading matching screenshot */
+  line-height: 1.3;
+  margin-bottom: 25px;
+}
+
+.conclusion-content h2 {
+  color: #166534; /* Deep purple heading for conclusion */
+}
+
+.req-training-content p, .conclusion-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 18px;
+}
+
+.cost-note {
+  font-weight: 600;
+  color: #0f2410;
+  margin-top: 10px;
+}
+
+/* Responsive design for tablets/mobile */
+@media (max-width: 968px) {
+  .req-training-container, .conclusion-container {
+    flex-direction: column;
+  }
+  .conclusion-container {
+    flex-direction: column-reverse; /* Keeps image order correct on mobile if needed */
+  }
+}
+
+/* full full-testimonials Main Section Layout */
+
+.full-testimonials{
+    background-color: #F7F5F0;
+}
+
+/* full-testimonials Main Section Layout */
+.testimonials-section {
+    padding: 80px 5%;
+    background-color: #052e16;
+    border-radius: 50px;
+    color: #ffffff;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1250px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Left Column Styles */
+.testimonials-left {
+    flex: 1.1;
+    padding-right: 40px;
+}
+
+.section-title {
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.highlight-yellow {
+    color: yellow;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.story-pill-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.pill-box {
+    border: 2px solid yellow;
+    color: #ffffff;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.subtitle-text {
+    color: white;
+    font-size: 15px;
+}
+
+/* Quote Box Styling */
+.quote-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 35px;
+    position: relative;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quote-icon {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 36px;
+    color: #16a34a;
+    opacity: 0.8;
+}
+
+.student-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #16a34a;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #16a34a;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 15px;
+    color: #a7f3d0;
+    line-height: 1.6;
+}
+
+/* Slider Navigation Buttons */
+.slider-arrows {
+    display: flex;
+    gap: 12px;
+}
+
+.arrow-btn {
+    background-color: #16a34a;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.arrow-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Dotted Vertical Divider */
+.vertical-divider {
+    width: 1px;
+    background: repeating-linear-gradient(to bottom, #64748b 0, #64748b 6px, transparent 6px, transparent 12px);
+    align-self: stretch;
+    margin: 0 30px;
+}
+
+/* Right Column: Video Testimonial Card */
+.testimonials-right {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+}
+
+.video-card {
+    background-color: #d1fae5;
+    border-radius: 24px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    background-color: #d1fae5;
+}
+
+.profile-thumb {
+    width: 36px;
+    height: 36px;
+    background-color: #22c55e;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-meta h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f2410;
+}
+
+.video-meta span {
+    font-size: 12px;
+    color: #000000;
+}
+
+.video-screen {
+    position: relative;
+    width: 100%;
+    height: 380px;
+}
+
+.video-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ef4444;
+    color: #ffffff;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+    cursor: pointer;
+}
+
+.video-footer-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #F7F5F0;
+    color: #000000;
+    padding: 10px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.student-label-name {
+    display: block;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.student-label-sub {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.video-nav-arrows {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Responsive design adjustment */
+@media (max-width: 950px) {
+    .testimonials-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .testimonials-left {
+        padding-right: 0;
+    }
+    .vertical-divider {
+        display: none;
+    }
+}
+
+/* passion section*/
+.passion-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F7F5F0;
+  padding: 80px 6%;
+  font-family: "Roboto", sans-serif;
+  gap: 50px;
+}
+
+/* Left Column Styling */
+.passion-left {
+  flex: 1.1;
+}
+
+.badge-pill {
+  display: inline-block;
+  background: transparent;
+  border: 1.5px solid #16a34a;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a3320;
+  margin-bottom: 20px;
+}
+
+.passion-left h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #16a34a;
+  margin-bottom: 30px;
+}
+
+.quote-box {
+  background: #F7F5F0;
+  border: 1px solid #d1fae5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 35px;
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 32px;
+  color: #166534;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.quote-box p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1a3320;
+  margin: 0;
+}
+
+/* Right Column Grid Layout */
+.passion-right {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid-row {
+  display: flex;
+  gap: 20px;
+}
+
+/* Pure Image Container */
+.image-box {
+  flex: 1;
+  height: 220px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* careers-banner-section */
+.careers-banner-section {
+  background-color: #F7F5F0;
+  padding: 60px 20px;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.careers-banner-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100px;
+}
+
+/* Background Faint Watermark Text */
+.watermark-bg {
+  position: absolute;
+  font-size: 85px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.03); /* Bahut hi halka transparent text */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 1;
+}
+
+/* Foreground Bold Text */
+.foreground-text {
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f2410;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+  .watermark-bg {
+    font-size: 40px;
+  }
+  .foreground-text {
+    font-size: 22px;
+  }
+}
+
+/* Section Wrapper */
+.confused-section {
+    padding: 80px 6%;
+    background-color: #eafbe8;
+}
+
+.confused-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1250px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+/* Left Image Column */
+.confused-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.confused-left img {
+    max-width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+}
+
+/* Right Form Column */
+.confused-right {
+    flex: 1.2;
+}
+
+.confused-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #14532d; /* Deep Navy heading */
+    line-height: 1.15;
+    margin-bottom: 35px;
+    letter-spacing: -1px;
+}
+
+/* Form Layout */
+.confused-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.confused-form input, 
+.confused-form select {
+    flex: 1;
+    background-color: #ecfdf5;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #1f2937;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.confused-form input:focus, 
+.confused-form select:focus {
+    border-color: #16a34a;
+    background-color: #F7F5F0;
+}
+
+.confused-form select {
+    color: #6b7280;
+}
+
+/* Mock reCAPTCHA Box Styling */
+.recaptcha-row {
+    margin-top: 5px;
+}
+
+.recaptcha-box {
+    background-color: #f9fafb;
+    border: 1px solid #c3c3c3;
+    border-radius: 4px;
+    width: 300px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.recaptcha-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.recaptcha-content input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.recaptcha-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    color: #555555;
+}
+
+.recaptcha-brand i {
+    font-size: 18px;
+    color: #4285f4;
+    margin-bottom: 2px;
+}
+
+.recaptcha-brand small {
+    font-size: 8px;
+    color: #888888;
+}
+
+/* Book Button Styling */
+.btn-book {
+    background-color: green;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 30px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    margin-top: 5px;
+}
+
+.btn-book:hover {
+    background-color: darkgreen;
+    transform: scale(1.08);
+}
+
+/* Responsive adjustment for mobiles */
+@media (max-width: 900px) {
+    .confused-container {
+        flex-direction: column;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    .confused-right {
+        width: 100%;
+    }
+}
+
+
+
+/* Footer Main Wrapper */
+.site-footer {
+    background-color: #161616; /* Dark charcoal/black matching screenshot */
+    color: #e5e7eb;
+    padding: 70px 6%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr 1.3fr;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Headings Styling */
+.footer-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #16a34a; /* Yellow/Gold accent matching screenshot */
+    margin-bottom: 25px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Column 1: Brand */
+.footer-logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.v-green {
+    color: #22c55e;
+}
+
+.labs-white {
+    color: #ffffff;
+}
+
+.copyright-text {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.footer-divider {
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.social-icons a:hover {
+    background-color: #F7F5F0;
+    color: #161616;
+    border-color: #ffffff;
+}
+
+/* QR Code Section */
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.qr-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #d1d5db;
+}
+
+.qr-box {
+    background-color: #F7F5F0;
+    width: 115px;
+    height: 115px;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Footer Links Lists */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #a7f3d0;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+    color: #22c55e;
+}
+
+/* Contact Us Column */
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #a7f3d0;
+}
+
+.contact-list li i {
+    color: #16a34a;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.contact-list li a {
+    text-decoration: none;
+    color: #a7f3d0;
+    transition: color 0.2s;
+}
+
+.contact-list li a:hover {
+    color: #22c55e;
+}
+
+.address-item span {
+    line-height: 1.5;
+}
+
+/* Responsive adjustment for tablets/mobiles */
+@media (max-width: 1000px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Floating WhatsApp Button Styling */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366; /* Official WhatsApp Green */
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 99999; /* Taaki yeh sabhi sections aur layers ke upar rahe */
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect jab mouse icon par jaye */
+.whatsapp-float:hover {
+  background-color: #20ba5a;
+  transform: scale(1.1); /* Thoda sa zoom ho jayega */
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Mobile Screens ke liye thoda chota size */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}

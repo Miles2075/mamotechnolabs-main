@@ -1,0 +1,1399 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #F7F5F0;
+    color: #0f2410;
+    margin: 0; /* Body ke default margin ko remove karne ke liye */
+    padding: 85px 0 0 0; /* Navbar ke liye space */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling effect ke liye */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed !important; /* Navbar ko screen ke top par fix karne ke liye */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Taaki yeh baaki content ke hamesha upar rahe */
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  
+  /* Koi transition ya animation nahi hai */
+}
+
+/* The magic happens here using Flexbox */
+.brand-container {
+    display: flex;
+    align-items: center; /* Aligns text vertically with the center of the image */
+    gap: 15px;           /* Creates space between the image and the text */
+}
+
+.brand-logo {
+    width: 250px;         /* Adjust the size of your image here */
+    height: auto;
+}
+
+
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #a7f3d0;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #16a34a;
+}
+
+.nav-links i {
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-skill {
+    background: transparent;
+    border: 2px solid #16a34a;
+    color: #16a34a;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-hire {
+    background: #16a34a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Menu Box with Smooth Animation */
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Thoda sa niche se slide hote hue aayega */
+    position: absolute;
+    background-color: #F7F5F0;
+    min-width: 260px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    z-index: 1000;
+    top: 130%;
+    left: 0;
+    padding: 10px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth duration */
+}
+
+/* Dropdown Links Styling */
+.dropdown-content a {
+    color: #0f2410 !important;
+    padding: 12px 22px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover Effect on Dropdown Items */
+.dropdown-content a:hover {
+    background-color: #ecfdf5;
+    color: #166534 !important;
+}
+
+/* Show Dropdown Smoothly on Mouse Hover */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Apni original position par aa jayega */
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 5% 0 5%;
+    position: relative;
+    overflow: hidden;
+    min-height: 550px;
+}
+
+/* Banner Content ("About Us") */
+.banner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.banner-content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.highlight-text {
+  color: #16a34a; /* Yellow accent for "Us" */
+  font-style: italic;
+}
+
+/* internship-section */
+
+.internship-section {
+  padding: 80px 6%;
+  font-family: "Roboto", sans-serif;
+}
+
+.internship-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Left Content Column */
+.internship-content {
+  flex: 1.2;
+}
+
+.internship-content h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  line-height: 1.3;
+  margin-bottom: 25px;
+}
+
+.internship-content p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.internship-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f2410;
+  margin: 25px 0 15px 0;
+}
+
+/* Numbered List Styling */
+.internship-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.internship-list li {
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Right Image Column */
+.internship-image-wrapper {
+  flex: 1;
+  position: sticky;
+  top: 40px;
+}
+
+.internship-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+
+/* Responsive design for tablets/mobile */
+@media (max-width: 968px) {
+  .internship-container {
+    flex-direction: column;
+  }
+  .internship-image-wrapper {
+    width: 100%;
+    position: static;
+  }
+}
+
+/* student placed in compnies */
+.hiring-partners-section {
+    padding: 70px 5%;
+    background-color: #F7F5F0;
+    text-align: center;
+}
+
+.partners-heading {
+    font-size: 38px;
+    font-weight: 800;
+    color: #16a34a; /* Mint green color matching the design */
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+}
+
+.partners-slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Arrow Buttons */
+.arrow-btn {
+    background-color: #14532d;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color:  white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    z-index: 10;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.arrow-btn:hover {
+    background-color: green;
+}
+
+/* Partners Logo Track */
+.partners-track {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.partners-track::-webkit-scrollbar {
+    display: none;
+}
+
+.partner-item {
+    flex: 0 0 180px;
+    min-width: 180px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo Design Recreations */
+
+/* 1. Mastercard */
+.logo-mastercard {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.mc-circles {
+    display: flex;
+    position: relative;
+    width: 36px;
+    height: 22px;
+}
+.mc-red {
+    width: 22px;
+    height: 22px;
+    background-color: #eb001b;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+}
+.mc-yellow {
+    width: 22px;
+    height: 22px;
+    background-color: #f79e1b;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    mix-blend-mode: multiply;
+}
+.mc-text {
+    font-size: 19px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+/* 2. Rishabh Software */
+.logo-rishabh {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.rishabh-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #0f2410;
+    color: #ffffff;
+    font-weight: 900;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.rishabh-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1;
+}
+.rishabh-main {
+    font-size: 14px;
+    font-weight: 900;
+    color: #0f2410;
+    letter-spacing: 0.5px;
+}
+.rishabh-sub {
+    font-size: 9px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* 3. Mysphere Infotech */
+.logo-mysphere {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.mysphere-globe {
+    font-size: 24px;
+}
+.mysphere-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1;
+}
+.mysphere-main {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1e3a8a;
+}
+.mysphere-sub {
+    font-size: 8px;
+    font-weight: 800;
+    color: #0f2410;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* 4. Webmyne */
+.logo-webmyne {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.webmyne-main {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f2410;
+    letter-spacing: -0.5px;
+}
+.red-w {
+    color: #ef4444;
+}
+.webmyne-sub {
+    font-size: 7px;
+    color: #4b5563;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* 5. NetWeb Software */
+.logo-netweb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.netweb-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #22c55e;
+    color: #ffffff;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.netweb-main {
+    font-size: 14px;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: -0.3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .partners-track {
+        justify-content: flex-start;
+    }
+}
+
+/* importance-section */
+
+.importance-section {
+  background: linear-gradient(135deg, #14532d 0%, #170d3f 100%); /* Deep purple gradient background matching screenshot */
+  padding: 90px 8%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color:#ffffff;
+}
+
+.importance-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/* Heading with golden-yellow color matching screenshot */
+.importance-section h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #16a34a; /* Golden-yellow accent color */
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+/* Descriptive Paragraphs */
+.importance-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ecfdf5; /* Soft off-white text for readability */
+  margin-bottom: 25px;
+}
+
+.importance-section p:last-child {
+  margin-bottom: 0;
+}
+
+.placements-section {
+  background-color: #F7F5F0;
+  padding: 80px 5%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+/* Header */
+.placements-header {
+  margin-bottom: 50px;
+}
+
+.placements-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #16a34a; /* Teal/Green heading matching screenshot */
+  margin: 0;
+}
+
+/* Grid Container */
+.placements-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Placement Card */
+.placement-card {
+  flex: 1;
+  min-width: 210px;
+  max-width: 240px;
+  background-color: #f1f3f9; /* Soft pale grey-purple background tint */
+  border-radius: 20px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.placement-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Student Image Circular Badge */
+.student-img-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.student-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Student Details */
+.student-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 4px 0;
+}
+
+.student-role {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f2410;
+  margin: 0 0 25px 0;
+}
+
+/* Company Logo Image Wrapper */
+.company-logo-wrapper {
+  margin-top: auto;
+  border-top: 1px dashed #a7f3d0; /* Subtle dashed separator line matching screenshot */
+  width: 100%;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+}
+
+.company-logo-wrapper img {
+  max-width: 110px;
+  max-height: 35px;
+  object-fit: contain;
+}
+
+/* Benefits Section Styling */
+.benefits-section {
+  background-color: #F7F5F0;
+  padding: 60px 8% 90px 8%;
+  font-family: "Roboto", sans-serif;
+}
+
+.benefits-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.benefits-container h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  margin-bottom: 35px;
+  
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefits-list li {
+  font-size: 15px;
+  color: #222222;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.benefits-list li i {
+  color: #166534; /* Deep purple check icons matching screenshot */
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.benefits-list li a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* requirements-section */
+
+.requirements-section {
+  background-color: #FDFCF8; /* Soft neutral background matching screenshot */
+  padding: 80px 8%;
+  font-family: "Roboto", sans-serif;
+}
+
+.requirements-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Main Heading */
+.requirements-section h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  line-height: 1.3;
+  margin-bottom: 25px;
+}
+
+/* Subheading */
+.requirements-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f2410;
+  margin-bottom: 15px;
+}
+
+/* Description Paragraph */
+.requirements-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+/* Bullet Points List */
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.requirements-list li {
+  font-size: 15px;
+  color: #222222;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 1.6;
+}
+
+/* Checkmark Icon Styling */
+.requirements-list li i {
+  color: #166534; /* Deep purple check icons */
+  font-size: 15px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* start-learning-section */
+
+.start-learning-section {
+  background-color: #f2f7e9; /* Soft pale greenish-yellow gradient/solid background */
+  background: linear-gradient(135deg, #f7faed 0%, #e5f1e3 100%);
+  padding: 80px 8%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+/* Header */
+.form-header {
+  margin-bottom: 40px;
+}
+
+.form-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  margin-bottom: 10px;
+}
+
+.form-header p {
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+}
+
+/* Form Layout */
+.learning-form {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: #F7F5F0;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #0f2410;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s;
+}
+
+.form-group input::placeholder {
+  color: #6b7280;
+}
+
+.form-group input:focus {
+  border-color: #166534;
+}
+
+/* reCAPTCHA Row & Box */
+.captcha-row {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.recaptcha-box {
+  background: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  padding: 12px 16px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.recaptcha-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.recaptcha-inner input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.recaptcha-inner label {
+  font-size: 14px;
+  color: #222222;
+  cursor: pointer;
+}
+
+.recaptcha-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: #555555;
+}
+
+.recaptcha-logo img {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 2px;
+}
+
+.recaptcha-logo small {
+  font-size: 8px;
+  color: #777777;
+}
+
+/* Submit Button */
+.submit-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background-color: green; /* Deep purple button */
+  color:#ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 16px 45px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(63, 29, 203, 0.3);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: darkgreen;
+  transform: translateY(-5px);
+}
+
+/* profile-building-section */
+
+.profile-building-section {
+  background-color: #FDFCF8;
+  padding: 80px 5%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.profile-header {
+  margin-bottom: 50px;
+}
+
+.profile-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #166534;
+  margin: 0;
+}
+
+.profile-steps-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Card Container with Perspective for 3D Effect */
+.flip-card {
+  flex: 1;
+  min-width: 220px;
+  max-width: 260px;
+  height: 250px;
+  background-color: transparent;
+  perspective: 1000px; /* Gives depth to the 3D rotation */
+}
+
+/* Inner Container that Flips */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Trigger the flip on hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Common styles for Front and Back sides */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the reverse side while flipping */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Front Side Styling */
+.flip-card-front {
+  background-color: #f1f3f9;
+  color: #14532d;
+}
+
+.icon-circle {
+  width: 75px;
+  height: 75px;
+  background-color: #F7F5F0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.icon-circle i {
+  font-size: 30px;
+  color: #16a34a;
+}
+
+.flip-card-front h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Back Side Styling (Turns Green when flipped) */
+.flip-card-back {
+  background-color: #16a34a;
+  color:#ffffff;
+  transform: rotateY(180deg); /* Pre-rotates the back side */
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(32, 201, 151, 0.3);
+}
+
+.flip-card-back p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Connecting Arrow */
+.step-arrow {
+  font-size: 20px;
+  color: #166534;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* performance-section */
+
+.performance-section {
+  background-color: #F7F5F0;
+  padding: 80px 8%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+/* Header */
+.performance-header {
+  margin-bottom: 50px;
+}
+
+.performance-header h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #166534; /* Deep purple heading */
+  margin: 0;
+}
+
+/* 2x2 Grid Layout */
+.performance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Stat Card Base */
+.stat-card {
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Background Tints matching screenshot */
+.stat-card.green-tint {
+  background-color: #eaf5ed; /* Pale greenish-teal tint */
+}
+
+.stat-card.grey-tint {
+  background-color: #ecfdf5; /* Soft pale grey-purple tint */
+}
+
+/* Stat Numbers */
+.stat-number {
+  font-family: "Roboto", sans-serif;
+  font-size: 52px;
+  font-weight: 500;
+  color: black; /* Deep purple numbers */
+  line-height: 1;
+  min-width: 150px;
+  text-align: left;
+}
+
+/* Stat Labels */
+.stat-label {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #14532d; /* Deep purple text */
+  text-align: left;
+}
+
+/* FAQ Section Container */
+.faq-section {
+    padding: 80px 5%;
+    background-color: #d1fae5;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-heading {
+    font-size: 44px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+}
+
+/* FAQ List Layout */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background-color: #F7F5F0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #d1fae5;
+}
+
+/* Question Header Button */
+.faq-question {
+    width: 100%;
+    background-color: #F7F5F0;
+    color: #0f2410;
+    border: none;
+    padding: 20px 25px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+/* Active Open Question styling */
+.faq-item.active .faq-question {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+.arrow-icon {
+    font-size: 14px;
+}
+
+/* Answer Container */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 25px;
+    background-color: #F7F5F0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 150px;
+    padding: 20px 25px;
+}
+
+.faq-answer p {
+    font-size: 15px;
+    color: black;
+    line-height: 1.5;
+}
+
+/* Footer Main Wrapper */
+.site-footer {
+    background-color: #161616; /* Dark charcoal/black matching screenshot */
+    color: #e5e7eb;
+    padding: 70px 6%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr 1.3fr;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Headings Styling */
+.footer-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #16a34a; /* Yellow/Gold accent matching screenshot */
+    margin-bottom: 25px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Column 1: Brand */
+.footer-logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.v-green {
+    color: #22c55e;
+}
+
+.labs-white {
+    color: #ffffff;
+}
+
+.copyright-text {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.footer-divider {
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.social-icons a:hover {
+    background-color: #F7F5F0;
+    color: #161616;
+    border-color: #ffffff;
+}
+
+/* QR Code Section */
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.qr-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #d1d5db;
+}
+
+.qr-box {
+    background-color: #F7F5F0;
+    width: 115px;
+    height: 115px;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Footer Links Lists */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #a7f3d0;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+    color: #22c55e;
+}
+
+/* Contact Us Column */
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #a7f3d0;
+}
+
+.contact-list li i {
+    color: #16a34a;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.contact-list li a {
+    text-decoration: none;
+    color: #a7f3d0;
+    transition: color 0.2s;
+}
+
+.contact-list li a:hover {
+    color: #22c55e;
+}
+
+.address-item span {
+    line-height: 1.5;
+}
+
+/* Responsive adjustment for tablets/mobiles */
+@media (max-width: 1000px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Floating WhatsApp Button Styling */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366; /* Official WhatsApp Green */
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 99999; /* Taaki yeh sabhi sections aur layers ke upar rahe */
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect jab mouse icon par jaye */
+.whatsapp-float:hover {
+  background-color: #20ba5a;
+  transform: scale(1.1); /* Thoda sa zoom ho jayega */
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Mobile Screens ke liye thoda chota size */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}
