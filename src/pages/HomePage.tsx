@@ -32,8 +32,11 @@ import {
   Check,
   Terminal,
   Zap,
-  BarChart2
+  BarChart2,
+  Loader2,
+  ExternalLink
 } from 'lucide-react';
+import { sendInquiryEmail } from '../utils/sendMail';
 
 interface HomePageProps {
   navigateTo: (route: RouteType, detailId?: string) => void;
@@ -45,6 +48,8 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [heroSearch, setHeroSearch] = useState('');
   const [confusedSubmitted, setConfusedSubmitted] = useState(false);
+  const [confusedSubmitting, setConfusedSubmitting] = useState(false);
+  const [confusedMailto, setConfusedMailto] = useState('');
   const [confusedData, setConfusedData] = useState({
     name: '',
     email: '',
@@ -84,12 +89,22 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
     return true;
   });
 
-  const handleConfusedSubmit = (e: React.FormEvent) => {
+  const handleConfusedSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!confusedData.robotCheck) {
       alert('Please check the verification box.');
       return;
     }
+    setConfusedSubmitting(true);
+    const result = await sendInquiryEmail({
+      formType: 'Counseling',
+      name: confusedData.name,
+      email: confusedData.email,
+      phone: confusedData.phone,
+      courseOrTrack: confusedData.training
+    });
+    setConfusedMailto(result.mailtoUrl);
+    setConfusedSubmitting(false);
     setConfusedSubmitted(true);
   };
 
@@ -855,14 +870,35 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
 
               <div className="lg:col-span-6 bg-white/10 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-white/10">
                 {confusedSubmitted ? (
-                  <div className="text-center py-8 space-y-3">
+                  <div className="text-center py-8 space-y-4">
                     <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h3 className="text-xl font-black text-white">Consultation Request Received!</h3>
-                    <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                      Our senior career advisor will contact you within 2 business hours.
-                    </p>
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-black text-white">Consultation Request Dispatched!</h3>
+                      <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
+                        Your details have been sent to our academic cell at <strong className="text-white">info@mamotechnolabs.com</strong>. A senior advisor will contact you within 2 business hours.
+                      </p>
+                    </div>
+                    {confusedMailto && (
+                      <div className="pt-1">
+                        <a
+                          href={confusedMailto}
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 text-brand-300" />
+                          Open Copy in Mail Client
+                        </a>
+                      </div>
+                    )}
+                    <div className="pt-2">
+                      <button
+                        onClick={() => setConfusedSubmitted(false)}
+                        className="text-xs text-brand-300 hover:underline font-semibold"
+                      >
+                        Submit another request
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleConfusedSubmit} className="space-y-4">
@@ -934,9 +970,20 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
 
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-brand-400 via-emerald-400 to-teal-400 hover:opacity-95 transition-opacity shadow-lg"
+                      disabled={confusedSubmitting}
+                      className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-brand-400 via-emerald-400 to-teal-400 hover:opacity-95 transition-opacity shadow-lg flex items-center justify-center gap-2 disabled:opacity-70"
                     >
-                      Book My Free Counseling Session
+                      {confusedSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
+                          <span>Sending to info@mamotechnolabs.com...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-3.5 h-3.5 text-slate-950" />
+                          <span>Book My Free Counseling Session</span>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

@@ -10,8 +10,11 @@ import {
   MessageSquare,
   Clock,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  ExternalLink,
+  Loader2
 } from 'lucide-react';
+import { sendInquiryEmail } from '../utils/sendMail';
 
 interface ContactPageProps {
   navigateTo: (route: RouteType) => void;
@@ -19,6 +22,8 @@ interface ContactPageProps {
 
 export const ContactPage: React.FC<ContactPageProps> = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mailtoFallback, setMailtoFallback] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,12 +36,28 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     isRobotChecked: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.isRobotChecked) {
       alert('Please confirm verification.');
       return;
     }
+    setIsSubmitting(true);
+    const result = await sendInquiryEmail({
+      formType: 'Contact',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      courseOrTrack: formData.technology,
+      message: formData.comments,
+      extraDetails: {
+        'City': formData.city || 'Not provided',
+        'Inquiry Category': formData.type,
+        'Lead Source': formData.source
+      }
+    });
+    setMailtoFallback(result.mailtoUrl);
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
@@ -71,19 +92,19 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             
             {/* Card 1: Email */}
-            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 transition-all text-center space-y-2 group shadow-xs">
+            <a
+              href="mailto:info@mamotechnolabs.com?subject=Inquiry%20from%20Website&body=Hi%20Admissions%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20courses."
+              className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 hover:bg-brand-50/20 transition-all text-center space-y-2 group shadow-xs block"
+            >
               <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
                 <Mail className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">Email Admissions</h3>
               <p className="text-xs text-slate-500">General queries & applications</p>
-              <a
-                href="mailto:info@mamotechnolabs.com"
-                className="text-xs font-bold text-brand-600 hover:underline block pt-1"
-              >
+              <span className="text-xs font-bold text-brand-600 group-hover:underline block pt-1">
                 info@mamotechnolabs.com
-              </a>
-            </div>
+              </span>
+            </a>
 
             {/* Card 2: Phone */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-brand-300 transition-all text-center space-y-2 group shadow-xs">
@@ -166,14 +187,35 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               </div>
 
               {submitted ? (
-                <div className="text-center py-12 space-y-3">
-                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto">
+                <div className="text-center py-10 space-y-4">
+                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto shadow-sm">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="text-xl font-black text-slate-900">Thank You!</h4>
-                  <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-                    Your inquiry has been logged. An academic counselor will reach out via call/WhatsApp shortly.
-                  </p>
+                  <div className="space-y-1.5">
+                    <h4 className="text-xl font-black text-slate-900">Inquiry Dispatched!</h4>
+                    <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+                      Your details have been submitted to <strong className="text-slate-900">info@mamotechnolabs.com</strong>. Our admissions counselor will contact you via Phone/WhatsApp shortly.
+                    </p>
+                  </div>
+                  {mailtoFallback && (
+                    <div className="pt-2">
+                      <a
+                        href={mailtoFallback}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-brand-600" />
+                        Open Copy in Your Email Client
+                      </a>
+                    </div>
+                  )}
+                  <div className="pt-3 border-t border-slate-100">
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="text-xs font-bold text-brand-600 hover:underline"
+                    >
+                      ← Send another inquiry
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -258,9 +300,20 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 transition-all shadow-md"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-70"
                   >
-                    Send Inquiry
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending to info@mamotechnolabs.com...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" />
+                        <span>Send Inquiry</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}

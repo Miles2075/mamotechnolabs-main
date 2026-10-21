@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ShieldCheck, Sparkles, Send, PhoneCall } from 'lucide-react';
+import { X, CheckCircle2, ShieldCheck, Sparkles, Send, PhoneCall, Loader2, ExternalLink } from 'lucide-react';
+import { sendInquiryEmail } from '../utils/sendMail';
 
 interface CounselingModalProps {
   isOpen: boolean;
@@ -20,6 +21,8 @@ export const CounselingModal: React.FC<CounselingModalProps> = ({
     isRobotChecked: false
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mailtoFallback, setMailtoFallback] = useState('');
 
   useEffect(() => {
     if (defaultCourse) {
@@ -29,17 +32,29 @@ export const CounselingModal: React.FC<CounselingModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.isRobotChecked) {
       alert('Please confirm verification.');
       return;
     }
+    setIsSubmitting(true);
+    const result = await sendInquiryEmail({
+      formType: 'Counseling',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      courseOrTrack: formData.training
+    });
+    setMailtoFallback(result.mailtoUrl);
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setIsSubmitting(false);
+    setMailtoFallback('');
     setFormData({
       name: '',
       email: '',
@@ -80,17 +95,21 @@ export const CounselingModal: React.FC<CounselingModalProps> = ({
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto shadow-sm">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <div className="space-y-1">
-                <h4 className="text-2xl font-black text-slate-900">Request Confirmed!</h4>
-                <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong className="text-slate-800">{formData.name}</strong>. An admissions counselor will call you within 2 working hours.
+              <div className="space-y-1.5">
+                <h4 className="text-2xl font-black text-slate-900">Inquiry Sent to Admissions!</h4>
+                <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+                  Thank you, <strong className="text-slate-800">{formData.name}</strong>. Your consultation request has been delivered to <strong className="text-slate-800">info@mamotechnolabs.com</strong>. A senior counselor will contact you shortly.
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 text-left max-w-sm mx-auto space-y-1.5">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Selected Course:</span>
+                  <span className="text-slate-400">Selected Track:</span>
                   <span className="font-bold">{formData.training}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Email Address:</span>
+                  <span className="font-bold">{formData.email}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Contact Number:</span>
@@ -98,12 +117,24 @@ export const CounselingModal: React.FC<CounselingModalProps> = ({
                 </div>
               </div>
 
+              {mailtoFallback && (
+                <div className="pt-1">
+                  <a
+                    href={mailtoFallback}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-brand-600" />
+                    Open Copy in Your Mail App
+                  </a>
+                </div>
+              )}
+
               <div className="pt-2">
                 <button
                   onClick={handleReset}
                   className="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
                 >
-                  Close Window
+                  Done
                 </button>
               </div>
             </div>
@@ -178,9 +209,20 @@ export const CounselingModal: React.FC<CounselingModalProps> = ({
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 hover:from-brand-700 hover:to-teal-700 transition-all shadow-md shadow-brand-500/20"
+                disabled={isSubmitting}
+                className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 hover:from-brand-700 hover:to-teal-700 transition-all shadow-md shadow-brand-500/20 flex items-center justify-center gap-2 disabled:opacity-70"
               >
-                Schedule My Free Counseling Call
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Dispatching to info@mamotechnolabs.com...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Schedule My Free Counseling Call</span>
+                  </>
+                )}
               </button>
 
               <div className="flex items-center justify-center gap-4 pt-2 text-[11px] text-slate-500 border-t border-slate-100">

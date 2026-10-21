@@ -19,8 +19,10 @@ import {
   Users,
   Briefcase,
   ExternalLink,
-  Star
+  Star,
+  Loader2
 } from 'lucide-react';
+import { sendInquiryEmail } from '../utils/sendMail';
 
 interface PlacementsPageProps {
   navigateTo: (route: RouteType) => void;
@@ -30,20 +32,38 @@ interface PlacementsPageProps {
 export const PlacementsPage: React.FC<PlacementsPageProps> = ({ navigateTo, openCounseling }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [learningFormSubmitted, setLearningFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mailtoFallback, setMailtoFallback] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    domain: 'ai',
     message: '',
     robotCheck: false
   });
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.robotCheck) {
       alert('Please confirm you are not a robot.');
       return;
     }
+    setIsSubmitting(true);
+    const result = await sendInquiryEmail({
+      formType: 'Placement Registration',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      courseOrTrack: formData.domain,
+      message: formData.message,
+      extraDetails: {
+        'Placement Cell Application': 'Yes',
+        'Academic Partner Network': '100+ Hiring Giants'
+      }
+    });
+    setMailtoFallback(result.mailtoUrl);
+    setIsSubmitting(false);
     setLearningFormSubmitted(true);
   };
 
@@ -238,22 +258,165 @@ export const PlacementsPage: React.FC<PlacementsPageProps> = ({ navigateTo, open
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          6. BOTTOM ENROLL CTA
+          6. PLACEMENT CELL REGISTRATION & CONSULTATION FORM
          ───────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-700 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Ready to Land Your Dream IT Offer?
-          </h2>
-          <p className="text-brand-100 text-sm max-w-xl mx-auto leading-relaxed">
-            Register today and let our corporate placement specialists connect your profile directly with hiring managers.
-          </p>
-          <button
-            onClick={openCounseling}
-            className="px-8 py-4 rounded-full bg-white text-slate-900 font-extrabold text-xs uppercase tracking-wider shadow-xl hover:bg-slate-100 transition-colors"
-          >
-            Schedule Free Placement Consultation
-          </button>
+      <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Campus Recruitment Drives 2026</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
+              Register for Direct Placement Drives
+            </h2>
+            <p className="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
+              Submit your candidate profile directly to our Placement Cell. Our corporate coordinators connect your resume with active openings across our 100+ partner tech companies.
+            </p>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+            {learningFormSubmitted ? (
+              <div className="text-center py-8 space-y-4">
+                <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="text-2xl font-black text-white">Placement Registration Received!</h4>
+                  <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
+                    Your details have been submitted to our placement officers at <strong className="text-white">info@mamotechnolabs.com</strong>. We will notify you of upcoming recruitment rounds.
+                  </p>
+                </div>
+                {mailtoFallback && (
+                  <div className="pt-2">
+                    <a
+                      href={mailtoFallback}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 text-brand-300" />
+                      Open Copy in Mail Client
+                    </a>
+                  </div>
+                )}
+                <div className="pt-2">
+                  <button
+                    onClick={() => setLearningFormSubmitted(false)}
+                    className="text-xs font-semibold text-brand-300 hover:underline"
+                  >
+                    Submit another candidate registration
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-200 mb-1">Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. John Doe"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/90 text-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-200 mb-1">Phone / WhatsApp Number *</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/90 text-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-200 mb-1">Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/90 text-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-200 mb-1">Target IT Domain / Role</label>
+                    <select
+                      value={formData.domain}
+                      onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/90 text-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400"
+                    >
+                      <option value="ai">AI / GenAI / Prompt Engineering</option>
+                      <option value="ds">Data Science & Machine Learning</option>
+                      <option value="web">Full-Stack Web Development (MERN/Python)</option>
+                      <option value="qa">Software Quality Assurance / Testing</option>
+                      <option value="internship">IT Internship Placement</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-200 mb-1">Current Qualification / Experience</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. B.E. Computer Science 2025 / BCA / Final Year"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/90 text-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400"
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 pt-1">
+                  <input
+                    type="checkbox"
+                    id="placeRobot"
+                    checked={formData.robotCheck}
+                    onChange={(e) => setFormData({ ...formData, robotCheck: e.target.checked })}
+                    className="rounded text-brand-600 focus:ring-brand-400 w-4 h-4"
+                  />
+                  <label htmlFor="placeRobot" className="text-xs text-slate-300">
+                    I confirm my details and agree to receive placement drive alerts
+                  </label>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:flex-1 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-brand-400 via-emerald-400 to-teal-400 hover:opacity-95 transition-opacity shadow-lg flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
+                        <span>Dispatching to info@mamotechnolabs.com...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5 text-slate-950" />
+                        <span>Submit Placement Registration</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={openCounseling}
+                    className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-xs text-white bg-white/10 hover:bg-white/20 transition-colors border border-white/20 whitespace-nowrap"
+                  >
+                    Schedule 1-on-1 Consultation
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </section>
     </div>

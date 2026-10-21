@@ -18,8 +18,11 @@ import {
   Zap,
   Check,
   Briefcase,
-  ArrowRight
+  ArrowRight,
+  Loader2,
+  ExternalLink
 } from 'lucide-react';
+import { sendInquiryEmail } from '../utils/sendMail';
 
 interface HirePageProps {
   navigateTo: (route: RouteType) => void;
@@ -29,6 +32,8 @@ interface HirePageProps {
 export const HirePage: React.FC<HirePageProps> = ({ navigateTo, openCounseling }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [hireSubmitted, setHireSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mailtoFallback, setMailtoFallback] = useState('');
   const [hireData, setHireData] = useState({
     companyName: '',
     contactPerson: '',
@@ -40,12 +45,27 @@ export const HirePage: React.FC<HirePageProps> = ({ navigateTo, openCounseling }
     robotCheck: false
   });
 
-  const handleHireSubmit = (e: React.FormEvent) => {
+  const handleHireSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!hireData.robotCheck) {
       alert('Please confirm verification.');
       return;
     }
+    setIsSubmitting(true);
+    const result = await sendInquiryEmail({
+      formType: 'Corporate Hire',
+      name: hireData.contactPerson,
+      email: hireData.email,
+      phone: hireData.phone,
+      courseOrTrack: hireData.positions,
+      message: hireData.notes,
+      extraDetails: {
+        'Company Name': hireData.companyName,
+        'Headcount Required': hireData.count
+      }
+    });
+    setMailtoFallback(result.mailtoUrl);
+    setIsSubmitting(false);
     setHireSubmitted(true);
   };
 
@@ -164,14 +184,35 @@ export const HirePage: React.FC<HirePageProps> = ({ navigateTo, openCounseling }
               </div>
 
               {hireSubmitted ? (
-                <div className="text-center py-10 space-y-3">
+                <div className="text-center py-10 space-y-4">
                   <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="text-xl font-black text-white">Requirement Received!</h4>
-                  <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                    Our placement team will review your requirements and reach out within 24 hours.
-                  </p>
+                  <div className="space-y-1">
+                    <h4 className="text-xl font-black text-white">Hiring Requirement Dispatched!</h4>
+                    <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
+                      Your staffing request has been sent to our corporate recruitment cell at <strong className="text-brand-300">info@mamotechnolabs.com</strong>. We will share curated resumes within 24 hours.
+                    </p>
+                  </div>
+                  {mailtoFallback && (
+                    <div className="pt-2">
+                      <a
+                        href={mailtoFallback}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-brand-400" />
+                        Open Copy in Your Mail Client
+                      </a>
+                    </div>
+                  )}
+                  <div className="pt-2">
+                    <button
+                      onClick={() => setHireSubmitted(false)}
+                      className="text-xs font-semibold text-brand-400 hover:underline"
+                    >
+                      Post another requirement
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleHireSubmit} className="space-y-4">
@@ -268,9 +309,20 @@ export const HirePage: React.FC<HirePageProps> = ({ navigateTo, openCounseling }
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-brand-400 via-emerald-400 to-teal-400 hover:opacity-95 transition-opacity shadow-lg"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-brand-400 via-emerald-400 to-teal-400 hover:opacity-95 transition-opacity shadow-lg flex items-center justify-center gap-2 disabled:opacity-70"
                   >
-                    Request Pre-Screened Candidate Resumes
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
+                        <span>Sending to info@mamotechnolabs.com...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5 text-slate-950" />
+                        <span>Request Pre-Screened Candidate Resumes</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}
