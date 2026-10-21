@@ -53,36 +53,36 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
   };
 
   const navItemClass = (isActive: boolean) =>
-    `relative px-3.5 py-2 text-[13px] font-bold tracking-wide transition-all rounded-full flex items-center gap-1.5 ${
+    `relative px-2.5 xl:px-3 py-1.5 text-xs xl:text-[13px] font-semibold transition-all duration-150 rounded-lg flex items-center gap-1 whitespace-nowrap shrink-0 ${
       isActive
-        ? 'text-brand-700 bg-brand-50/90 shadow-sm'
+        ? 'text-brand-700 bg-brand-50/90 font-bold shadow-2xs'
         : 'text-slate-600 hover:text-brand-600 hover:bg-slate-100/70'
     }`;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Banner Notice */}
-      <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium border-b border-emerald-900/40 hidden md:block">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white text-[11px] sm:text-xs py-1.5 font-medium border-b border-emerald-900/40 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 relative">
+            <span className="flex h-2 w-2 relative shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-emerald-300 font-semibold">Admissions Open 2026:</span>
-            <span className="text-slate-300">New Batches in Generative AI, Full-Stack & Data Science</span>
+            <span className="text-emerald-300 font-semibold whitespace-nowrap">Admissions Open 2026:</span>
+            <span className="text-slate-300 truncate">New Batches in Generative AI, Full-Stack & Data Science</span>
           </div>
-          <div className="flex items-center gap-4 text-slate-300">
-            <span className="flex items-center gap-1">
-              <Award className="w-3.5 h-3.5 text-amber-400" />
+          <div className="flex items-center gap-4 text-slate-300 shrink-0">
+            <span className="flex items-center gap-1.5 whitespace-nowrap">
+              <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               ISO 9001:2015 Certified
             </span>
-            <span>•</span>
+            <span className="text-slate-600">•</span>
             <a
               href="tel:+917622990059"
-              className="hover:text-emerald-300 transition-colors flex items-center gap-1 font-semibold"
+              className="hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-semibold whitespace-nowrap"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+              <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               +91 76229 90059
             </a>
           </div>
@@ -93,22 +93,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-slate-900/5 border-b border-slate-200/80 py-2.5'
-            : 'bg-white/80 backdrop-blur-md border-b border-slate-200/50 py-3.5'
+            ? 'bg-white/95 backdrop-blur-xl shadow-md shadow-slate-900/5 border-b border-slate-200/80 py-2'
+            : 'bg-white/90 backdrop-blur-md border-b border-slate-200/60 py-2.5 sm:py-3'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-3 xl:gap-4">
             {/* Brand Logo */}
             <button
               onClick={() => handleNav('home')}
-              className="flex items-center gap-2 group text-left focus:outline-none"
+              className="flex items-center gap-2 group text-left focus:outline-none shrink-0"
               aria-label="MaMo Academy Home"
             >
               <img
                 src="/mamo-academy-logo.png"
                 alt="MaMo Academy Logo"
-                className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]"
                 onError={(e) => {
                   const target = e.currentTarget;
                   target.src = '/logomamo.png';
@@ -117,12 +117,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
             </button>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-1 font-semibold text-slate-700">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-slate-700">
               <button
                 onClick={() => handleNav('home')}
                 className={navItemClass(currentRoute === 'home')}
               >
-                HOME
+                Home
               </button>
 
               {/* Courses Dropdown with Mega-Menu */}
@@ -135,10 +135,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                   className={navItemClass(currentRoute === 'courses' || currentRoute === 'course-detail')}
                   onClick={() => handleNav('courses')}
                 >
-                  <span>COURSES</span>
+                  <span>Courses</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      coursesOpen ? 'rotate-180 text-brand-600' : ''
+                    className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
+                      coursesOpen ? 'rotate-180 text-brand-600' : 'text-slate-400'
                     }`}
                   />
                 </button>
@@ -306,7 +306,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                 onClick={() => handleNav('about')}
                 className={navItemClass(currentRoute === 'about')}
               >
-                ABOUT US
+                About Us
               </button>
 
               {/* Student Corner Dropdown */}
@@ -320,16 +320,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                     'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'
                   ].includes(currentRoute))}
                 >
-                  <span>STUDENT CORNER</span>
+                  <span>Student Corner</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      studentCornerOpen ? 'rotate-180 text-brand-600' : ''
+                    className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
+                      studentCornerOpen ? 'rotate-180 text-brand-600' : 'text-slate-400'
                     }`}
                   />
                 </button>
 
                 {studentCornerOpen && (
-                  <div className="absolute top-full left-0 w-64 bg-white/95 backdrop-blur-2xl rounded-2xl shadow-xl border border-slate-100 p-2 mt-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full left-0 w-64 bg-white/95 backdrop-blur-2xl rounded-2xl shadow-xl border border-slate-100 p-2 mt-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
                     {[
                       { route: 'internship' as RouteType, label: 'IT Internship in Vadodara', icon: Briefcase },
                       { route: 'final-year' as RouteType, label: 'Final Year Project Training', icon: GraduationCap },
@@ -360,36 +360,36 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                 onClick={() => handleNav('placements')}
                 className={navItemClass(currentRoute === 'placements')}
               >
-                PLACEMENTS
+                Placements
               </button>
 
               <button
                 onClick={() => handleNav('hire')}
                 className={navItemClass(currentRoute === 'hire')}
               >
-                HIRE FROM US
+                Hire From Us
               </button>
 
               <button
                 onClick={() => handleNav('skill')}
                 className={navItemClass(currentRoute === 'skill')}
               >
-                SKILL CERTIFICATION
+                Skill Certification
               </button>
 
               <button
                 onClick={() => handleNav('contact')}
                 className={navItemClass(currentRoute === 'contact')}
               >
-                CONTACT US
+                Contact Us
               </button>
             </nav>
 
             {/* Header Right Action CTA */}
-            <div className="hidden xl:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
               <button
                 onClick={() => handleNav('courses')}
-                className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-full transition-colors"
+                className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0"
                 title="Search courses"
                 aria-label="Search courses"
               >
@@ -397,10 +397,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
               </button>
               <button
                 onClick={openCounseling}
-                className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-black tracking-wide text-white bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md shadow-brand-500/20"
+                className="whitespace-nowrap shrink-0 inline-flex items-center justify-center px-4 xl:px-5 py-2 xl:py-2.5 rounded-full text-xs font-bold tracking-wide text-white bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md shadow-brand-500/20"
               >
                 <span>Free Consultation</span>
-                <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                <ArrowRight className="w-3.5 h-3.5 ml-1.5 shrink-0" />
               </button>
             </div>
 
