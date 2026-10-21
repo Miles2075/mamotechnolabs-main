@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ShieldCheck,
   GraduationCap,
-  Bullseye,
   Wifi,
   Laptop,
   Users,

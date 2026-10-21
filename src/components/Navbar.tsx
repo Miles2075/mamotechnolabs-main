@@ -3,7 +3,7 @@ import { RouteType } from '../types';
 import {
   ChevronDown,
   Brain,
-  Robot,
+  Bot,
   Cpu,
   PenTool,
   BarChart2,
@@ -139,7 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       className="p-3 rounded-xl border border-gray-100 hover:border-brand-300 hover:bg-brand-50/50 transition-all text-left flex items-start gap-3 group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-emerald-100 text-brand-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                        <Robot className="w-5 h-5" />
+                        <Bot className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">

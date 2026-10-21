@@ -20,7 +20,7 @@ import {
   Sparkles,
   Bot,
   GraduationCap,
-  Bullseye,
+  Target,
   Layers,
   Send
 } from 'lucide-react';
@@ -621,7 +621,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
             {/* Right: Why Choose Us */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200">
-                <Bullseye className="w-3.5 h-3.5 text-blue-600" />
+                <Target className="w-3.5 h-3.5 text-blue-600" />
                 <span>Why Choose Us</span>
               </div>
 
