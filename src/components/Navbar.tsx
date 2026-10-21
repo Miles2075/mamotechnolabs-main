@@ -102,29 +102,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
             {/* Brand Logo */}
             <button
               onClick={() => handleNav('home')}
-              className="flex items-center gap-3 group text-left focus:outline-none"
-              aria-label="Mamo TechnoLabs Home"
+              className="flex items-center gap-2 group text-left focus:outline-none"
+              aria-label="MaMo Academy Home"
             >
-              <div className="relative">
-                <img
-                  src="/logomamo.png"
-                  alt="Mamo TechnoLabs Logo"
-                  className="h-10 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    target.style.display = 'none';
-                  }}
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
-                  Mamo<span className="text-gradient-brand">TechnoLabs</span>
-                </span>
-                <span className="text-[10px] tracking-wider text-slate-500 font-bold uppercase mt-1 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  Innovations Unlimited
-                </span>
-              </div>
+              <img
+                src="/mamo-academy-logo.png"
+                alt="MaMo Academy Logo"
+                className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.src = '/logomamo.png';
+                }}
+              />
             </button>
 
             {/* Desktop Navigation Links */}

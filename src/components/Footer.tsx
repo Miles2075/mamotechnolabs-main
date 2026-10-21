@@ -30,16 +30,13 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
               <img
-                src="/logomamo.png"
-                alt="MaMo TechnoLabs Logo"
-                className="h-10 object-contain brightness-0 invert"
+                src="/mamo-academy-logo-white.png"
+                alt="MaMo Academy Logo"
+                className="h-10 w-auto object-contain"
                 onError={(e) => {
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.src = '/mamo-academy-logo.png';
                 }}
               />
-              <span className="text-xl font-black text-white tracking-tight">
-                Mamo<span className="text-gradient-brand">TechnoLabs</span>
-              </span>
             </div>
             
             <p className="text-xs text-slate-400 leading-relaxed">
