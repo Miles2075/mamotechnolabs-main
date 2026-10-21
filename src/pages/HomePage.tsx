@@ -98,7 +98,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
     { name: 'Mastercard', logo: 'mastercard' },
     { name: 'Infosys', type: 'mnc' },
     { name: 'Rishabh Software', logo: 'rishabh' },
-    { name: 'Civica', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/04/C-7.png' },
+    { name: 'Civica', type: 'mnc' },
     { name: 'L&T Technology Services', type: 'mnc' },
     { name: 'Wipro Technologies', type: 'mnc' },
     { name: 'Jeavio', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/06/jeavio-1.png' },
@@ -125,32 +125,52 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
   const renderPartnerCard = (partner: { name: string; type?: string; logo?: string; img?: string; badge?: string }, key: string) => (
     <div
       key={key}
-      className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-brand-400 hover:shadow-card-hover transition-all duration-200 shrink-0 group/card"
+      className="flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-brand-500 hover:shadow-card-hover transition-all duration-200 shrink-0 group/card h-14"
     >
-      {partner.img ? (
-        <div className="h-7 max-w-[120px] flex items-center justify-center">
-          <img
-            src={partner.img}
-            alt={partner.name}
-            className="max-h-7 max-w-full object-contain filter grayscale group-hover/card:grayscale-0 transition-all"
-          />
-        </div>
-      ) : partner.logo === 'mastercard' ? (
-        <div className="flex items-center gap-2">
-          <div className="flex -space-x-2">
-            <span className="w-5 h-5 rounded-full bg-[#EB001B] inline-block opacity-90 shadow-xs" />
-            <span className="w-5 h-5 rounded-full bg-[#F79E1B] inline-block opacity-90 shadow-xs" />
+      {partner.logo === 'mastercard' ? (
+        <div className="flex items-center gap-3">
+          <div className="flex -space-x-2 shrink-0">
+            <span className="w-6 h-6 rounded-full bg-[#EB001B] inline-block opacity-95 shadow-xs" />
+            <span className="w-6 h-6 rounded-full bg-[#F79E1B] inline-block opacity-95 shadow-xs" />
           </div>
-          <span className="font-extrabold text-xs tracking-tight text-slate-800">mastercard</span>
+          <span className="font-extrabold text-sm tracking-tight text-slate-800">Mastercard</span>
         </div>
       ) : partner.logo === 'rishabh' ? (
-        <div className="flex flex-col items-start leading-none">
-          <span className="font-black text-xs text-[#d32f2f] tracking-wider">RISHABH</span>
-          <span className="text-[7px] font-bold text-slate-400 tracking-widest mt-0.5">SOFTWARE</span>
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
+            <span className="font-black text-xs text-[#d32f2f]">R</span>
+          </div>
+          <div className="text-left">
+            <span className="font-black text-xs text-[#d32f2f] tracking-wider block">RISHABH</span>
+            <span className="text-[8px] font-bold text-slate-400 tracking-widest block">SOFTWARE</span>
+          </div>
+        </div>
+      ) : partner.img ? (
+        <div className="flex items-center gap-3">
+          <div className="h-8 max-w-[80px] flex items-center justify-center shrink-0">
+            <img
+              src={partner.img}
+              alt={partner.name}
+              className="max-h-7 max-w-full object-contain filter grayscale group-hover/card:grayscale-0 transition-all"
+              onError={(e) => {
+                (e.currentTarget as HTMLElement).style.display = 'none';
+              }}
+            />
+          </div>
+          <div className="text-left">
+            <span className="text-xs sm:text-sm font-bold text-slate-800 block group-hover/card:text-brand-700 transition-colors whitespace-nowrap">
+              {partner.name}
+            </span>
+            {partner.badge && (
+              <span className="text-[9px] font-bold text-brand-600 uppercase tracking-wider block">
+                {partner.badge}
+              </span>
+            )}
+          </div>
         </div>
       ) : (
-        <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-600 group-hover/card:bg-brand-600 group-hover/card:text-white transition-colors">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-600 group-hover/card:bg-brand-600 group-hover/card:text-white transition-colors shrink-0">
             {partner.type === 'university' ? (
               <GraduationCap className="w-4 h-4" />
             ) : (
@@ -427,11 +447,11 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
-          <div className="flex overflow-hidden select-none group w-full">
-            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee group-hover:[animation-play-state:paused] pr-4">
+          <div className="flex overflow-hidden select-none group w-full py-1">
+            <div className="marquee-track-forward shrink-0 gap-4 pr-4">
               {marqueeRow1.map((p, i) => renderPartnerCard(p, `r1-a-${i}`))}
             </div>
-            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee group-hover:[animation-play-state:paused] pr-4" aria-hidden="true">
+            <div className="marquee-track-forward shrink-0 gap-4 pr-4" aria-hidden="true">
               {marqueeRow1.map((p, i) => renderPartnerCard(p, `r1-b-${i}`))}
             </div>
           </div>
@@ -442,11 +462,11 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
-          <div className="flex overflow-hidden select-none group w-full">
-            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee-reverse group-hover:[animation-play-state:paused] pr-4">
+          <div className="flex overflow-hidden select-none group w-full py-1">
+            <div className="marquee-track-reverse shrink-0 gap-4 pr-4">
               {marqueeRow2.map((p, i) => renderPartnerCard(p, `r2-a-${i}`))}
             </div>
-            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee-reverse group-hover:[animation-play-state:paused] pr-4" aria-hidden="true">
+            <div className="marquee-track-reverse shrink-0 gap-4 pr-4" aria-hidden="true">
               {marqueeRow2.map((p, i) => renderPartnerCard(p, `r2-b-${i}`))}
             </div>
           </div>

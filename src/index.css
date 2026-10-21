@@ -37,19 +37,45 @@
   }
 }
 
-/* Custom marquee animations */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+/* Custom seamless infinite marquee */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
-.animate-marquee {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 30s linear infinite;
+@keyframes marquee-scroll-reverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
-.animate-marquee:hover {
+.marquee-track-forward {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  animation: marquee-scroll-reverse 35s linear infinite;
+}
+
+.marquee-track-forward:hover,
+.marquee-track-reverse:hover,
+.group:hover .marquee-track-forward,
+.group:hover .marquee-track-reverse {
   animation-play-state: paused;
 }
 
