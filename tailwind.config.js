@@ -41,8 +41,8 @@ export default {
         'card-hover': '0 20px 40px -15px rgba(0, 0, 0, 0.08)',
       },
       animation: {
-        'marquee': 'marquee 28s linear infinite',
-        'marquee-reverse': 'marquee-reverse 28s linear infinite',
+        'marquee': 'marquee 35s linear infinite',
+        'marquee-reverse': 'marquee-reverse 35s linear infinite',
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
         'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
@@ -50,10 +50,10 @@ export default {
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
         'marquee-reverse': {
-          '0%': { transform: 'translateX(-50%)' },
+          '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
         float: {

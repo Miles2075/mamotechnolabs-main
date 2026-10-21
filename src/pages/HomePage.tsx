@@ -93,6 +93,85 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
     setConfusedSubmitted(true);
   };
 
+  const marqueeRow1 = [
+    { name: 'Tata Consultancy Services', type: 'mnc' },
+    { name: 'Mastercard', logo: 'mastercard' },
+    { name: 'Infosys', type: 'mnc' },
+    { name: 'Rishabh Software', logo: 'rishabh' },
+    { name: 'Civica', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/04/C-7.png' },
+    { name: 'L&T Technology Services', type: 'mnc' },
+    { name: 'Wipro Technologies', type: 'mnc' },
+    { name: 'Jeavio', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/06/jeavio-1.png' },
+    { name: 'Cognizant', type: 'mnc' },
+    { name: 'NIQ', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/04/C-9.png' },
+    { name: 'Office Beacon', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/office-beacon-2.png' },
+    { name: 'Tech Mahindra', type: 'mnc' }
+  ];
+
+  const marqueeRow2 = [
+    { name: 'GSFC University', type: 'university', badge: 'Academic Partner', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY_ZnNF5PG3SKS6C672afeL_6x4pA8iKkPi9n2AK8Q9TLvHp6YgMeI8HU&s=10' },
+    { name: 'Parul University', type: 'university', badge: 'Academic Partner', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvk2lOGozlpDgWzN9FsCU3VyeXVdSVCx8Pcnj5ndYa5ToxUzmmouB0bQAF&s=10' },
+    { name: 'Altera', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/altera.png' },
+    { name: 'RK University', type: 'university', badge: 'Academic Partner', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/University-4.jpg' },
+    { name: 'Inorbvict', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/06/inorbvict.png' },
+    { name: 'TeamLease Skills Univ', type: 'university', badge: 'Academic Partner', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/University-1.jpg' },
+    { name: 'Mysphere Infotech', type: 'corporate' },
+    { name: 'Webmyne Systems', type: 'corporate' },
+    { name: 'NetWeb Software', type: 'corporate' },
+    { name: 'Allscripts', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/04/C-7.png' },
+    { name: 'HCL Technologies', type: 'mnc' }
+  ];
+
+  const renderPartnerCard = (partner: { name: string; type?: string; logo?: string; img?: string; badge?: string }, key: string) => (
+    <div
+      key={key}
+      className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-brand-400 hover:shadow-card-hover transition-all duration-200 shrink-0 group/card"
+    >
+      {partner.img ? (
+        <div className="h-7 max-w-[120px] flex items-center justify-center">
+          <img
+            src={partner.img}
+            alt={partner.name}
+            className="max-h-7 max-w-full object-contain filter grayscale group-hover/card:grayscale-0 transition-all"
+          />
+        </div>
+      ) : partner.logo === 'mastercard' ? (
+        <div className="flex items-center gap-2">
+          <div className="flex -space-x-2">
+            <span className="w-5 h-5 rounded-full bg-[#EB001B] inline-block opacity-90 shadow-xs" />
+            <span className="w-5 h-5 rounded-full bg-[#F79E1B] inline-block opacity-90 shadow-xs" />
+          </div>
+          <span className="font-extrabold text-xs tracking-tight text-slate-800">mastercard</span>
+        </div>
+      ) : partner.logo === 'rishabh' ? (
+        <div className="flex flex-col items-start leading-none">
+          <span className="font-black text-xs text-[#d32f2f] tracking-wider">RISHABH</span>
+          <span className="text-[7px] font-bold text-slate-400 tracking-widest mt-0.5">SOFTWARE</span>
+        </div>
+      ) : (
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-600 group-hover/card:bg-brand-600 group-hover/card:text-white transition-colors">
+            {partner.type === 'university' ? (
+              <GraduationCap className="w-4 h-4" />
+            ) : (
+              <Building2 className="w-4 h-4" />
+            )}
+          </div>
+          <div className="text-left">
+            <span className="text-xs sm:text-sm font-bold text-slate-800 block group-hover/card:text-brand-700 transition-colors whitespace-nowrap">
+              {partner.name}
+            </span>
+            {partner.badge && (
+              <span className="text-[9px] font-bold text-brand-600 uppercase tracking-wider block">
+                {partner.badge}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div className="pt-24 sm:pt-28">
       {/* ─────────────────────────────────────────────────────────
@@ -325,48 +404,71 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
       {/* ─────────────────────────────────────────────────────────
           2. CORPORATE RECRUITERS & UNIVERSITY MARQUEE
          ───────────────────────────────────────────────────────── */}
-      <section className="py-12 bg-white border-b border-slate-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-slate-400">
-            Our Graduates are Hired By 100+ Leading Tech Giants & University Partners
+      <section className="py-16 bg-white border-b border-slate-200/70 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs font-bold shadow-xs">
+            <Briefcase className="w-3.5 h-3.5 text-brand-600" />
+            <span>100% Verified Career Placement Network</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+            Our Graduates are Hired By{' '}
+            <span className="text-gradient-brand">100+ Leading Tech Giants</span>{' '}
+            & University Partners
+          </h2>
+
+          <p className="text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            From premier Gujarat tech unicorns and global IT consulting powerhouses to Fortune 500 multinationals and accredited university academic collaborations.
           </p>
         </div>
 
-        <div className="relative w-full overflow-hidden">
-          {/* Gradient Fade Overlays */}
+        {/* Ticker Row 1 (Tech MNCs & Corporate Hiring Partners) */}
+        <div className="relative w-full overflow-hidden mb-4">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
-          <div className="flex space-x-12 animate-marquee items-center">
-            {[
-              'Tata Consultancy Services',
-              'Infosys',
-              'L&T Technology Services',
-              'Wipro',
-              'Cognizant',
-              'Civica',
-              'GSFC University',
-              'Parul University',
-              'RK University',
-              'TeamLease Skills University',
-              'HCL Technologies',
-              'Tech Mahindra',
-              'Tata Consultancy Services',
-              'Infosys',
-              'L&T Technology Services',
-              'Wipro',
-              'Cognizant',
-              'GSFC University',
-              'Parul University'
-            ].map((name, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-slate-50 border border-slate-200/60 shadow-xs shrink-0"
-              >
-                <Building2 className="w-4 h-4 text-brand-600" />
-                <span className="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">{name}</span>
-              </div>
-            ))}
+          <div className="flex overflow-hidden select-none group w-full">
+            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee group-hover:[animation-play-state:paused] pr-4">
+              {marqueeRow1.map((p, i) => renderPartnerCard(p, `r1-a-${i}`))}
+            </div>
+            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee group-hover:[animation-play-state:paused] pr-4" aria-hidden="true">
+              {marqueeRow1.map((p, i) => renderPartnerCard(p, `r1-b-${i}`))}
+            </div>
+          </div>
+        </div>
+
+        {/* Ticker Row 2 (Tech Innovators & University Academic Partners - Reverse Direction) */}
+        <div className="relative w-full overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+          <div className="flex overflow-hidden select-none group w-full">
+            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee-reverse group-hover:[animation-play-state:paused] pr-4">
+              {marqueeRow2.map((p, i) => renderPartnerCard(p, `r2-a-${i}`))}
+            </div>
+            <div className="flex shrink-0 items-center gap-4 min-w-full animate-marquee-reverse group-hover:[animation-play-state:paused] pr-4" aria-hidden="true">
+              {marqueeRow2.map((p, i) => renderPartnerCard(p, `r2-b-${i}`))}
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Placement Highlights Strip */}
+        <div className="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div className="space-y-1">
+            <div className="text-2xl sm:text-3xl font-black text-slate-900">100+</div>
+            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Recruiting Partners</div>
+          </div>
+          <div className="space-y-1">
+            <div className="text-2xl sm:text-3xl font-black text-brand-600">₹19 LPA</div>
+            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Highest Package</div>
+          </div>
+          <div className="space-y-1">
+            <div className="text-2xl sm:text-3xl font-black text-slate-900">95%</div>
+            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Placement Success</div>
+          </div>
+          <div className="space-y-1">
+            <div className="text-2xl sm:text-3xl font-black text-emerald-600">₹0 Cost</div>
+            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">For Hiring Companies</div>
           </div>
         </div>
       </section>
