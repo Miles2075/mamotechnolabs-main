@@ -33,22 +33,80 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
   const [isScrolled, setIsScrolled] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
   const [studentCornerOpen, setStudentCornerOpen] = useState(false);
+  const [coursesPinned, setCoursesPinned] = useState(false);
+  const [studentPinned, setStudentPinned] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
   const [mobileStudentOpen, setMobileStudentOpen] = useState(false);
+
+  const coursesTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const studentTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const coursesPinnedRef = React.useRef(false);
+  const studentPinnedRef = React.useRef(false);
+
+  const setCoursesPinnedState = (val: boolean) => {
+    coursesPinnedRef.current = val;
+    setCoursesPinned(val);
+  };
+
+  const setStudentPinnedState = (val: boolean) => {
+    studentPinnedRef.current = val;
+    setStudentPinned(val);
+  };
+
+  const handleCoursesEnter = () => {
+    if (coursesTimeoutRef.current) clearTimeout(coursesTimeoutRef.current);
+    setCoursesOpen(true);
+  };
+  const handleCoursesLeave = () => {
+    if (coursesPinnedRef.current) return;
+    coursesTimeoutRef.current = setTimeout(() => {
+      setCoursesOpen(false);
+    }, 200);
+  };
+
+  const handleStudentEnter = () => {
+    if (studentTimeoutRef.current) clearTimeout(studentTimeoutRef.current);
+    setStudentCornerOpen(true);
+  };
+  const handleStudentLeave = () => {
+    if (studentPinnedRef.current) return;
+    studentTimeoutRef.current = setTimeout(() => {
+      setStudentCornerOpen(false);
+    }, 200);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.nav-dropdown-container')) {
+        setCoursesOpen(false);
+        setCoursesPinnedState(false);
+        setStudentCornerOpen(false);
+        setStudentPinnedState(false);
+      }
+    };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClickOutside);
+      if (coursesTimeoutRef.current) clearTimeout(coursesTimeoutRef.current);
+      if (studentTimeoutRef.current) clearTimeout(studentTimeoutRef.current);
+    };
   }, []);
 
   const handleNav = (route: RouteType, detailId?: string) => {
     navigateTo(route, detailId);
+    if (coursesTimeoutRef.current) clearTimeout(coursesTimeoutRef.current);
+    if (studentTimeoutRef.current) clearTimeout(studentTimeoutRef.current);
     setCoursesOpen(false);
+    setCoursesPinnedState(false);
     setStudentCornerOpen(false);
+    setStudentPinnedState(false);
     setMobileMenuOpen(false);
   };
 
@@ -128,13 +186,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
 
               {/* Courses Dropdown with Mega-Menu */}
               <div
-                className="relative"
-                onMouseEnter={() => setCoursesOpen(true)}
-                onMouseLeave={() => setCoursesOpen(false)}
+                className="relative nav-dropdown-container"
+                onMouseEnter={handleCoursesEnter}
+                onMouseLeave={handleCoursesLeave}
               >
                 <button
                   className={navItemClass(currentRoute === 'courses' || currentRoute === 'course-detail')}
-                  onClick={() => handleNav('courses')}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (coursesPinned) {
+                      setCoursesPinnedState(false);
+                      setCoursesOpen(false);
+                    } else {
+                      setCoursesPinnedState(true);
+                      setCoursesOpen(true);
+                      setStudentPinnedState(false);
+                      setStudentCornerOpen(false);
+                    }
+                  }}
+                  aria-expanded={coursesOpen}
+                  aria-haspopup="true"
                 >
                   <span>Courses</span>
                   <ChevronDown
@@ -145,7 +216,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                 </button>
 
                 {coursesOpen && (
-                  <div className="absolute top-full left-0 w-[640px] xl:w-[680px] bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 p-6 mt-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                  <div
+                    className="absolute top-full left-0 pt-2 z-50 w-[640px] xl:w-[680px]"
+                    onMouseEnter={handleCoursesEnter}
+                    onMouseLeave={handleCoursesLeave}
+                  >
+                    <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 p-6 animate-in fade-in slide-in-from-top-1 duration-150">
                     <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                       <div>
                         <h3 className="font-extrabold text-slate-900 text-sm">Flagship Career Programs</h3>
@@ -300,37 +376,57 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       </button>
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
+            </div>
 
+            <button
+              onClick={() => handleNav('about')}
+              className={navItemClass(currentRoute === 'about')}
+            >
+              About Us
+            </button>
+
+            {/* Student Corner Dropdown */}
+            <div
+              className="relative nav-dropdown-container"
+              onMouseEnter={handleStudentEnter}
+              onMouseLeave={handleStudentLeave}
+            >
               <button
-                onClick={() => handleNav('about')}
-                className={navItemClass(currentRoute === 'about')}
+                className={navItemClass([
+                  'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'
+                ].includes(currentRoute))}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (studentPinned) {
+                    setStudentPinnedState(false);
+                    setStudentCornerOpen(false);
+                  } else {
+                    setStudentPinnedState(true);
+                    setStudentCornerOpen(true);
+                    setCoursesPinnedState(false);
+                    setCoursesOpen(false);
+                  }
+                }}
+                aria-expanded={studentCornerOpen}
+                aria-haspopup="true"
               >
-                About Us
+                <span>Student Corner</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
+                    studentCornerOpen ? 'rotate-180 text-brand-600' : 'text-slate-400'
+                  }`}
+                />
               </button>
 
-              {/* Student Corner Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setStudentCornerOpen(true)}
-                onMouseLeave={() => setStudentCornerOpen(false)}
-              >
-                <button
-                  className={navItemClass([
-                    'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'
-                  ].includes(currentRoute))}
+              {studentCornerOpen && (
+                <div
+                  className="absolute top-full left-0 pt-2 z-50 w-64"
+                  onMouseEnter={handleStudentEnter}
+                  onMouseLeave={handleStudentLeave}
                 >
-                  <span>Student Corner</span>
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
-                      studentCornerOpen ? 'rotate-180 text-brand-600' : 'text-slate-400'
-                    }`}
-                  />
-                </button>
-
-                {studentCornerOpen && (
-                  <div className="absolute top-full left-0 w-64 bg-white/95 backdrop-blur-2xl rounded-2xl shadow-xl border border-slate-100 p-2 mt-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                  <div className="bg-white/95 backdrop-blur-2xl rounded-2xl shadow-xl border border-slate-100 p-2 animate-in fade-in slide-in-from-top-1 duration-150">
                     {[
                       { route: 'internship' as RouteType, label: 'IT Internship in Vadodara', icon: Briefcase },
                       { route: 'final-year' as RouteType, label: 'Final Year Project Training', icon: GraduationCap },
@@ -354,8 +450,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       );
                     })}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
+            </div>
 
               <button
                 onClick={() => handleNav('placements')}
