@@ -63,21 +63,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Banner Notice */}
       <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white text-[11px] sm:text-xs py-1.5 font-medium border-b border-emerald-900/40 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 min-w-0 flex-1">
             <span className="flex h-2 w-2 relative shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="text-emerald-300 font-semibold whitespace-nowrap">Admissions Open 2026:</span>
-            <span className="text-slate-300 truncate">New Batches in Generative AI, Full-Stack & Data Science</span>
+            <span className="text-slate-300 truncate hidden xl:inline">New Batches in Generative AI, Full-Stack & Data Science</span>
+            <span className="text-slate-300 truncate xl:hidden">New Tech Batches</span>
           </div>
-          <div className="flex items-center gap-4 text-slate-300 shrink-0">
-            <span className="flex items-center gap-1.5 whitespace-nowrap">
+          <div className="flex items-center gap-3 xl:gap-4 text-slate-300 shrink-0">
+            <span className="hidden lg:flex items-center gap-1.5 whitespace-nowrap">
               <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               ISO 9001:2015 Certified
             </span>
-            <span className="text-slate-600">•</span>
+            <span className="text-slate-600 hidden lg:inline">•</span>
             <a
               href="tel:+917622990059"
               className="hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-semibold whitespace-nowrap"
@@ -426,111 +427,172 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[60px] bottom-0 bg-slate-900/40 backdrop-blur-sm z-50 animate-in fade-in duration-200">
-          <div className="bg-white h-full max-w-sm ml-auto p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
-            <div className="space-y-2">
-              <div className="pb-3 border-b border-slate-100">
-                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-400">Navigation</span>
-              </div>
+        <div className="lg:hidden fixed inset-0 z-[100] flex justify-end">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
 
-              <button
-                onClick={() => handleNav('home')}
-                className="w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-              >
-                Home
-              </button>
-
-              {/* Mobile Courses Accordion */}
-              <div>
+          {/* Drawer Panel */}
+          <div className="relative w-full max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between z-10 overflow-y-auto animate-in slide-in-from-right duration-300">
+            <div>
+              {/* Drawer Header with Logo and Close Button */}
+              <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-md z-10">
                 <button
-                  onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  onClick={() => handleNav('home')}
+                  className="flex items-center gap-2 text-left focus:outline-none"
+                  aria-label="MaMo Academy Home"
                 >
-                  <span>Courses</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileCoursesOpen ? 'rotate-180' : ''}`} />
+                  <img
+                    src="/mamo-academy-logo.png"
+                    alt="MaMo Academy"
+                    className="h-8 w-auto object-contain"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/logomamo.png';
+                    }}
+                  />
                 </button>
-                {mobileCoursesOpen && (
-                  <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 rounded-2xl mt-1 text-xs font-semibold">
-                    <button onClick={() => handleNav('course-detail', 'ai-tools')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">AI Master Tools</button>
-                    <button onClick={() => handleNav('course-detail', 'ml')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Machine Learning</button>
-                    <button onClick={() => handleNav('course-detail', 'ai')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Artificial Intelligence</button>
-                    <button onClick={() => handleNav('course-detail', 'pe')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Prompt Engineering</button>
-                    <button onClick={() => handleNav('course-detail', 'ds')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Data Science</button>
-                    <button onClick={() => handleNav('course-detail', 'gen-ai')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Generative AI</button>
-                    <button onClick={() => handleNav('courses')} className="w-full text-left py-2 px-2 text-brand-600 font-bold border-t border-slate-200 mt-1">View All 16 Courses →</button>
-                  </div>
-                )}
-              </div>
-
-              <button
-                onClick={() => handleNav('about')}
-                className="w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-              >
-                About Us
-              </button>
-
-              {/* Mobile Student Corner Accordion */}
-              <div>
                 <button
-                  onClick={() => setMobileStudentOpen(!mobileStudentOpen)}
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none"
+                  aria-label="Close navigation menu"
                 >
-                  <span>Student Corner</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileStudentOpen ? 'rotate-180' : ''}`} />
+                  <X className="w-5 h-5 text-slate-700" />
                 </button>
-                {mobileStudentOpen && (
-                  <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 rounded-2xl mt-1 text-xs font-semibold">
-                    <button onClick={() => handleNav('internship')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">IT Internship In Vadodara</button>
-                    <button onClick={() => handleNav('final-year')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Final Year Project Training</button>
-                    <button onClick={() => handleNav('visit')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Industrial Visit</button>
-                    <button onClick={() => handleNav('reviews')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Student Reviews</button>
-                    <button onClick={() => handleNav('blog')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Blog</button>
-                    <button onClick={() => handleNav('nios')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">NIOS Learning Centre</button>
-                  </div>
-                )}
               </div>
 
-              <button
-                onClick={() => handleNav('placements')}
-                className="w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-              >
-                Placements
-              </button>
+              {/* Navigation Links */}
+              <div className="p-4 sm:p-6 space-y-1.5">
+                <div className="pb-2 mb-2 border-b border-slate-100">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">Navigation</span>
+                </div>
 
-              <button
-                onClick={() => handleNav('hire')}
-                className="w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-              >
-                Hire From Us
-              </button>
+                <button
+                  onClick={() => handleNav('home')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'home'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  Home
+                </button>
 
-              <button
-                onClick={() => handleNav('skill')}
-                className="w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-              >
-                Skill Certification
-              </button>
+                {/* Mobile Courses Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
+                    className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  >
+                    <span>Courses</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileCoursesOpen ? 'rotate-180 text-brand-600' : 'text-slate-400'}`} />
+                  </button>
+                  {mobileCoursesOpen && (
+                    <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 rounded-2xl mt-1 text-xs font-semibold">
+                      <button onClick={() => handleNav('course-detail', 'ai-tools')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">AI Master Tools</button>
+                      <button onClick={() => handleNav('course-detail', 'ml')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Machine Learning</button>
+                      <button onClick={() => handleNav('course-detail', 'ai')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Artificial Intelligence</button>
+                      <button onClick={() => handleNav('course-detail', 'pe')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Prompt Engineering</button>
+                      <button onClick={() => handleNav('course-detail', 'ds')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Data Science</button>
+                      <button onClick={() => handleNav('course-detail', 'gen-ai')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Generative AI</button>
+                      <button onClick={() => handleNav('courses')} className="w-full text-left py-2 px-2 text-brand-600 font-bold border-t border-slate-200 mt-1">View All 16 Courses →</button>
+                    </div>
+                  )}
+                </div>
 
-              <button
-                onClick={() => handleNav('contact')}
-                className="w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-              >
-                Contact Us
-              </button>
+                <button
+                  onClick={() => handleNav('about')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'about'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  About Us
+                </button>
+
+                {/* Mobile Student Corner Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileStudentOpen(!mobileStudentOpen)}
+                    className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  >
+                    <span>Student Corner</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileStudentOpen ? 'rotate-180 text-brand-600' : 'text-slate-400'}`} />
+                  </button>
+                  {mobileStudentOpen && (
+                    <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 rounded-2xl mt-1 text-xs font-semibold">
+                      <button onClick={() => handleNav('internship')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">IT Internship In Vadodara</button>
+                      <button onClick={() => handleNav('final-year')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Final Year Project Training</button>
+                      <button onClick={() => handleNav('visit')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Industrial Visit</button>
+                      <button onClick={() => handleNav('reviews')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Student Reviews</button>
+                      <button onClick={() => handleNav('blog')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Blog</button>
+                      <button onClick={() => handleNav('nios')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">NIOS Learning Centre</button>
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => handleNav('placements')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'placements'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  Placements
+                </button>
+
+                <button
+                  onClick={() => handleNav('hire')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'hire'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  Hire From Us
+                </button>
+
+                <button
+                  onClick={() => handleNav('skill')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'skill'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  Skill Certification
+                </button>
+
+                <button
+                  onClick={() => handleNav('contact')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'contact'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  Contact Us
+                </button>
+              </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-100 space-y-3">
+            {/* Drawer Footer CTA */}
+            <div className="p-4 sm:p-6 border-t border-slate-100 space-y-3 bg-slate-50/70">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openCounseling();
                 }}
-                className="w-full py-3 rounded-xl text-center font-bold text-white bg-gradient-to-r from-brand-600 to-emerald-600 shadow-md"
+                className="w-full py-3 rounded-xl text-center font-bold text-white bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 shadow-md shadow-brand-500/20 hover:shadow-glow transition-all"
               >
                 Book Free Consultation
               </button>
               <div className="text-center text-xs text-slate-500">
-                Call: <a href="tel:+917622990059" className="font-bold text-brand-600">+91 76229 90059</a>
+                Call: <a href="tel:+917622990059" className="font-bold text-brand-600 hover:underline">+91 76229 90059</a>
               </div>
             </div>
           </div>
