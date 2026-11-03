@@ -7,11 +7,9 @@ export type RouteType =
   | 'courses'
   | 'course-detail'
   | 'internship'
-  | 'final-year'
   | 'visit'
   | 'reviews'
   | 'blog'
-  | 'nios'
   | 'college-partners';
 
 export interface CourseModule {
