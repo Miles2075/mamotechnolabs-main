@@ -71,6 +71,9 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
                 <span className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold">
                   {course.duration} Intensive
                 </span>
+                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+                  + Free Internship
+                </span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
