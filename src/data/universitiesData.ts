@@ -28,7 +28,7 @@ export const universityPartners: UniversityTieUp[] = [
   {
     name: 'Navrachana University (NUV)',
     badge: 'Academic Partner',
-    img: ''
+    img: 'https://images.seeklogo.com/logo-png/49/1/navrachana-university-logo-png_seeklogo-492474.png'
   },
   {
     name: 'Drs. Kiran & Pallavi Patel Global University (KPGU)',
