@@ -342,19 +342,19 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                       <span className="text-purple-400">const</span>{' '}
                       <span className="text-blue-400">learner</span> = {'{'}{' '}
                       <span className="text-teal-400">focus</span>:{' '}
-                      <span className="text-amber-300">"Generative AI & FullStack"</span>,
+                      <span className="text-amber-300">"AI, Data Science & Full-Stack"</span>,
                     </p>
                     <p className="pl-4">
                       <span className="text-teal-400">mentorship</span>:{' '}
-                      <span className="text-emerald-400">"1-on-1 Senior Architect"</span>,
+                      <span className="text-emerald-400">"1-on-1 Expert Guidance"</span>,
                     </p>
                     <p className="pl-4">
-                      <span className="text-teal-400">placementReady</span>:{' '}
-                      <span className="text-amber-400">true</span>
+                      <span className="text-teal-400">careerSupport</span>:{' '}
+                      <span className="text-amber-400">"Projects + Interview Prep"</span>
                     </p>
                     <p>{'}'};</p>
                     <p className="text-emerald-400 pt-1">
-                      → Output: Ready for ₹6 - ₹18 LPA Tech Roles 🚀
+                      → Output: Build practical skills for tech roles 🚀
                     </p>
                   </div>
 
@@ -383,7 +383,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                           <Bot className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
                           <span className="text-xs font-bold text-white group-hover:text-brand-300">Machine Learning</span>
                         </div>
-                        <p className="text-[10px] text-slate-400 mt-0.5">Scikit + Neural Nets</p>
+                        <p className="text-[10px] text-slate-400 mt-0.5">Algorithms + MLOps</p>
                       </button>
 
                       <button
@@ -394,7 +394,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                           <Cpu className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
                           <span className="text-xs font-bold text-white group-hover:text-brand-300">Artificial Intel.</span>
                         </div>
-                        <p className="text-[10px] text-slate-400 mt-0.5">Deep Learning & Vision</p>
+                        <p className="text-[10px] text-slate-400 mt-0.5">Deep Learning + Computer Vision</p>
                       </button>
 
                       <button
@@ -405,24 +405,16 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                           <BarChart2 className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
                           <span className="text-xs font-bold text-white group-hover:text-brand-300">Data Science</span>
                         </div>
-                        <p className="text-[10px] text-slate-400 mt-0.5">Python + Big Data</p>
+                        <p className="text-[10px] text-slate-400 mt-0.5">Python + Analytics</p>
                       </button>
                     </div>
                   </div>
 
-                  {/* Floating Metric Banner at Bottom of Card */}
-                  <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-2">
-                        <img className="w-7 h-7 rounded-full ring-2 ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Student" />
-                        <img className="w-7 h-7 rounded-full ring-2 ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Student" />
-                        <img className="w-7 h-7 rounded-full ring-2 ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Student" />
-                      </div>
-                      <span className="text-[11px] text-slate-400 font-semibold">1,200+ Alumni</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-amber-400 text-xs font-black">
-                      <Star className="w-3.5 h-3.5 fill-amber-400" />
-                      <span>4.9 / 5.0 Rating</span>
+                  {/* Verified Academy metric */}
+                  <div className="pt-3 border-t border-slate-800 flex items-center justify-center">
+                    <div className="text-center">
+                      <p className="text-xl font-black text-emerald-400">500+</p>
+                      <p className="text-[11px] text-slate-400 font-semibold">Interns Trained</p>
                     </div>
                   </div>
 
