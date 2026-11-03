@@ -10,27 +10,29 @@ interface CollegePartnersPageProps {
 export const CollegePartnersPage: React.FC<CollegePartnersPageProps> = ({ navigateTo }) => {
   const collegeCard = (college: (typeof universityPartners)[number], isPartner: boolean) => (
     <article key={college.name} className="group flex min-h-64 flex-col items-center justify-center rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
-      <div className="mb-5 flex h-28 w-full items-center justify-center rounded-2xl bg-slate-50 p-4">
+      <div className="relative mb-5 flex h-28 w-full items-center justify-center overflow-hidden rounded-2xl bg-slate-50 p-4">
         <div className="flex h-full w-full items-center justify-center gap-3" data-logo-fallback>
           <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-50 text-xl font-black tracking-tight text-emerald-800 ring-1 ring-emerald-200">
             {college.name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase()}
           </span>
           <span className="max-w-[65%] text-left text-sm font-bold leading-snug text-slate-600">{college.name}</span>
         </div>
-        <img
-          src={college.img}
-          alt={college.name + ' logo'}
-          loading="lazy"
-          referrerPolicy="no-referrer"
-          className="max-h-20 max-w-full object-contain"
-          onLoad={(event) => {
-            const fallback = event.currentTarget.parentElement?.querySelector('[data-logo-fallback]') as HTMLElement | null;
-            if (fallback) fallback.style.display = 'none';
-          }}
-          onError={(event) => {
-            event.currentTarget.style.display = 'none';
-          }}
-        />
+        {college.img && (
+          <img
+            src={college.img}
+            alt={college.name + ' logo'}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 m-auto h-full w-full p-4 object-contain"
+            onLoad={(event) => {
+              const fallback = event.currentTarget.parentElement?.querySelector('[data-logo-fallback]') as HTMLElement | null;
+              if (fallback) fallback.style.display = 'none';
+            }}
+            onError={(event) => {
+              event.currentTarget.style.display = 'none';
+            }}
+          />
+        )}
       </div>
       <span className={`mb-2 inline-flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide ${isPartner ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-600'}`}>
         {isPartner ? <><GraduationCap className="h-3 w-3" /> Academic Partner</> : <><MapPin className="h-3 w-3" /> {college.badge}</>}
@@ -69,7 +71,6 @@ export const CollegePartnersPage: React.FC<CollegePartnersPageProps> = ({ naviga
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {universityPartners.map((college) => collegeCard(college, college.badge === 'Academic Partner'))}
           </div>
-
 
           <div className="mt-12 rounded-3xl bg-slate-900 px-6 py-8 text-center text-white sm:px-10">
             <h2 className="text-xl font-black sm:text-2xl">Interested in an academic collaboration?</h2>
