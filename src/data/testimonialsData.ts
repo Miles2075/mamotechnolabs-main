@@ -18,7 +18,6 @@ export const testimonials: StudentReview[] = [
     rating: 5,
     date: 'July 19, 2026',
     reviewText: 'PHP course review by Aarti Barot at MamoTechnoLabs Institute. I gained confidence with real project deployments and got placed with a leading IT firm in Vadodara.',
-    videoThumb: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
     youtubeUrl: 'https://youtube.com'
   },
   {
@@ -39,7 +38,6 @@ export const testimonials: StudentReview[] = [
     rating: 5,
     date: 'June 26, 2026',
     reviewText: 'Devesh Jadav’s journey proves that practical project training transforms career paths. The mentorship made complex concepts in AI understandable.',
-    videoThumb: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
     youtubeUrl: 'https://youtube.com'
   },
   {
@@ -50,7 +48,6 @@ export const testimonials: StudentReview[] = [
     rating: 5,
     date: 'May 15, 2026',
     reviewText: 'The project-based approach at Mamo TechnoLabs allowed me to prepare for technical rounds with complete confidence.',
-    videoThumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
     youtubeUrl: 'https://youtube.com'
   },
   {
