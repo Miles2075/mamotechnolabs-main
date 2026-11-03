@@ -106,14 +106,6 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
               </li>
               <li>
                 <button
-                  onClick={() => navigateTo('placements')}
-                  className="hover:text-brand-400 transition-colors"
-                >
-                  Placement Cell
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => navigateTo('hire')}
                   className="hover:text-brand-400 transition-colors"
                 >
