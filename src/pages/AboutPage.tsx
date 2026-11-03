@@ -41,7 +41,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigateTo, openCounseling
             <span className="text-gradient-brand">Real-World IT Engineering</span>
           </h1>
           <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Founded with a singular mission: to empower students with production-grade coding skills and guide them to high-paying careers in world-class tech firms.
+            MaMo Technolabs combines software engineering experience with practical training, helping learners build relevant skills through expert guidance and project-based learning.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigateTo, openCounseling
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-800 flex items-center gap-2 text-xs font-bold text-brand-400 z-10">
-                <span>Job-Guaranteed Career Launchpad</span>
+                <span>Practical Learning & Career Support</span>
                 <Check className="w-4 h-4" />
               </div>
             </div>
@@ -83,7 +83,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigateTo, openCounseling
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-200 flex items-center gap-2 text-xs font-bold text-blue-600">
-                <span>100+ Hiring Partnerships Across India</span>
+                <span>Industry-Aligned Learning</span>
                 <Check className="w-4 h-4" />
               </div>
             </div>
