@@ -24,6 +24,11 @@ export const universityPartners: UniversityTieUp[] = [
     name: 'TeamLease Skills Univ',
     badge: 'Academic Partner',
     img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/University-1.jpg'
+  },
+  {
+    name: 'Navrachana University (NUV)',
+    badge: 'Academic Partner',
+    img: ''
   }
 ];
 
