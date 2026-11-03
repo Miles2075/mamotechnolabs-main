@@ -115,33 +115,19 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
     setConfusedSubmitted(true);
   };
 
+  // Use only client and institute names listed on MaMo's official website.
   const marqueeRow1 = [
-    { name: 'Tata Consultancy Services', type: 'mnc' },
-    { name: 'Mastercard', logo: 'mastercard' },
-    { name: 'Infosys', type: 'mnc' },
-    { name: 'Rishabh Software', logo: 'rishabh' },
-    { name: 'Civica', type: 'mnc' },
-    { name: 'L&T Technology Services', type: 'mnc' },
-    { name: 'Wipro Technologies', type: 'mnc' },
-    { name: 'Jeavio', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/06/jeavio-1.png' },
-    { name: 'Cognizant', type: 'mnc' },
-    { name: 'NIQ', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/04/C-9.png' },
-    { name: 'Office Beacon', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/office-beacon-2.png' },
-    { name: 'Tech Mahindra', type: 'mnc' }
+    { name: 'Maxwell', img: 'https://mamotechnolabs.com/images/maxwell.svg', type: 'client' },
+    { name: 'Orianaa', img: 'https://mamotechnolabs.com/images/orianaa.svg', type: 'client' },
+    { name: 'Truder', img: 'https://mamotechnolabs.com/images/truder.svg', type: 'client' },
+    { name: 'Starbrillian', img: 'https://mamotechnolabs.com/images/star.webp', type: 'client' },
+    { name: 'Resource Engimech (India) Pvt. Ltd.', img: 'https://mamotechnolabs.com/images/resource-engimech.png', type: 'client' }
   ];
 
   const marqueeRow2 = [
-    { name: 'GSFC University', type: 'university', badge: 'Academic Partner', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY_ZnNF5PG3SKS6C672afeL_6x4pA8iKkPi9n2AK8Q9TLvHp6YgMeI8HU&s=10' },
-    { name: 'Parul University', type: 'university', badge: 'Academic Partner', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvk2lOGozlpDgWzN9FsCU3VyeXVdSVCx8Pcnj5ndYa5ToxUzmmouB0bQAF&s=10' },
-    { name: 'Altera', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/altera.png' },
-    { name: 'RK University', type: 'university', badge: 'Academic Partner', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/University-4.jpg' },
-    { name: 'Inorbvict', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/06/inorbvict.png' },
-    { name: 'TeamLease Skills Univ', type: 'university', badge: 'Academic Partner', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/05/University-1.jpg' },
-    { name: 'Mysphere Infotech', type: 'corporate' },
-    { name: 'Webmyne Systems', type: 'corporate' },
-    { name: 'NetWeb Software', type: 'corporate' },
-    { name: 'Allscripts', img: 'https://www.vtechlabs.com/wp-content/uploads/2026/04/C-7.png' },
-    { name: 'HCL Technologies', type: 'mnc' }
+    { name: 'Parul University', img: 'https://mamotechnolabs.com/images/logo1.webp', type: 'university', badge: 'Interns from' },
+    { name: 'Sigma University', img: 'https://mamotechnolabs.com/images/logo2.webp', type: 'university', badge: 'Interns from' },
+    { name: 'GSFC University', img: 'https://mamotechnolabs.com/images/logo4.webp', type: 'university', badge: 'Interns from' }
   ];
 
   const renderPartnerCard = (partner: { name: string; type?: string; logo?: string; img?: string; badge?: string }, key: string) => (
@@ -169,11 +155,11 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
         </div>
       ) : partner.img ? (
         <div className="flex items-center gap-3">
-          <div className="h-8 max-w-[80px] flex items-center justify-center shrink-0">
+          <div className="h-9 max-w-[112px] flex items-center justify-center shrink-0">
             <img
               src={partner.img}
               alt={partner.name}
-              className="max-h-7 max-w-full object-contain filter grayscale group-hover/card:grayscale-0 transition-all"
+              className="max-h-8 max-w-full object-contain transition-transform duration-200 group-hover/card:scale-105"
               onError={(e) => {
                 (e.currentTarget as HTMLElement).style.display = 'none';
               }}
@@ -454,17 +440,15 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-            Our Graduates are Hired By{' '}
-            <span className="text-gradient-brand">100+ Leading Tech Giants</span>{' '}
-            & University Partners
+            Trusted by Our Clients & Connected to Leading Institutes
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            From premier Gujarat tech unicorns and global IT consulting powerhouses to Fortune 500 multinationals and accredited university academic collaborations.
+            A selection of client organizations and universities featured on MaMo Technolabs’ official website.
           </p>
         </div>
 
-        {/* Ticker Row 1 (Tech MNCs & Corporate Hiring Partners) */}
+        {/* Ticker Row 1: verified client organizations */}
         <div className="relative w-full overflow-hidden mb-4">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
@@ -479,7 +463,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           </div>
         </div>
 
-        {/* Ticker Row 2 (Tech Innovators & University Academic Partners - Reverse Direction) */}
+        {/* Ticker Row 2: institutes represented by MaMo interns */}
         <div className="relative w-full overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
@@ -494,25 +478,6 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           </div>
         </div>
 
-        {/* Quick Placement Highlights Strip */}
-        <div className="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-slate-900">100+</div>
-            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Recruiting Partners</div>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-brand-600">₹19 LPA</div>
-            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Highest Package</div>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-slate-900">95%</div>
-            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Placement Success</div>
-          </div>
-          <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-600">₹0 Cost</div>
-            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">For Hiring Companies</div>
-          </div>
-        </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────
