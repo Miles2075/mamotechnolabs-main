@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Menu,
   X,
+  GraduationCap,
   Briefcase,
   Star,
   BookOpen,
