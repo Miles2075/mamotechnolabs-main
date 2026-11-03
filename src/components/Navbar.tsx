@@ -339,7 +339,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                     {[
                       { route: 'internship' as RouteType, label: 'IT Internship in Vadodara', icon: Briefcase },
                       { route: 'final-year' as RouteType, label: 'Final Year Project Training', icon: GraduationCap },
-                      { route: 'visit' as RouteType, label: 'Industrial Visits', icon: Building },
                       { route: 'reviews' as RouteType, label: 'Student Reviews', icon: Star },
                       { route: 'blog' as RouteType, label: 'Tech Blogs & Guides', icon: BookOpen },
                       { route: 'nios' as RouteType, label: 'NIOS Learning Centre', icon: FileText },
@@ -536,7 +535,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                     <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 rounded-2xl mt-1 text-xs font-semibold">
                       <button onClick={() => handleNav('internship')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">IT Internship In Vadodara</button>
                       <button onClick={() => handleNav('final-year')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Final Year Project Training</button>
-                      <button onClick={() => handleNav('visit')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Industrial Visit</button>
                       <button onClick={() => handleNav('reviews')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Student Reviews</button>
                       <button onClick={() => handleNav('blog')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Blog</button>
                       <button onClick={() => handleNav('nios')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">NIOS Learning Centre</button>
