@@ -9,7 +9,6 @@ import { CounselingModal } from './components/CounselingModal';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
-import { PlacementsPage } from './pages/PlacementsPage';
 import { HirePage } from './pages/HirePage';
 import { SkillPage } from './pages/SkillPage';
 import { ViewCoursesPage } from './pages/ViewCoursesPage';
@@ -39,7 +38,7 @@ export const App: React.FC = () => {
         const id = hash.replace('course/', '');
         setActiveCourseId(id);
         setCurrentRoute('course-detail');
-      } else if (['about', 'contact', 'placements', 'hire', 'skill', 'courses', 'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'].includes(hash)) {
+      } else if (['about', 'contact', 'hire', 'skill', 'courses', 'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'].includes(hash)) {
         setCurrentRoute(hash as RouteType);
       }
     };
@@ -84,9 +83,6 @@ export const App: React.FC = () => {
         )}
         {currentRoute === 'contact' && (
           <ContactPage navigateTo={navigateTo} />
-        )}
-        {currentRoute === 'placements' && (
-          <PlacementsPage navigateTo={navigateTo} openCounseling={() => openCounseling()} />
         )}
         {currentRoute === 'hire' && (
           <HirePage navigateTo={navigateTo} openCounseling={() => openCounseling()} />
