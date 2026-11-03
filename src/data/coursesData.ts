@@ -568,24 +568,6 @@ export const catalogCourses: CatalogCourse[] = [
     detailedSlug: 'ai-tools'
   },
   {
-    id: 'aws-cloud',
-    name: 'AWS Cloud Engineer Training',
-    category: 'AI & Machine Learning',
-    duration: '3 Months',
-    description: 'Cloud computing has become the core of all digital businesses. Master EC2, S3, Lambda, IAM, and VPC architectures.',
-    badges: ['New'],
-    icon: 'cloud'
-  },
-  {
-    id: 'ai-content',
-    name: 'AI Content Creation Course',
-    category: 'Digital Marketing',
-    duration: '2 Months',
-    description: 'Produce high-converting blog posts, marketing copies, and social media creative at 10x speed using generative text and image models.',
-    badges: ['Trending'],
-    icon: 'pen-tool'
-  },
-  {
     id: 'gen-ai-cat',
     name: 'Generative AI Course',
     category: 'AI & Machine Learning',
@@ -594,15 +576,6 @@ export const catalogCourses: CatalogCourse[] = [
     badges: ['Trending'],
     icon: 'sparkles',
     detailedSlug: 'gen-ai'
-  },
-  {
-    id: 'selenium-cert',
-    name: 'Selenium Certification Course',
-    category: 'Software Testing & QA',
-    duration: '2 Months',
-    description: 'Selenium certification training designed for learners who want to master automated browser testing and QA frameworks.',
-    badges: ['Trending'],
-    icon: 'shield-check'
   },
   {
     id: 'ai-full',
