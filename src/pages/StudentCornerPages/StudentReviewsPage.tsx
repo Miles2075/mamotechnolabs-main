@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { RouteType, StudentReview } from '../../types';
+import { RouteType } from '../../types';
 import { testimonials } from '../../data/testimonialsData';
-import { Star, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Star, CheckCircle2 } from 'lucide-react';
 
 interface StudentReviewsPageProps {
   navigateTo: (route: RouteType) => void;
