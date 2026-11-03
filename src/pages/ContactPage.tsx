@@ -114,10 +114,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               <h3 className="font-bold text-slate-900 text-sm">Direct Phone</h3>
               <p className="text-xs text-slate-500">Instant counselor consultation</p>
               <a
-                href="tel:+917622990059"
+                href="tel:+919325910095"
                 className="text-xs font-bold text-brand-600 hover:underline block pt-1"
               >
-                +91 76229 90059
+                +91 93259 10095
               </a>
             </div>
 
@@ -127,9 +127,9 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                 <MapPin className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-slate-900 text-sm">Vadodara Center</h3>
-              <p className="text-xs text-slate-500">Sayajiganj / Alkapuri</p>
+              <p className="text-xs text-slate-500">RAAMA EMPERRO, 4th Floor, Office No. 27</p>
               <span className="text-xs font-bold text-slate-700 block pt-1">
-                Vadodara, Gujarat 390005
+                Vadodara, Gujarat 390011
               </span>
             </div>
 
