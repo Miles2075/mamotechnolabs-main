@@ -79,14 +79,14 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
             <Award className="w-3.5 h-3.5" />
-            <span>Official Skill Verification Center</span>
+            <span>Skills Assessment & Certificate Center</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-            Assess Your Coding Skills. <br />
+            Validate Your Practical Skills. <br />
             <span className="text-gradient-brand">Earn Verified Certifications.</span>
           </h1>
           <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Take a 10-minute practical technical quiz, evaluate your conceptual mastery, and generate an authenticated certificate to feature on LinkedIn and your resume.
+            Choose a topic from MaMo Technolabs’ training areas, answer focused knowledge-check questions, and generate a certificate of completion for your learning portfolio.
           </p>
 
           {/* Quick Search */}
@@ -97,7 +97,7 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search certificate by language (Python, React, AI...)"
+                placeholder="Search assessments (Python, AI, Web Development, Cybersecurity...)"
                 className="w-full px-3 py-2 text-xs text-white placeholder-slate-400 bg-transparent focus:outline-none"
               />
             </div>
@@ -157,9 +157,9 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                     <span className="flex items-center gap-1 font-semibold">
                       <Clock className="w-3.5 h-3.5 text-brand-600" />
-                      10 Mins • 5-10 MCQs
+                      2 Topic-Based MCQs
                     </span>
-                    <span className="text-emerald-600 font-bold">Free Instant Certificate</span>
+                    <span className="text-emerald-600 font-bold">Free Assessment Certificate</span>
                   </div>
                 </div>
 
@@ -169,7 +169,7 @@ export const SkillPage: React.FC<SkillPageProps> = () => {
                     className="w-full py-3 rounded-2xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-xs group-hover:shadow-md"
                   >
                     <Award className="w-4 h-4 text-brand-400 group-hover:text-white" />
-                    <span>Take Assessment & Get Certified</span>
+                    <span>Start Skill Assessment</span>
                   </button>
                 </div>
               </div>
