@@ -121,6 +121,9 @@ export const App: React.FC = () => {
         {currentRoute === 'nios' && (
           <NiosPage navigateTo={navigateTo} openCounseling={openCounseling} />
         )}
+        {currentRoute === 'college-partners' && (
+          <CollegePartnersPage navigateTo={navigateTo} />
+        )}
       </main>
 
       {/* Global Footer */}
