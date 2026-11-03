@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RouteType } from '../types';
+import { catalogCourses } from '../data/coursesData';
 import {
   ChevronDown,
   Brain,
@@ -217,11 +218,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
 
                 {coursesOpen && (
                   <div
-                    className="absolute top-full left-0 pt-2 z-50 w-[640px] xl:w-[680px]"
+                    className="absolute top-full left-0 pt-2 z-50 w-[min(760px,calc(100vw-2rem))]"
                     onMouseEnter={handleCoursesEnter}
                     onMouseLeave={handleCoursesLeave}
                   >
-                    <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 p-6 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="bg-white rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 p-6 animate-in fade-in slide-in-from-top-1 duration-150">
                     <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                       <div>
                         <h3 className="font-extrabold text-slate-900 text-sm">Flagship Career Programs</h3>
@@ -231,139 +232,40 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                         onClick={() => handleNav('courses')}
                         className="text-xs font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1 hover:gap-1.5 transition-all"
                       >
-                        All 16 Courses <ArrowRight className="w-3.5 h-3.5" />
+                        All Courses <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3.5">
-                      {/* AI Master Tools */}
-                      <button
-                        onClick={() => handleNav('course-detail', 'ai-tools')}
-                        className="p-3.5 rounded-2xl border border-slate-100 hover:border-brand-300 hover:bg-brand-50/60 transition-all text-left flex items-start gap-3 group bg-slate-50/40"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                          <Brain className="w-5 h-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-                              AI Master Tools
-                            </h4>
-                            <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full whitespace-nowrap shrink-0 leading-none">
-                              Popular
-                            </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[min(62vh,520px)] overflow-y-auto overscroll-contain pr-1">
+                      {catalogCourses.map((course) => (
+                        <button
+                          key={course.id}
+                          onClick={() => handleNav(course.detailedSlug ? 'course-detail' : 'courses', course.detailedSlug)}
+                          className="min-w-0 p-3.5 rounded-2xl border border-slate-200 bg-white hover:border-emerald-300 hover:bg-emerald-50/40 hover:shadow-md transition-all text-left flex items-start gap-3 group"
+                        >
+                          <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 transition-colors">
+                            <GraduationCap className="w-5 h-5" />
                           </div>
-                          <p className="text-xs text-slate-500 mt-1 font-medium">₹3 - ₹10 LPA • 2 Months</p>
-                        </div>
-                      </button>
-
-                      {/* Machine Learning */}
-                      <button
-                        onClick={() => handleNav('course-detail', 'ml')}
-                        className="p-3.5 rounded-2xl border border-slate-100 hover:border-brand-300 hover:bg-brand-50/60 transition-all text-left flex items-start gap-3 group bg-slate-50/40"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                          <Bot className="w-5 h-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-                              Machine Learning
-                            </h4>
-                            <span className="text-[10px] font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full whitespace-nowrap shrink-0 leading-none">
-                              Trending
-                            </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <h4 className="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors">
+                                {course.name}
+                              </h4>
+                              <span className="inline-flex items-center rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 text-[9px] font-extrabold whitespace-nowrap">
+                                + FREE INTERNSHIP
+                              </span>
+                            </div>
+                            <p className="text-xs text-slate-500 mt-1.5 font-medium flex items-center gap-1">
+                              <span>{course.duration}</span>
+                              <span aria-hidden="true">•</span>
+                              <span>{course.category}</span>
+                            </p>
                           </div>
-                          <p className="text-xs text-slate-500 mt-1 font-medium">₹6 - ₹15 LPA • 3 Months</p>
-                        </div>
-                      </button>
-
-                      {/* Artificial Intelligence */}
-                      <button
-                        onClick={() => handleNav('course-detail', 'ai')}
-                        className="p-3.5 rounded-2xl border border-slate-100 hover:border-brand-300 hover:bg-brand-50/60 transition-all text-left flex items-start gap-3 group bg-slate-50/40"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                          <Cpu className="w-5 h-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-                              Artificial Intelligence
-                            </h4>
-                            <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full whitespace-nowrap shrink-0 leading-none">
-                              Top Rated
-                            </span>
-                          </div>
-                          <p className="text-xs text-slate-500 mt-1 font-medium">₹8 - ₹18 LPA • 4 Months</p>
-                        </div>
-                      </button>
-
-                      {/* Prompt Engineering */}
-                      <button
-                        onClick={() => handleNav('course-detail', 'pe')}
-                        className="p-3.5 rounded-2xl border border-slate-100 hover:border-brand-300 hover:bg-brand-50/60 transition-all text-left flex items-start gap-3 group bg-slate-50/40"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                          <PenTool className="w-5 h-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-                              Prompt Engineering
-                            </h4>
-                            <span className="text-[10px] font-bold px-2 py-0.5 bg-teal-100 text-teal-800 rounded-full whitespace-nowrap shrink-0 leading-none">
-                              GenAI
-                            </span>
-                          </div>
-                          <p className="text-xs text-slate-500 mt-1 font-medium">₹6 - ₹15 LPA • 1.5 Months</p>
-                        </div>
-                      </button>
-
-                      {/* Data Science */}
-                      <button
-                        onClick={() => handleNav('course-detail', 'ds')}
-                        className="p-3.5 rounded-2xl border border-slate-100 hover:border-brand-300 hover:bg-brand-50/60 transition-all text-left flex items-start gap-3 group bg-slate-50/40"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                          <BarChart2 className="w-5 h-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-                              Data Science
-                            </h4>
-                            <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full whitespace-nowrap shrink-0 leading-none">
-                              In-Demand
-                            </span>
-                          </div>
-                          <p className="text-xs text-slate-500 mt-1 font-medium">₹6 - ₹16 LPA • 3 Months</p>
-                        </div>
-                      </button>
-
-                      {/* Generative AI */}
-                      <button
-                        onClick={() => handleNav('course-detail', 'gen-ai')}
-                        className="p-3.5 rounded-2xl border border-slate-100 hover:border-brand-300 hover:bg-brand-50/60 transition-all text-left flex items-start gap-3 group bg-slate-50/40"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                          <Sparkles className="w-5 h-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1.5">
-                            <h4 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-                              Generative AI
-                            </h4>
-                            <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full whitespace-nowrap shrink-0 leading-none">
-                              Hot
-                            </span>
-                          </div>
-                          <p className="text-xs text-slate-500 mt-1 font-medium">₹7 - ₹18 LPA • 2.5 Months</p>
-                        </div>
-                      </button>
+                        </button>
+                      ))}
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 bg-slate-50 -mx-6 -mb-6 p-4 rounded-b-3xl">
+                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 bg-white -mx-6 -mb-6 p-4 rounded-b-3xl border-t border-slate-100">
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                         <span>Live client projects & mock interviews included</span>
