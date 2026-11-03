@@ -554,7 +554,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           </div>
           <div className="mt-10 text-center">
             <button
-              onClick={() => navigateTo('services')}
+              onClick={() => navigateTo('contact')}
               className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3 font-bold text-white shadow-sm transition hover:bg-emerald-600"
             >
               Explore SEO Services <ArrowRight className="h-4 w-4" />
