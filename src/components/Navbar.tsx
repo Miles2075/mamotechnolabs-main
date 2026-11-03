@@ -225,7 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                     <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                       <div>
                         <h3 className="font-extrabold text-slate-900 text-sm">Flagship Career Programs</h3>
-                        <p className="text-xs text-slate-500">Job-guaranteed programs with 100% placement support</p>
+                        <p className="text-xs text-slate-500">Career-focused programs with practical training and guidance</p>
                       </div>
                       <button
                         onClick={() => handleNav('courses')}
@@ -494,7 +494,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       <button onClick={() => handleNav('course-detail', 'pe')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Prompt Engineering</button>
                       <button onClick={() => handleNav('course-detail', 'ds')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Data Science</button>
                       <button onClick={() => handleNav('course-detail', 'gen-ai')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Generative AI</button>
-                      <button onClick={() => handleNav('courses')} className="w-full text-left py-2 px-2 text-brand-600 font-bold border-t border-slate-200 mt-1">View All 16 Courses →</button>
+                      <button onClick={() => handleNav('courses')} className="w-full text-left py-2 px-2 text-brand-600 font-bold border-t border-slate-200 mt-1">View All Courses →</button>
                     </div>
                   )}
                 </div>
