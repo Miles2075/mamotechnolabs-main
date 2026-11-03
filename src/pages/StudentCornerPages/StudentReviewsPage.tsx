@@ -124,21 +124,20 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
                     "{rev.reviewText}"
                   </p>
 
-                  {/* Video Thumbnail Button if video review */}
-                  {rev.type === 'youtube' && rev.videoThumb && (
-                    <div
+                  {/* Video review panel without a student photo */}
+                  {rev.type === 'youtube' && (
+                    <button
+                      type="button"
                       onClick={() => setSelectedVideo(rev)}
-                      className="relative rounded-2xl overflow-hidden cursor-pointer group/vid aspect-video bg-slate-950 flex items-center justify-center border border-slate-200"
+                      aria-label={`Play ${rev.name}'s video review`}
+                      className="relative w-full rounded-2xl overflow-hidden cursor-pointer group/vid aspect-video bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 flex flex-col items-center justify-center gap-3 border border-slate-200"
                     >
-                      <img
-                        src={rev.videoThumb}
-                        alt={rev.name}
-                        className="w-full h-full object-cover opacity-80 group-hover/vid:scale-105 transition-transform"
-                      />
-                      <div className="absolute w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-lg group-hover/vid:scale-110 transition-transform">
+                      <span className="text-3xl font-black text-white/80">{rev.name.charAt(0)}</span>
+                      <span className="text-xs font-semibold tracking-wide text-white/75">VIDEO TESTIMONIAL</span>
+                      <span className="absolute w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-lg group-hover/vid:scale-110 transition-transform">
                         <Play className="w-5 h-5 ml-0.5 fill-white" />
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                   )}
 
                 </div>
