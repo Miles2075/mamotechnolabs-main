@@ -28,7 +28,7 @@ export const universityPartners: UniversityTieUp[] = [
   {
     name: 'Navrachana University (NUV)',
     badge: 'Academic Partner',
-    img: 'https://pbs.twimg.com/profile_images/1372436918302957568/mNBfI_L-_400x400.jpg'
+    img: '/images/navrachana-university-logo.svg'
   },
   {
     name: 'Babaria Institute of Technology',
