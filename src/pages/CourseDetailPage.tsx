@@ -74,13 +74,16 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                <span>{course.title}</span>
-                <span className="inline-flex align-middle ml-2 mb-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs sm:text-sm font-extrabold border border-emerald-500/40 whitespace-nowrap">
+                <span className="block">{course.title}</span>
+              </h1>
+              <div className="mt-3">
+                <span className="inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-300 px-3 py-1.5 text-xs sm:text-sm font-extrabold border border-emerald-400/40 whitespace-nowrap no-underline">
                   + FREE INTERNSHIP
                 </span>
-                <br />
-                <span className="text-gradient-brand">{course.subtitle}</span>
-              </h1>
+              </div>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gradient-brand">
+                {course.subtitle}
+              </h2>
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
                 {course.description}
