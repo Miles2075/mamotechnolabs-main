@@ -625,7 +625,7 @@ export const catalogCourses: CatalogCourse[] = [
   },
   {
     id: 'fullstack-mern',
-    name: 'Full Stack MERN Development',
+    name: 'Full Stack Development',
     category: 'Web Development',
     duration: '4 Months',
     description: 'Master MongoDB, Express.js, React.js, and Node.js with modern REST APIs, authentication, and full-stack cloud deployment.',
@@ -634,7 +634,7 @@ export const catalogCourses: CatalogCourse[] = [
   },
   {
     id: 'flutter-app',
-    name: 'Flutter Mobile App Development',
+    name: 'Mobile Development',
     category: 'Mobile App Development',
     duration: '3 Months',
     description: 'Build native iOS and Android apps from a single Dart codebase. Master state management, REST APIs, and app store deployment.',
@@ -652,7 +652,7 @@ export const catalogCourses: CatalogCourse[] = [
   },
   {
     id: 'ui-ux-design',
-    name: 'UI/UX Design with Figma',
+    name: 'UI/UX Design',
     category: 'Design',
     duration: '2 Months',
     description: 'Wireframing, interactive prototyping, user research, design systems, and responsive layout guidelines in Figma.',
@@ -661,7 +661,7 @@ export const catalogCourses: CatalogCourse[] = [
   },
   {
     id: 'digital-mktg-pro',
-    name: 'Digital Marketing & SEO Mastery',
+    name: 'Digital Marketing',
     category: 'Digital Marketing',
     duration: '3 Months',
     description: 'Search engine optimization (SEO), Google Ads, social media strategy, analytics, and conversion rate optimization.',
@@ -670,11 +670,48 @@ export const catalogCourses: CatalogCourse[] = [
   },
   {
     id: 'playwright-qa',
-    name: 'Playwright Test Automation',
+    name: 'QA Testing',
     category: 'Software Testing & QA',
     duration: '2 Months',
     description: 'Modern, fast, and resilient end-to-end testing with Microsoft Playwright, TypeScript, CI/CD integration, and reporting.',
     badges: ['New'],
     icon: 'check-circle'
-  }
+  },
+  {
+    id: 'graphic-design',
+    name: 'Graphic Design',
+    category: 'Design',
+    duration: '3 Months',
+    description: 'Learn visual communication, typography, color theory, branding, and professional design tools while building a creative portfolio.',
+    badges: ['New'],
+    icon: 'palette'
+  },
+  {
+    id: 'software-development',
+    name: 'Software Development',
+    category: 'Programing Development',
+    duration: '6 Months',
+    description: 'Build practical software engineering skills in programming fundamentals, databases, APIs, version control, testing, and deployment.',
+    badges: ['New'],
+    icon: 'code'
+  },
+  {
+    id: 'devops-engineering',
+    name: 'DevOps',
+    category: 'DevOps',
+    duration: '4 Months',
+    description: 'Learn Linux, Git, CI/CD pipelines, containers, Docker, Kubernetes, cloud infrastructure, and monitoring for reliable software delivery.',
+    badges: ['Trending'],
+    icon: 'cloud'
+  },
+  {
+    id: 'seo-specialist',
+    name: 'SEO',
+    category: 'SEO',
+    duration: '2 Months',
+    description: 'Master keyword research, on-page and technical SEO, content optimization, link building, analytics, and search performance tracking.',
+    badges: ['New'],
+    icon: 'globe'
+  },
+
 ];
