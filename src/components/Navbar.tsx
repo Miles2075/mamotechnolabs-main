@@ -37,6 +37,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
   const [mobileStudentOpen, setMobileStudentOpen] = useState(false);
+  const [selectedCourseDuration, setSelectedCourseDuration] = useState('All');
+  const courseDurationOptions = ['All', '1 Month', '2 Months', '3 Months', '4 Months', '6 Months', '1 Year'];
 
   const coursesTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const studentTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -234,8 +236,27 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       </button>
                     </div>
 
+                    <div className="flex flex-wrap items-center gap-2 mb-4" aria-label="Filter programs by duration">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mr-1">Duration:</span>
+                      {courseDurationOptions.map((duration) => (
+                        <button
+                          key={duration}
+                          type="button"
+                          onClick={() => setSelectedCourseDuration(duration)}
+                          aria-pressed={selectedCourseDuration === duration}
+                          className={`px-3 py-1.5 rounded-full text-[11px] font-bold border transition-colors ${
+                            selectedCourseDuration === duration
+                              ? 'bg-emerald-600 text-white border-emerald-600'
+                              : 'bg-white text-slate-600 border-slate-200 hover:border-emerald-300 hover:text-emerald-700'
+                          }`}
+                        >
+                          {duration}
+                        </button>
+                      ))}
+                    </div>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[min(62vh,520px)] overflow-y-auto overscroll-contain pr-1">
-                      {catalogCourses.map((course) => (
+                      {catalogCourses.filter((course) => selectedCourseDuration === 'All' || course.duration === selectedCourseDuration).map((course) => (
                         <button
                           key={course.id}
                           onClick={() => handleNav(course.detailedSlug ? 'course-detail' : 'courses', course.detailedSlug)}
