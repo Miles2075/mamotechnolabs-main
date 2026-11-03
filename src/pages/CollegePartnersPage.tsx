@@ -13,7 +13,7 @@ export const CollegePartnersPage: React.FC<CollegePartnersPageProps> = ({ naviga
       <div className="mb-5 flex h-28 w-full items-center justify-center rounded-2xl bg-slate-50 p-4">
         <div className="flex h-full w-full items-center justify-center gap-3" data-logo-fallback>
           <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-50 text-xl font-black tracking-tight text-emerald-800 ring-1 ring-emerald-200">
-            {college.name.split(/\\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase()}
+            {college.name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase()}
           </span>
           <span className="max-w-[65%] text-left text-sm font-bold leading-snug text-slate-600">{college.name}</span>
         </div>
