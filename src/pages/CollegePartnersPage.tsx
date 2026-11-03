@@ -11,11 +11,22 @@ export const CollegePartnersPage: React.FC<CollegePartnersPageProps> = ({ naviga
   const collegeCard = (college: (typeof universityPartners)[number], isPartner: boolean) => (
     <article key={college.name} className="group flex min-h-64 flex-col items-center justify-center rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
       <div className="mb-5 flex h-28 w-full items-center justify-center rounded-2xl bg-slate-50 p-4">
+        <div className="flex h-full w-full items-center justify-center gap-3" data-logo-fallback>
+          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-50 text-xl font-black tracking-tight text-emerald-800 ring-1 ring-emerald-200">
+            {college.name.split(/\\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase()}
+          </span>
+          <span className="max-w-[65%] text-left text-sm font-bold leading-snug text-slate-600">{college.name}</span>
+        </div>
         <img
           src={college.img}
           alt={college.name + ' logo'}
           loading="lazy"
+          referrerPolicy="no-referrer"
           className="max-h-20 max-w-full object-contain"
+          onLoad={(event) => {
+            const fallback = event.currentTarget.parentElement?.querySelector('[data-logo-fallback]') as HTMLElement | null;
+            if (fallback) fallback.style.display = 'none';
+          }}
           onError={(event) => {
             event.currentTarget.style.display = 'none';
           }}
