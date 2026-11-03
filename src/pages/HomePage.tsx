@@ -227,9 +227,9 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
                 </span>
-                <span className="text-brand-700 font-extrabold">100% Job Guarantee Program</span>
+                <span className="text-brand-700 font-extrabold">AICTE Approved Institute</span>
                 <span className="text-slate-400">•</span>
-                <span className="text-slate-600">340+ Placed in 2025-2026</span>
+                <span className="text-slate-600">Hands-on Training & Live Projects</span>
               </div>
 
               {/* Main Headline */}
@@ -241,7 +241,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                ISO 9001:2015 certified finishing school with real production codebases, 1-on-1 industry mentorship, and dedicated recruitment drives across India.
+                Learn with expert mentorship and practical projects at an AICTE-approved institute, backed by MaMo Technolabs’ software engineering experience.
               </p>
 
               {/* Quick Search & Filter Input */}
@@ -287,23 +287,23 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                   className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-200/80 transition-all shadow-sm hover:border-slate-300 flex items-center justify-center gap-2"
                 >
                   <Code className="w-4 h-4 text-brand-600" />
-                  <span>Explore 16+ Curricula</span>
+                  <span>Explore All Courses</span>
                 </button>
               </div>
 
               {/* Verified Trust Stats */}
               <div className="pt-6 border-t border-slate-200/60 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
                 <div className="bg-white/60 p-3 rounded-2xl border border-white">
-                  <h4 className="text-xl sm:text-2xl font-black text-slate-900">15+ Yrs</h4>
-                  <p className="text-xs text-slate-500 font-medium">Finishing School Legacy</p>
+                  <h4 className="text-xl sm:text-2xl font-black text-slate-900">4+</h4>
+                  <p className="text-xs text-slate-500 font-medium">Years of Software Delivery</p>
                 </div>
                 <div className="bg-white/60 p-3 rounded-2xl border border-white">
-                  <h4 className="text-xl sm:text-2xl font-black text-brand-600">95%</h4>
-                  <p className="text-xs text-slate-500 font-medium">Placement Track Record</p>
+                  <h4 className="text-xl sm:text-2xl font-black text-brand-600">943+</h4>
+                  <p className="text-xs text-slate-500 font-medium">Projects Delivered</p>
                 </div>
                 <div className="bg-white/60 p-3 rounded-2xl border border-white">
-                  <h4 className="text-xl sm:text-2xl font-black text-slate-900">₹18 LPA</h4>
-                  <p className="text-xs text-slate-500 font-medium">Highest Package Offered</p>
+                  <h4 className="text-xl sm:text-2xl font-black text-slate-900">75%</h4>
+                  <p className="text-xs text-slate-500 font-medium">Client Retention Rate</p>
                 </div>
               </div>
 
@@ -476,6 +476,42 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
           </div>
         </div>
 
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          COMPANY SERVICES OVERVIEW
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/70 border-y border-slate-200/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-blue-700">
+              <Building2 className="w-4 h-4" /> MaMo Technolabs
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900">Technology Services for Growing Businesses</h2>
+            <p className="text-base text-slate-600 leading-relaxed">Alongside our academy, MaMo Technolabs helps startups, SMEs, and enterprises build, improve, and scale digital products.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {title:'IT Staff Augmentation',desc:'Extend your team with dedicated technology professionals and flexible engagement.',Icon:Briefcase},
+              {title:'Web App Development',desc:'Responsive, secure, and scalable web applications built around business needs.',Icon:Laptop},
+              {title:'Power BI Solutions',desc:'Turn operational data into clear dashboards, reports, and business insights.',Icon:BarChart2},
+              {title:'Digital Marketing',desc:'SEO, paid campaigns, social media, and content strategies focused on growth.',Icon:TrendingUp}
+            ].map(({title,desc,Icon})=>(
+              <div key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:-translate-y-1 hover:border-brand-300 hover:shadow-md transition-all">
+                <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center mb-4"><Icon className="w-5 h-5"/></div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-slate-600">
+            <span className="text-slate-500 mr-1">Also available:</span>
+            {['Mobile Apps','UI/UX Design','AI Solutions','Cloud','Cyber Security','DevOps','QA & Testing'].map(item=><span key={item} className="px-3 py-1.5 rounded-full bg-white border border-slate-200">{item}</span>)}
+          </div>
+          <div className="text-center">
+            <a href="https://mamotechnolabs.com/services" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3 font-bold text-white hover:bg-slate-800 transition-colors">View Company Services <ExternalLink className="w-4 h-4"/></a>
+          </div>
+        </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────
@@ -726,23 +762,23 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                 <div className="w-12 h-12 rounded-2xl bg-brand-500 text-slate-950 flex items-center justify-center font-black">
                   <Briefcase className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-black">100% Placement Assistance with Verified Hires</h3>
+                <h3 className="text-2xl font-black">Career Guidance & Interview Preparation</h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
-                  Our corporate placement cell actively schedules campus drives, technical mock interviews, and resume optimization sessions until you secure your offer letter.
+                  Get practical guidance, project experience, resume support, and interview preparation. Top performers may receive referrals and full-time opportunities; hiring decisions remain with employers.
                 </p>
               </div>
               <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800 mt-6 z-10">
                 <div>
-                  <span className="text-2xl font-black text-brand-400">340+</span>
-                  <p className="text-xs text-slate-400 font-medium mt-0.5">Students Placed</p>
+                  <span className="text-2xl font-black text-brand-400">500+</span>
+                  <p className="text-xs text-slate-400 font-medium mt-0.5">Interns Trained</p>
                 </div>
                 <div>
-                  <span className="text-2xl font-black text-white">100+</span>
-                  <p className="text-xs text-slate-400 font-medium mt-0.5">Hiring Partners</p>
+                  <span className="text-2xl font-black text-white">1-on-1</span>
+                  <p className="text-xs text-slate-400 font-medium mt-0.5">Expert Guidance</p>
                 </div>
                 <div>
-                  <span className="text-2xl font-black text-amber-400">₹18 LPA</span>
-                  <p className="text-xs text-slate-400 font-medium mt-0.5">Top Salary</p>
+                  <span className="text-2xl font-black text-amber-400">Live</span>
+                  <p className="text-xs text-slate-400 font-medium mt-0.5">Project Learning</p>
                 </div>
               </div>
             </div>
@@ -787,9 +823,9 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                 <div className="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center">
                   <Award className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900">Government & ISO 9001:2015 Accredited</h3>
+                <h3 className="text-2xl font-black text-slate-900">Recognitions & Quality Certifications</h3>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed max-w-xl">
-                  Our curriculum adheres to national skill development frameworks and official academic MOUs with top Indian universities including GSFC University, Parul University, and TeamLease.
+                  MaMo Technolabs’ official company website lists AICTE approval, ISO 9001:2015 certification, CMMI Level 3, MSME and MCA registration, and industry memberships.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -800,7 +836,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
                   ✓ CMMI Level 3 Standards
                 </span>
                 <span className="px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-slate-800 shadow-xs border border-slate-200">
-                  ✓ Official University Tie-Ups
+                  ✓ AICTE Approved Institute
                 </span>
               </div>
             </div>
@@ -1107,7 +1143,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
             Ready to Accelerate Your Career in Tech?
           </h2>
           <p className="text-brand-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Join over 1,200 successful graduates. Talk to our career counselors today and take the first step towards your high-paying tech offer.
+            Explore practical training, expert mentorship, and internship opportunities designed to help you build skills for a career in technology.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
