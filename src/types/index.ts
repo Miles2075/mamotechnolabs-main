@@ -45,7 +45,7 @@ export interface CatalogCourse {
   category: string;
   duration: string;
   description: string;
-  badges: ('New' | 'Trending' | 'Free Internship')[];
+  badges: ('New' | 'Trending')[];
   icon: string;
   detailedSlug?: string;
 }
