@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RouteType, StudentReview } from '../../types';
 import { testimonials } from '../../data/testimonialsData';
-import { Star, Play, MessageSquare, Filter, Youtube, CheckCircle2, Award, X } from 'lucide-react';
+import { Star, MessageSquare, CheckCircle2 } from 'lucide-react';
 
 interface StudentReviewsPageProps {
   navigateTo: (route: RouteType) => void;
@@ -9,14 +9,12 @@ interface StudentReviewsPageProps {
 }
 
 export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigateTo, openCounseling }) => {
-  const [filter, setFilter] = useState<'all' | 'google' | 'youtube'>('all');
-  const [selectedVideo, setSelectedVideo] = useState<StudentReview | null>(null);
+  const [filter, setFilter] = useState<'all' | 'google' | 'text'>('all');
 
   const filteredReviews = testimonials.filter(r => {
     if (filter === 'all') return true;
-    if (filter === 'google') return r.type === 'google' || r.type === 'text';
-    if (filter === 'youtube') return r.type === 'youtube';
-    return true;
+    if (filter === 'google') return r.type === 'google';
+    return r.type === 'text';
   });
 
   return (
@@ -30,14 +28,14 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
             <Star className="w-3.5 h-3.5 fill-brand-400" />
-            <span>4.9 / 5.0 Rating from 1,200+ Alumni</span>
+            <span>Feedback from our learners</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
             Real Stories. Real Careers. <br />
             <span className="text-gradient-brand">Verified Student Reviews</span>
           </h1>
           <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Hear directly from freshers and working professionals who transformed their skillsets and secured offers in top tech companies.
+            Read about learners’ experiences with our training, mentors and project work.
           </p>
         </div>
       </section>
@@ -53,10 +51,10 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                 Alumni Experiences & Testimonials
               </h2>
-              <p className="text-xs text-slate-500 mt-1">Authentic feedback from graduates across Vadodara & Gujarat</p>
+              <p className="text-xs text-slate-500 mt-1">Personal experiences shared by learners</p>
             </div>
 
-            {/* Filter Toggle Buttons */}
+            {/* Feedback filters */}
             <div className="flex items-center gap-1.5 bg-white p-1 rounded-2xl border border-slate-200 shadow-xs">
               <button
                 onClick={() => setFilter('all')}
@@ -75,13 +73,12 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
                 Google Reviews
               </button>
               <button
-                onClick={() => setFilter('youtube')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                  filter === 'youtube' ? 'bg-slate-900 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                onClick={() => setFilter('text')}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                  filter === 'text' ? 'bg-slate-900 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <Youtube className="w-3.5 h-3.5 text-rose-500" />
-                <span>Video Stories</span>
+                Other Feedback
               </button>
             </div>
           </div>
@@ -106,13 +103,9 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
                         <span className="text-[11px] font-bold text-brand-600">{rev.roleOrCourse}</span>
                       </div>
                     </div>
-                    {rev.type === 'youtube' ? (
-                      <span className="p-2 rounded-xl bg-rose-50 text-rose-600">
-                        <Youtube className="w-4 h-4" />
-                      </span>
-                    ) : (
-                      <div className="flex text-amber-400">
-                        {[...Array(5)].map((_, i) => (
+                    {rev.type === 'google' && (
+                      <div className="flex text-amber-400" aria-label={`${rev.rating} out of 5 stars`}>
+                        {[...Array(rev.rating || 0)].map((_, i) => (
                           <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                         ))}
                       </div>
@@ -124,27 +117,11 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
                     "{rev.reviewText}"
                   </p>
 
-                  {/* Video review panel without a student photo */}
-                  {rev.type === 'youtube' && (
-                    <button
-                      type="button"
-                      onClick={() => setSelectedVideo(rev)}
-                      aria-label={`Play ${rev.name}'s video review`}
-                      className="relative w-full rounded-2xl overflow-hidden cursor-pointer group/vid aspect-video bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 flex flex-col items-center justify-center gap-3 border border-slate-200"
-                    >
-                      <span className="text-3xl font-black text-white/80">{rev.name.charAt(0)}</span>
-                      <span className="text-xs font-semibold tracking-wide text-white/75">VIDEO TESTIMONIAL</span>
-                      <span className="absolute w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-lg group-hover/vid:scale-110 transition-transform">
-                        <Play className="w-5 h-5 ml-0.5 fill-white" />
-                      </span>
-                    </button>
-                  )}
-
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="flex items-center gap-1 text-emerald-600 font-bold">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Verified Scholar
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Learner feedback
                   </span>
                   <span>{rev.roleOrCourse}</span>
                 </div>
@@ -155,31 +132,6 @@ export const StudentReviewsPage: React.FC<StudentReviewsPageProps> = ({ navigate
         </div>
       </section>
 
-      {/* Video Lightbox Modal */}
-      {selectedVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="relative w-full max-w-3xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
-            <div className="p-4 flex items-center justify-between text-white border-b border-slate-800">
-              <h4 className="font-bold text-sm">{selectedVideo.name}'s Placement Video Story</h4>
-              <button
-                onClick={() => setSelectedVideo(null)}
-                className="p-1 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="aspect-video bg-black flex items-center justify-center p-6 text-center text-slate-400">
-              <div className="space-y-3">
-                <Youtube className="w-16 h-16 text-rose-500 mx-auto" />
-                <p className="text-sm font-bold text-white">{selectedVideo.name} - Review Video</p>
-                <p className="text-xs max-w-md mx-auto">
-                  "{selectedVideo.reviewText}"
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
