@@ -40,18 +40,22 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
   const [selectedDurations, setSelectedDurations] = useState<string[]>([]);
 
   const categoryOptions = [
-    'Trending',
-    'AI & Machine Learning',
-    'Analytics',
-    'Programing Development',
-    'Web Development',
-    'Mobile App Development',
-    'Software Testing & QA',
-    'Digital Marketing',
+    'Development & Engineering',
     'Design',
-    'DevOps',
-    'SEO'
+    'AI & Machine Learning',
+    'QA & Testing',
+    'Infrastructure & Emerging Tech',
+    'Business & Digital Growth'
   ];
+
+  const categoryGroupTerms: Record<string, string[]> = {
+    'Development & Engineering': ['Programing Development', 'Web Development', 'Mobile App Development'],
+    'Design': ['Design'],
+    'AI & Machine Learning': ['AI & Machine Learning'],
+    'QA & Testing': ['Software Testing & QA'],
+    'Infrastructure & Emerging Tech': ['Infrastructure', 'DevOps'],
+    'Business & Digital Growth': ['Digital Marketing', 'SEO', 'Analytics']
+  };
 
   const durationOptions = [
     '1 Month',
@@ -93,8 +97,8 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
     const matchesCategory =
       selectedCategories.length === 0 ||
       selectedCategories.some((cat) => {
-        if (cat === 'Trending') return course.badges.includes('Trending');
-        return course.category.toLowerCase().includes(cat.toLowerCase());
+        const terms = categoryGroupTerms[cat] || [cat];
+        return terms.some(term => course.category.toLowerCase().includes(term.toLowerCase()));
       });
 
     const matchesDuration =
@@ -141,7 +145,7 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
             From Generative AI and Machine Learning to Cloud Computing and Full-Stack Engineering. Master production tech and launch your career.
           </p>
           <div className="flex items-center justify-center gap-6 pt-2 text-xs font-semibold text-slate-400">
-            <span>• 17 Industry Curricula</span>
+            <span>• {catalogCourses.length} Industry Curricula</span>
             <span>• 100% Placement Support</span>
             <span>• Live Project Labs</span>
           </div>
@@ -313,7 +317,7 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
                 </p>
                 <span className="text-xs text-emerald-600 font-bold flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  All Include 100% Placement Assistance
+                  Free internship included with every course
                 </span>
               </div>
 
