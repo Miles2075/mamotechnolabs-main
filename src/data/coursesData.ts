@@ -713,5 +713,60 @@ export const catalogCourses: CatalogCourse[] = [
     badges: ['New'],
     icon: 'globe'
   },
+,
+  {
+    id: 'frontend-development',
+    name: 'Frontend Development',
+    category: 'Web Development',
+    duration: '3 Months',
+    description: 'Create responsive, accessible interfaces with HTML, CSS, JavaScript, TypeScript, React, and modern frontend workflows.',
+    badges: ['New'],
+    icon: 'code'
+  },
+  {
+    id: 'web-portal-development',
+    name: 'Web Portal Development',
+    category: 'Web Development',
+    duration: '4 Months',
+    description: 'Design and build secure customer, partner, and admin portals with authentication, role-based access, APIs, and database integration.',
+    badges: ['New'],
+    icon: 'layers'
+  },
+  {
+    id: 'cyber-security',
+    name: 'Cyber Security',
+    category: 'Infrastructure',
+    duration: '6 Months',
+    description: 'Learn security fundamentals, network defense, vulnerability assessment, secure systems, incident response, and practical security labs.',
+    badges: ['Trending'],
+    icon: 'shield-check'
+  },
+  {
+    id: 'cloud-computing',
+    name: 'Cloud Computing',
+    category: 'Infrastructure',
+    duration: '3 Months',
+    description: 'Build cloud skills across compute, storage, networking, identity, deployment, monitoring, and scalable cloud architecture.',
+    badges: ['New'],
+    icon: 'cloud'
+  },
+  {
+    id: 'big-data-engineering',
+    name: 'Big Data Engineering',
+    category: 'Analytics',
+    duration: '6 Months',
+    description: 'Work with data pipelines, distributed processing, data lakes, warehousing, ETL, and analytics-ready data platforms.',
+    badges: ['New'],
+    icon: 'bar-chart'
+  },
+  {
+    id: 'iot-development',
+    name: 'IoT Development',
+    category: 'Infrastructure',
+    duration: '4 Months',
+    description: 'Explore connected devices, sensors, embedded programming, communication protocols, cloud connectivity, and IoT prototypes.',
+    badges: ['New'],
+    icon: 'cpu'
+  },
 
 ];
