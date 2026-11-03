@@ -560,7 +560,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Programing Development',
     duration: '2 Months',
     description: 'Python is widely used in various applications and development projects. Master OOP, decorators, generators, APIs, and real projects.',
-    badges: ['New', 'Free Internship'],
+    badges: ['New'],
     icon: 'code'
   },
   {
@@ -569,7 +569,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '1 Month',
     description: 'Most people know five AI tools and may use them wrong. The course teaches them which of those tools to reach for and why.',
-    badges: ['Trending', 'New', 'Free Internship'],
+    badges: ['Trending', 'New'],
     icon: 'brain',
     detailedSlug: 'ai-tools'
   },
@@ -579,7 +579,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '3 Months',
     description: 'Comprehensive Generative AI training built for making AI learning easier without heavy jargon. Build LLM apps and RAG systems.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'sparkles',
     detailedSlug: 'gen-ai'
   },
@@ -589,7 +589,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '3 Months',
     description: 'Master Deep Learning, CNNs, Transformers, Computer Vision, and autonomous models with certified industry curriculum.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'cpu',
     detailedSlug: 'ai'
   },
@@ -599,7 +599,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '3 Months',
     description: 'Practical algorithmic mastery from Regression and Tree Ensembles to MLOps, experiment tracking, and model deployment.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'bot',
     detailedSlug: 'ml'
   },
@@ -609,7 +609,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Analytics',
     duration: '3 Months',
     description: 'Transform raw data into strategic business decisions with Python, SQL, Statistics, Tableau, and Machine Learning.',
-    badges: ['New', 'Free Internship'],
+    badges: ['New'],
     icon: 'bar-chart',
     detailedSlug: 'ds'
   },
@@ -619,7 +619,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '2 Months',
     description: 'Systemic prompt design, reasoning architectures, function calling, JSON schemas, and enterprise workflow automation.',
-    badges: ['New', 'Free Internship'],
+    badges: ['New'],
     icon: 'terminal',
     detailedSlug: 'pe'
   },
@@ -629,7 +629,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Web Development',
     duration: '4 Months',
     description: 'Master MongoDB, Express.js, React.js, and Node.js with modern REST APIs, authentication, and full-stack cloud deployment.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'layers'
   },
   {
@@ -638,7 +638,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Mobile App Development',
     duration: '3 Months',
     description: 'Build native iOS and Android apps from a single Dart codebase. Master state management, REST APIs, and app store deployment.',
-    badges: ['New', 'Free Internship'],
+    badges: ['New'],
     icon: 'smartphone'
   },
   {
@@ -647,7 +647,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Analytics',
     duration: '2 Months',
     description: 'Create interactive executive dashboards, master DAX calculations, and transform complex enterprise databases into visual insights.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'pie-chart'
   },
   {
@@ -656,7 +656,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Design',
     duration: '2 Months',
     description: 'Wireframing, interactive prototyping, user research, design systems, and responsive layout guidelines in Figma.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'palette'
   },
   {
@@ -665,7 +665,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Digital Marketing',
     duration: '3 Months',
     description: 'Search engine optimization (SEO), Google Ads, social media strategy, analytics, and conversion rate optimization.',
-    badges: ['Trending', 'Free Internship'],
+    badges: ['Trending'],
     icon: 'globe'
   },
   {
@@ -674,7 +674,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Software Testing & QA',
     duration: '2 Months',
     description: 'Modern, fast, and resilient end-to-end testing with Microsoft Playwright, TypeScript, CI/CD integration, and reporting.',
-    badges: ['New', 'Free Internship'],
+    badges: ['New'],
     icon: 'check-circle'
   }
 ];
