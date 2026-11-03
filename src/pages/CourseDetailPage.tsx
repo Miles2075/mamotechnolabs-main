@@ -81,7 +81,7 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
                   FREE INTERNSHIP
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-gradient-brand">
+              <h2 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-gradient-brand">
                 {course.subtitle}
               </h2>
 
