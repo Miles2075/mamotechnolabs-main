@@ -48,7 +48,9 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
     'Mobile App Development',
     'Software Testing & QA',
     'Digital Marketing',
-    'Design'
+    'Design',
+    'DevOps',
+    'SEO'
   ];
 
   const durationOptions = [
@@ -139,7 +141,7 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
             From Generative AI and Machine Learning to Cloud Computing and Full-Stack Engineering. Master production tech and launch your career.
           </p>
           <div className="flex items-center justify-center gap-6 pt-2 text-xs font-semibold text-slate-400">
-            <span>• 16 Industry Curricula</span>
+            <span>• 17 Industry Curricula</span>
             <span>• 100% Placement Support</span>
             <span>• Live Project Labs</span>
           </div>
