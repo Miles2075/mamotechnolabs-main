@@ -16,11 +16,9 @@ import { CourseDetailPage } from './pages/CourseDetailPage';
 
 // Student Corner Pages
 import { InternshipPage } from './pages/StudentCornerPages/InternshipPage';
-import { FinalYearPage } from './pages/StudentCornerPages/FinalYearPage';
 import { IndustrialVisitPage } from './pages/StudentCornerPages/IndustrialVisitPage';
 import { StudentReviewsPage } from './pages/StudentCornerPages/StudentReviewsPage';
 import { BlogPage } from './pages/StudentCornerPages/BlogPage';
-import { NiosPage } from './pages/StudentCornerPages/NiosPage';
 import { CollegePartnersPage } from './pages/CollegePartnersPage';
 
 export const App: React.FC = () => {
@@ -39,7 +37,7 @@ export const App: React.FC = () => {
         const id = hash.replace('course/', '');
         setActiveCourseId(id);
         setCurrentRoute('course-detail');
-      } else if (['about', 'contact', 'hire', 'skill', 'courses', 'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios', 'college-partners'].includes(hash)) {
+      } else if (['about', 'contact', 'hire', 'skill', 'courses', 'internship', 'visit', 'reviews', 'blog', 'college-partners'].includes(hash)) {
         setCurrentRoute(hash as RouteType);
       }
     };
@@ -106,9 +104,6 @@ export const App: React.FC = () => {
         {currentRoute === 'internship' && (
           <InternshipPage navigateTo={navigateTo} openCounseling={openCounseling} />
         )}
-        {currentRoute === 'final-year' && (
-          <FinalYearPage navigateTo={navigateTo} openCounseling={openCounseling} />
-        )}
         {currentRoute === 'visit' && (
           <IndustrialVisitPage navigateTo={navigateTo} openCounseling={openCounseling} />
         )}
@@ -117,9 +112,6 @@ export const App: React.FC = () => {
         )}
         {currentRoute === 'blog' && (
           <BlogPage navigateTo={navigateTo} />
-        )}
-        {currentRoute === 'nios' && (
-          <NiosPage navigateTo={navigateTo} openCounseling={openCounseling} />
         )}
         {currentRoute === 'college-partners' && (
           <CollegePartnersPage navigateTo={navigateTo} />
