@@ -345,9 +345,14 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
                         <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
                           {course.category}
                         </span>
-                        <h3 className="text-lg font-black text-slate-900 group-hover:text-brand-600 transition-colors">
-                          {course.name}
-                        </h3>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="text-lg font-black text-slate-900 group-hover:text-brand-600 transition-colors">
+                            {course.name}
+                          </h3>
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 px-3 py-1 text-xs sm:text-sm font-extrabold shadow-sm">
+                            <span className="text-base leading-none">+</span> FREE INTERNSHIP
+                          </span>
+                        </div>
                         <p className="text-xs text-slate-500 mt-2 line-clamp-3 leading-relaxed">
                           {course.description}
                         </p>
