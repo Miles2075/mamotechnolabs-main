@@ -161,11 +161,11 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
         </div>
       ) : partner.img ? (
         <div className="flex items-center gap-3">
-          <div className="h-9 max-w-[112px] flex items-center justify-center shrink-0">
+          <div className={`flex items-center justify-center shrink-0 ${partner.name.includes('Navrachana') ? 'h-10 max-w-[136px]' : 'h-9 max-w-[112px]'}`}>
             <img
               src={partner.img}
               alt={partner.name}
-              className="max-h-8 max-w-full object-contain transition-transform duration-200 group-hover/card:scale-105"
+              className={`max-w-full object-contain transition-transform duration-200 group-hover/card:scale-105 ${partner.name.includes('Navrachana') ? 'max-h-9' : 'max-h-8'}`}
               onError={(e) => {
                 (e.currentTarget as HTMLElement).style.display = 'none';
               }}
