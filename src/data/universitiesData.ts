@@ -31,9 +31,9 @@ export const universityPartners: UniversityTieUp[] = [
     img: '/images/navrachana-university-logo.svg'
   },
   {
-    name: 'Babaria Institute of Technology',
+    name: 'Drs. Kiran & Pallavi Patel Global University (KPGU)',
     badge: 'Vadodara District',
-    img: 'https://bitseducampus.org/wp-content/uploads/2018/12/SKECT-Logo.png'
+    img: 'https://kpgu.ac.in/assets/KPGU%20University%20Logo-qGWvMAzs.png'
   },
   {
     name: 'Sigma University',
