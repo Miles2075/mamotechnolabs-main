@@ -8,17 +8,16 @@ export const testimonials: StudentReview[] = [
     type: 'text',
     rating: 5,
     date: 'August 14, 2026',
-    reviewText: 'Thank you! For a 15-day (or short-term) PHP web development internship in 2026, the best-reviewed options focus on hands-on project experience, fast-tracked learning, and certification. The mentors at Mamo TechnoLabs walked me through every step.'
+    reviewText: 'My PHP web development internship was a good learning experience. I got to work on practical tasks, learn at a steady pace and ask mentors for help whenever I was stuck.'
   },
   {
     id: 't2',
     name: 'Aarti Barot',
     roleOrCourse: 'PHP Developer',
-    type: 'youtube',
+    type: 'text',
     rating: 5,
     date: 'July 19, 2026',
-    reviewText: 'PHP course review by Aarti Barot at MamoTechnoLabs Institute. I gained confidence with real project deployments and got placed with a leading IT firm in Vadodara.',
-    youtubeUrl: 'https://youtube.com'
+    reviewText: 'The PHP training helped me feel more confident working on real projects. I especially appreciated the guidance during project work and the chance to put what I was learning into practice.',
   },
   {
     id: 't3',
@@ -37,7 +36,7 @@ export const testimonials: StudentReview[] = [
     type: 'youtube',
     rating: 5,
     date: 'June 26, 2026',
-    reviewText: 'Devesh Jadav’s journey proves that practical project training transforms career paths. The mentorship made complex concepts in AI understandable.',
+    reviewText: 'The Python and AI sessions helped me understand topics that had felt difficult at first. Having someone explain the concepts and work through examples with me made a real difference.',
     youtubeUrl: 'https://youtube.com'
   },
   {
@@ -47,7 +46,7 @@ export const testimonials: StudentReview[] = [
     type: 'youtube',
     rating: 5,
     date: 'May 15, 2026',
-    reviewText: 'The project-based approach at Mamo TechnoLabs allowed me to prepare for technical rounds with complete confidence.',
+    reviewText: 'Working on projects helped me connect the concepts from the Data Science training with practical tasks. It also gave me a clearer idea of what to expect in technical interviews.',
     youtubeUrl: 'https://youtube.com'
   },
   {
@@ -58,6 +57,6 @@ export const testimonials: StudentReview[] = [
     rating: 5,
     date: 'April 22, 2026',
     avatarText: 'M',
-    reviewText: 'Mamo TechnoLabs helped me pivot from a non-technical background into digital marketing analytics. The live ad campaign practice was phenomenal.'
+    reviewText: 'I came from a non-technical background, so getting hands-on with digital marketing analytics was useful. Practising with live ad campaigns helped me understand how the work happens outside the classroom.'
   }
 ];
