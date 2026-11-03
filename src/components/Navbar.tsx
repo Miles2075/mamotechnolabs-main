@@ -297,7 +297,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
             >
               <button
                 className={navItemClass([
-                  'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'
+                  'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios', 'college-partners'
                 ].includes(currentRoute))}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -336,6 +336,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       { route: 'reviews' as RouteType, label: 'Student Reviews', icon: Star },
                       { route: 'blog' as RouteType, label: 'Tech Blogs & Guides', icon: BookOpen },
                       { route: 'nios' as RouteType, label: 'NIOS Learning Centre', icon: FileText },
+                      { route: 'college-partners' as RouteType, label: 'Colleges We Are Partnered With', icon: GraduationCap },
                     ].map((item, idx) => {
                       const Icon = item.icon;
                       return (
@@ -522,6 +523,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       <button onClick={() => handleNav('reviews')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Student Reviews</button>
                       <button onClick={() => handleNav('blog')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Blog</button>
                       <button onClick={() => handleNav('nios')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">NIOS Learning Centre</button>
+                      <button onClick={() => handleNav('college-partners')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Colleges We Are Partnered With</button>
                     </div>
                   )}
                 </div>
