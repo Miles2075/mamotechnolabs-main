@@ -142,7 +142,8 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('course-detail', 'ai-tools')}
                   className="hover:text-brand-400 transition-colors text-left"
                 >
-                  AI Master Tools
+                  <span>AI Master Tools</span>
+                  <span className="ml-2 inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap">+ FREE INTERNSHIP</span>
                 </button>
               </li>
               <li>
@@ -150,7 +151,8 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('course-detail', 'ml')}
                   className="hover:text-brand-400 transition-colors text-left"
                 >
-                  Machine Learning
+                  <span>Machine Learning</span>
+                  <span className="ml-2 inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap">+ FREE INTERNSHIP</span>
                 </button>
               </li>
               <li>
@@ -158,7 +160,8 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('course-detail', 'ai')}
                   className="hover:text-brand-400 transition-colors text-left"
                 >
-                  Artificial Intelligence
+                  <span>Artificial Intelligence</span>
+                  <span className="ml-2 inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap">+ FREE INTERNSHIP</span>
                 </button>
               </li>
               <li>
@@ -166,7 +169,8 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('course-detail', 'pe')}
                   className="hover:text-brand-400 transition-colors text-left"
                 >
-                  Prompt Engineering
+                  <span>Prompt Engineering</span>
+                  <span className="ml-2 inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap">+ FREE INTERNSHIP</span>
                 </button>
               </li>
               <li>
@@ -174,7 +178,8 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('course-detail', 'ds')}
                   className="hover:text-brand-400 transition-colors text-left"
                 >
-                  Data Science
+                  <span>Data Science</span>
+                  <span className="ml-2 inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap">+ FREE INTERNSHIP</span>
                 </button>
               </li>
               <li>
@@ -182,7 +187,8 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('course-detail', 'gen-ai')}
                   className="hover:text-brand-400 transition-colors text-left"
                 >
-                  Generative AI
+                  <span>Generative AI</span>
+                  <span className="ml-2 inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 text-[9px] font-extrabold whitespace-nowrap">+ FREE INTERNSHIP</span>
                 </button>
               </li>
             </ul>
