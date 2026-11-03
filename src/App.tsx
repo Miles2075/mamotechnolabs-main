@@ -21,6 +21,7 @@ import { IndustrialVisitPage } from './pages/StudentCornerPages/IndustrialVisitP
 import { StudentReviewsPage } from './pages/StudentCornerPages/StudentReviewsPage';
 import { BlogPage } from './pages/StudentCornerPages/BlogPage';
 import { NiosPage } from './pages/StudentCornerPages/NiosPage';
+import { CollegePartnersPage } from './pages/CollegePartnersPage';
 
 export const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<RouteType>('home');
@@ -38,7 +39,7 @@ export const App: React.FC = () => {
         const id = hash.replace('course/', '');
         setActiveCourseId(id);
         setCurrentRoute('course-detail');
-      } else if (['about', 'contact', 'hire', 'skill', 'courses', 'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios'].includes(hash)) {
+      } else if (['about', 'contact', 'hire', 'skill', 'courses', 'internship', 'final-year', 'visit', 'reviews', 'blog', 'nios', 'college-partners'].includes(hash)) {
         setCurrentRoute(hash as RouteType);
       }
     };
