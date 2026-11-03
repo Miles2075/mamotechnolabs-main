@@ -14,6 +14,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     description: "At Mamo TechnoLabs' artificial intelligence training, we empower learners to master the cutting-edge systems defining the future of technology. The global artificial intelligence market is projected to skyrocket past $1.3 trillion by 2032, driving unprecedented demand for certified AI specialists.",
     fullOverview: "The Artificial Intelligence course covers deep neural networks, natural language processing (NLP), computer vision, generative AI architectures, reinforcement learning, and production model deployment. Through practical, project-centric modules, students build custom conversational agents, image recognition models, and automated AI pipelines using Python, PyTorch, TensorFlow, Hugging Face, and LangChain.",
     features: [
+      'Free internship opportunity included with this course.',
       'Build advanced Deep Learning & Neural Network architectures with TensorFlow & PyTorch.',
       'Implement Large Language Models (LLMs), RAG pipelines, and LangChain agents.',
       'Master Computer Vision, Object Detection (YOLO), and Image Segmentation.',
@@ -119,6 +120,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     description: 'Most people know five AI tools and may use them wrong. The course teaches them which of those tools to reach for and why. Learn the difference at Mamo TechnoLabs.',
     fullOverview: 'The AI tools course focuses on major AI tools used in research, business, content, productivity, automation and development. Instead of just teaching each tool on its own, it shows how they fit into real work. Learners write prompts, build business solutions, generate media and automate workflows.',
     features: [
+      'Free internship opportunity included with this course.',
       'Master 30+ top tier AI tools across text, design, audio, and code.',
       'Automate daily operations and workflows with Zapier & Make AI.',
       'Create high-converting marketing campaigns and visual assets in seconds.',
@@ -200,6 +202,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     description: 'Transform raw data into strategic business decisions. Learn statistics, SQL, Python data engineering, visual storytelling with Tableau/Power BI, and predictive modeling.',
     fullOverview: 'The Data Science curriculum at Mamo TechnoLabs is crafted by industry data architects to give students comprehensive end-to-end capabilities: data extraction, cleaning, statistical inference, feature engineering, machine learning pipelines, and interactive dashboard deployments.',
     features: [
+      'Free internship opportunity included with this course.',
       'Master Python (Pandas, NumPy, SciPy) and Advanced Analytical SQL.',
       'Design interactive executive dashboards with Power BI & Tableau.',
       'Deploy Predictive Models & A/B testing statistical frameworks.',
@@ -289,6 +292,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     description: 'Learn to build and deploy generative AI applications, fine-tune open-source models, construct production RAG architectures, and orchestrate intelligent agents.',
     fullOverview: 'Generative AI is rewriting software engineering. This comprehensive course takes you inside modern transformer architectures, embeddings, vector databases, LangChain, LlamaIndex, and multimodal generative pipelines for real-world enterprise applications.',
     features: [
+      'Free internship opportunity included with this course.',
       'Comprehensive understanding of Transformer architectures & Attention mechanisms.',
       'Build production-ready Retrieval-Augmented Generation (RAG) systems.',
       'Fine-tune open-weights models (Llama 3, Mistral) using LoRA & PEFT.',
@@ -371,7 +375,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     title: 'Machine Learning Course In Vadodara',
     subtitle: 'Practical Algorithmic Mastery & Production Engineering',
     tag: 'Certification In Vadodara',
-    duration: '2.5 Months',
+    duration: '3 Months',
     badge: 'Trending',
     avgSalary: '₹6 – ₹15 LPA*',
     rating: 4.7,
@@ -379,6 +383,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     description: 'Learn the underlying mechanics of machine learning algorithms from scratch. Master predictive modeling, regression, tree ensembles, SVMs, neural networks, and MLOps.',
     fullOverview: 'The Machine Learning course at Mamo TechnoLabs focuses on hands-on practical implementation. Students write code from mathematical formulation to scikit-learn implementations, learning how algorithms function under the hood and how to tune them for maximum accuracy.',
     features: [
+      'Free internship opportunity included with this course.',
       'Comprehensive mathematical intuition behind every ML algorithm.',
       'Advanced Feature Engineering and dimensionality reduction (PCA, t-SNE).',
       'Ensemble methods: XGBoost, LightGBM, CatBoost, and Stacking.',
@@ -462,7 +467,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     title: 'Prompt Engineering Course In Vadodara',
     subtitle: 'Systemic Prompt Design, Reasoning Architectures & AI Automation',
     tag: 'Certification In Vadodara',
-    duration: '1.5 Months',
+    duration: '2 Months',
     badge: 'New',
     avgSalary: '₹6 – ₹15 LPA*',
     rating: 4.8,
@@ -470,6 +475,7 @@ export const detailedCourses: Record<string, DetailedCourse> = {
     description: 'Master the art and science of communicating with Large Language Models. Build bulletproof prompts, implement zero-shot/few-shot architectures, and automate corporate workflows.',
     fullOverview: 'Prompt engineering has emerged as one of the most critical tech skills of the decade. This course takes you far beyond simple chat queries to advanced reasoning chains, structured output generation (JSON schemas), meta-prompting, evaluation metrics, and programmatic API integrations.',
     features: [
+      'Free internship opportunity included with this course.',
       'Master prompt architectures: CoT, Tree-of-Thoughts, ReAct, Self-Consistency.',
       'Reliably extract structured JSON data from unstructured documents.',
       'Automate workflows across marketing, legal, coding, and analytics.',
@@ -554,7 +560,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Programing Development',
     duration: '2 Months',
     description: 'Python is widely used in various applications and development projects. Master OOP, decorators, generators, APIs, and real projects.',
-    badges: ['New'],
+    badges: ['New', 'Free Internship'],
     icon: 'code'
   },
   {
@@ -563,7 +569,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '1 Month',
     description: 'Most people know five AI tools and may use them wrong. The course teaches them which of those tools to reach for and why.',
-    badges: ['Trending', 'New'],
+    badges: ['Trending', 'New', 'Free Internship'],
     icon: 'brain',
     detailedSlug: 'ai-tools'
   },
@@ -573,7 +579,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '3 Months',
     description: 'Comprehensive Generative AI training built for making AI learning easier without heavy jargon. Build LLM apps and RAG systems.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'sparkles',
     detailedSlug: 'gen-ai'
   },
@@ -583,7 +589,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'AI & Machine Learning',
     duration: '3 Months',
     description: 'Master Deep Learning, CNNs, Transformers, Computer Vision, and autonomous models with certified industry curriculum.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'cpu',
     detailedSlug: 'ai'
   },
@@ -591,9 +597,9 @@ export const catalogCourses: CatalogCourse[] = [
     id: 'ml-full',
     name: 'Machine Learning',
     category: 'AI & Machine Learning',
-    duration: '2.5 Months',
+    duration: '3 Months',
     description: 'Practical algorithmic mastery from Regression and Tree Ensembles to MLOps, experiment tracking, and model deployment.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'bot',
     detailedSlug: 'ml'
   },
@@ -603,7 +609,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Analytics',
     duration: '3 Months',
     description: 'Transform raw data into strategic business decisions with Python, SQL, Statistics, Tableau, and Machine Learning.',
-    badges: ['New'],
+    badges: ['New', 'Free Internship'],
     icon: 'bar-chart',
     detailedSlug: 'ds'
   },
@@ -611,9 +617,9 @@ export const catalogCourses: CatalogCourse[] = [
     id: 'pe-full',
     name: 'Prompt Engineering',
     category: 'AI & Machine Learning',
-    duration: '1.5 Months',
+    duration: '2 Months',
     description: 'Systemic prompt design, reasoning architectures, function calling, JSON schemas, and enterprise workflow automation.',
-    badges: ['New'],
+    badges: ['New', 'Free Internship'],
     icon: 'terminal',
     detailedSlug: 'pe'
   },
@@ -623,7 +629,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Web Development',
     duration: '4 Months',
     description: 'Master MongoDB, Express.js, React.js, and Node.js with modern REST APIs, authentication, and full-stack cloud deployment.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'layers'
   },
   {
@@ -632,16 +638,16 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Mobile App Development',
     duration: '3 Months',
     description: 'Build native iOS and Android apps from a single Dart codebase. Master state management, REST APIs, and app store deployment.',
-    badges: ['New'],
+    badges: ['New', 'Free Internship'],
     icon: 'smartphone'
   },
   {
     id: 'powerbi-dash',
     name: 'Power BI Business Analytics',
     category: 'Analytics',
-    duration: '1.5 Months',
+    duration: '2 Months',
     description: 'Create interactive executive dashboards, master DAX calculations, and transform complex enterprise databases into visual insights.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'pie-chart'
   },
   {
@@ -650,7 +656,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Design',
     duration: '2 Months',
     description: 'Wireframing, interactive prototyping, user research, design systems, and responsive layout guidelines in Figma.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'palette'
   },
   {
@@ -659,7 +665,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Digital Marketing',
     duration: '3 Months',
     description: 'Search engine optimization (SEO), Google Ads, social media strategy, analytics, and conversion rate optimization.',
-    badges: ['Trending'],
+    badges: ['Trending', 'Free Internship'],
     icon: 'globe'
   },
   {
@@ -668,7 +674,7 @@ export const catalogCourses: CatalogCourse[] = [
     category: 'Software Testing & QA',
     duration: '2 Months',
     description: 'Modern, fast, and resilient end-to-end testing with Microsoft Playwright, TypeScript, CI/CD integration, and reporting.',
-    badges: ['New'],
+    badges: ['New', 'Free Internship'],
     icon: 'check-circle'
   }
 ];
