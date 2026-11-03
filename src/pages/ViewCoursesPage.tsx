@@ -53,11 +53,11 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
 
   const durationOptions = [
     '1 Month',
-    '1.5 Months',
     '2 Months',
-    '2.5 Months',
     '3 Months',
-    '4 Months'
+    '4 Months',
+    '6 Months',
+    '1 Year'
   ];
 
   const toggleCategory = (cat: string) => {
