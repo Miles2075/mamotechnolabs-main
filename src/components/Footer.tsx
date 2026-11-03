@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
             <div className="flex items-center gap-2.5">
               <img
                 src="/mamo-academy-logo-white.png"
-                alt="MaMo Academy Logo"
+                alt="MaMo Technolabs Logo"
                 className="h-10 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.src = '/mamo-academy-logo.png';
@@ -40,7 +40,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
             </div>
             
             <p className="text-xs text-slate-400 leading-relaxed">
-              Mamo TechnoLabs LLP is an ISO 9001:2015 and CMMI Level 3 certified global IT finishing school and software engineering company empowering individuals and enterprises with modern tech skills.
+              MaMo Technolabs LLP is a technology company delivering software, web, mobile, data, and digital growth solutions while supporting practical technology education through MaMo Academy.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
                   onClick={() => navigateTo('courses')}
                   className="hover:text-brand-400 transition-colors"
                 >
-                  All 16 IT Courses
+                  All Courses
                 </button>
               </li>
               <li>
@@ -191,21 +191,21 @@ export const Footer: React.FC<FooterProps> = ({ navigateTo }) => {
           {/* Column 4: Contact & Locations */}
           <div className="space-y-4">
             <h3 className="text-white font-black text-xs tracking-wider uppercase border-l-2 border-brand-500 pl-2.5">
-              Campus Headquarters
+              Office & Training
             </h3>
             
             <div className="space-y-3 text-xs">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
-                  Mamo TechnoLabs Campus, Sayajiganj / Alkapuri, Vadodara, Gujarat 390005, India
+                  4th Floor, Office No. 27, RAAMA EMPERRO, Vadodara, Gujarat 390011, India
                 </p>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-500 shrink-0" />
-                <a href="tel:+917622990059" className="hover:text-white font-semibold">
-                  +91 76229 90059
+                <a href="tel:+919325910095" className="hover:text-white font-semibold">
+                  +91 93259 10095
                 </a>
               </div>
 
