@@ -29,6 +29,41 @@ export const universityPartners: UniversityTieUp[] = [
     name: 'Navrachana University (NUV)',
     badge: 'Academic Partner',
     img: 'https://pbs.twimg.com/profile_images/1372436918302957568/mNBfI_L-_400x400.jpg'
+  },
+  {
+    name: 'Babaria Institute of Technology',
+    badge: 'Vadodara District',
+    img: 'https://www.google.com/s2/favicons?domain=bitseducampus.org&sz=256'
+  },
+  {
+    name: 'Sigma University',
+    badge: 'Vadodara District',
+    img: 'https://www.google.com/s2/favicons?domain=sigmauniversity.ac.in&sz=256'
+  },
+  {
+    name: 'Sumandeep Vidyapeeth',
+    badge: 'Vadodara District',
+    img: 'https://www.google.com/s2/favicons?domain=sumandeep.com&sz=256'
+  },
+  {
+    name: 'Gati Shakti Vishwavidyalaya',
+    badge: 'Vadodara District',
+    img: 'https://www.google.com/s2/favicons?domain=gsv.ac.in&sz=256'
+  },
+  {
+    name: 'Anand Agricultural University',
+    badge: 'Nearby · Anand',
+    img: 'https://www.google.com/s2/favicons?domain=aau.in&sz=256'
+  },
+  {
+    name: 'Charotar University of Science and Technology (CHARUSAT)',
+    badge: 'Nearby · Changa',
+    img: 'https://www.google.com/s2/favicons?domain=charusat.ac.in&sz=256'
+  },
+  {
+    name: 'Sardar Patel University',
+    badge: 'Nearby · Vallabh Vidyanagar',
+    img: 'https://www.google.com/s2/favicons?domain=spuvvn.edu&sz=256'
   }
 ];
 
