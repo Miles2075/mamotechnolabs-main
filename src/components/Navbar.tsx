@@ -357,13 +357,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
             </div>
 
               <button
-                onClick={() => handleNav('placements')}
-                className={navItemClass(currentRoute === 'placements')}
-              >
-                Placements
-              </button>
-
-              <button
                 onClick={() => handleNav('hire')}
                 className={navItemClass(currentRoute === 'hire')}
               >
@@ -532,17 +525,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                     </div>
                   )}
                 </div>
-
-                <button
-                  onClick={() => handleNav('placements')}
-                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
-                    currentRoute === 'placements'
-                      ? 'text-brand-700 bg-brand-50'
-                      : 'text-slate-800 hover:bg-slate-50'
-                  }`}
-                >
-                  Placements
-                </button>
 
                 <button
                   onClick={() => handleNav('hire')}
