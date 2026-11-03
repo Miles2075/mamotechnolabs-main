@@ -436,7 +436,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs font-bold shadow-xs">
             <Briefcase className="w-3.5 h-3.5 text-brand-600" />
-            <span>100% Verified Career Placement Network</span>
+            <span>Official Client & Institute Logos</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
