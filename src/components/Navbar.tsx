@@ -289,6 +289,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
               About Us
             </button>
 
+            <button
+              onClick={() => handleNav('college-partners')}
+              className={navItemClass(currentRoute === 'college-partners')}
+            >
+              College Partners
+            </button>
+
             {/* Student Corner Dropdown */}
             <div
               className="relative nav-dropdown-container"
@@ -336,7 +343,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       { route: 'reviews' as RouteType, label: 'Student Reviews', icon: Star },
                       { route: 'blog' as RouteType, label: 'Tech Blogs & Guides', icon: BookOpen },
                       { route: 'nios' as RouteType, label: 'NIOS Learning Centre', icon: FileText },
-                      { route: 'college-partners' as RouteType, label: 'Colleges We Are Partnered With', icon: GraduationCap },
                     ].map((item, idx) => {
                       const Icon = item.icon;
                       return (
@@ -506,6 +512,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                   About Us
                 </button>
 
+                <button
+                  onClick={() => handleNav('college-partners')}
+                  className={`w-full text-left py-2.5 px-3 rounded-xl text-sm font-bold transition-colors ${
+                    currentRoute === 'college-partners'
+                      ? 'text-brand-700 bg-brand-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  College Partners
+                </button>
+
                 {/* Mobile Student Corner Accordion */}
                 <div>
                   <button
@@ -523,7 +540,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                       <button onClick={() => handleNav('reviews')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Student Reviews</button>
                       <button onClick={() => handleNav('blog')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Blog</button>
                       <button onClick={() => handleNav('nios')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">NIOS Learning Centre</button>
-                      <button onClick={() => handleNav('college-partners')} className="w-full text-left py-2 px-2 text-slate-700 hover:text-brand-600">Colleges We Are Partnered With</button>
                     </div>
                   )}
                 </div>
