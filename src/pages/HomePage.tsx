@@ -34,7 +34,12 @@ import {
   Zap,
   BarChart2,
   Loader2,
-  ExternalLink
+  ExternalLink,
+  Settings,
+  FileText,
+  Link2,
+  MapPin,
+  PenTool
 } from 'lucide-react';
 import { sendInquiryEmail } from '../utils/sendMail';
 
@@ -482,7 +487,84 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
       </section>
 
       {/* ─────────────────────────────────────────────────────────
-          3. EXPLORE POPULAR COURSES (Modern Bento Card Grid)
+          3. SEO & ORGANIC GROWTH
+         ───────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white border-y border-slate-200/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-emerald-700 mb-4">
+              <TrendingUp className="w-4 h-4" />
+              SEO & Organic Growth
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              We don't just rank pages. We grow your pipeline.
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+              From technical audits to content that converts, our SEO team helps businesses build lasting search visibility and attract the right customers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Technical SEO',
+                description: 'Site speed, crawlability, Core Web Vitals and structured data fixes that let search engines actually find and understand your pages.',
+                Icon: Settings
+              },
+              {
+                title: 'On-Page SEO',
+                description: 'Keyword-mapped titles, headers and internal linking that align every page with what your buyers are actually searching for.',
+                Icon: FileText
+              },
+              {
+                title: 'Off-Page & Link Building',
+                description: 'Authority-building backlinks from relevant, credible sources earned ethically, tracked transparently.',
+                Icon: Link2
+              },
+              {
+                title: 'Local SEO',
+                description: 'Google Business Profile optimization and citation management so nearby customers find you first.',
+                Icon: MapPin
+              },
+              {
+                title: 'Content & SEO Copywriting',
+                description: 'Search-optimized content that ranks and reads well, built around real buyer questions, not keyword stuffing.',
+                Icon: PenTool
+              },
+              {
+                title: 'AI Search Optimization',
+                description: 'Structuring your content and schema so brands get cited in ChatGPT, Google AI Overviews, Perplexity and Gemini answers.',
+                Icon: Bot,
+                isNew: true
+              }
+            ].map(({ title, description, Icon, isNew }) => (
+              <div key={title} className="relative rounded-2xl border border-slate-200 bg-white px-7 py-9 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-lg">
+                {isNew && (
+                  <span className="absolute right-5 top-5 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-white">
+                    New for 2026
+                  </span>
+                )}
+                <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center text-emerald-400">
+                  <Icon className="h-12 w-12" strokeWidth={2.8} />
+                </div>
+                <h3 className="mb-4 text-xl sm:text-2xl font-bold text-slate-900">{title}</h3>
+                <p className="text-base sm:text-lg leading-relaxed text-slate-600">{description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => navigateTo('services')}
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3 font-bold text-white shadow-sm transition hover:bg-emerald-600"
+            >
+              Explore SEO Services <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────
+          4. EXPLORE POPULAR COURSES (Modern Bento Card Grid)
          ───────────────────────────────────────────────────────── */}
       <section className="py-20 bg-slate-50/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
