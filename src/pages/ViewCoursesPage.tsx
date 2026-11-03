@@ -359,10 +359,18 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
                       </div>
 
                       {/* Highlight Specs */}
-                      <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-100 text-xs">
-                        <div className="flex items-center gap-1.5 text-slate-600">
-                          <Clock className="w-3.5 h-3.5 text-brand-600" />
-                          <span className="font-semibold">{course.duration}</span>
+                      <div className="flex flex-col gap-3 pt-3 border-t border-slate-100 text-xs">
+                        <div className="flex flex-wrap items-center gap-1.5 text-slate-600">
+                          <Clock className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                          <span className="font-semibold mr-1">Duration:</span>
+                          {durationOptions.map((duration) => (
+                            <span
+                              key={duration}
+                              className="inline-flex items-center rounded-full bg-slate-100 border border-slate-200 px-2 py-1 text-[11px] font-semibold text-slate-700"
+                            >
+                              {duration}
+                            </span>
+                          ))}
                         </div>
                         <div className="flex items-center gap-1.5 text-slate-600">
                           <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
