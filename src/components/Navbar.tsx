@@ -15,7 +15,6 @@ import {
   GraduationCap,
   Briefcase,
   FileText,
-  Building,
   Star,
   BookOpen,
   PhoneCall,
