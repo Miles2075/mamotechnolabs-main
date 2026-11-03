@@ -33,27 +33,27 @@ export const universityPartners: UniversityTieUp[] = [
   {
     name: 'Babaria Institute of Technology',
     badge: 'Vadodara District',
-    img: 'https://www.google.com/s2/favicons?domain=bitseducampus.org&sz=256'
+    img: 'https://bitseducampus.org/wp-content/uploads/2018/12/SKECT-Logo.png'
   },
   {
     name: 'Sigma University',
     badge: 'Vadodara District',
-    img: 'https://www.google.com/s2/favicons?domain=sigmauniversity.ac.in&sz=256'
+    img: 'https://images.yourstory.com/cs/images/brandSpotlight/Sigma-Logo-1769685241994.jpg?format=auto&q=75&w=1200'
   },
   {
     name: 'Sumandeep Vidyapeeth',
     badge: 'Vadodara District',
-    img: 'https://www.google.com/s2/favicons?domain=sumandeep.com&sz=256'
+    img: 'https://akm-img-a-in.tosshub.com/sites/resources/campus/prod/img/logo/2023/8/28449997332613765674303041889761863274968455n1306448637483.jpg'
   },
   {
     name: 'Gati Shakti Vishwavidyalaya',
     badge: 'Vadodara District',
-    img: 'https://www.google.com/s2/favicons?domain=gsv.ac.in&sz=256'
+    img: 'https://gsv.ac.in/icitfm25/assets/gsvlogo.png'
   },
   {
     name: 'Anand Agricultural University',
     badge: 'Nearby · Anand',
-    img: 'https://www.google.com/s2/favicons?domain=aau.in&sz=256'
+    img: 'https://d2lk14jtvqry1q.cloudfront.net/media/large_1298_d8456a93ed_6d83f6ca04.png'
   },
   {
     name: 'Charotar University of Science and Technology (CHARUSAT)',
@@ -63,7 +63,7 @@ export const universityPartners: UniversityTieUp[] = [
   {
     name: 'Sardar Patel University',
     badge: 'Nearby · Vallabh Vidyanagar',
-    img: 'https://www.google.com/s2/favicons?domain=spuvvn.edu&sz=256'
+    img: 'https://i.pinimg.com/736x/f9/cb/dc/f9cbdc1e1d05747fd024d2edfb3c771f.jpg'
   }
 ];
 
