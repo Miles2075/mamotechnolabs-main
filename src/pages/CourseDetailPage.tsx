@@ -76,8 +76,9 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
                 <span className="block">{course.title}</span>
               </h1>
-              <div className="mt-3">
-                <span className="inline-flex items-center rounded-full bg-emerald-500/15 text-emerald-300 px-3 py-1.5 text-xs sm:text-sm font-extrabold border border-emerald-400/40 whitespace-nowrap no-underline">
+              <div className="mt-5 mb-2">
+                <span className="inline-flex items-center gap-2 rounded-full bg-emerald-400 text-slate-950 px-6 py-3 text-base sm:text-xl font-black tracking-wide border-2 border-emerald-200 shadow-lg shadow-emerald-500/30 ring-4 ring-emerald-400/15 whitespace-nowrap">
+                  <span aria-hidden="true" className="text-lg sm:text-2xl leading-none">★</span>
                   + FREE INTERNSHIP
                 </span>
               </div>
