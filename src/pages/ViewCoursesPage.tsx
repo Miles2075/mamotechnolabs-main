@@ -261,17 +261,27 @@ export const ViewCoursesPage: React.FC<ViewCoursesPageProps> = ({ navigateTo, op
                 <div className="grid grid-cols-2 gap-2">
                   {durationOptions.map((dur) => {
                     const isChecked = selectedDurations.includes(dur);
+                    const courseCount = catalogCourses.filter(course => course.duration === dur).length;
+                    const isUnavailable = courseCount === 0;
                     return (
                       <button
                         key={dur}
-                        onClick={() => toggleDuration(dur)}
+                        onClick={() => !isUnavailable && toggleDuration(dur)}
+                        disabled={isUnavailable}
+                        title={isUnavailable ? `No courses currently listed for ${dur}` : `${courseCount} course${courseCount === 1 ? '' : 's'}`}
+                        aria-label={`${dur}: ${courseCount} courses available`}
                         className={`py-2 px-2.5 rounded-xl text-xs font-bold border text-center transition-all ${
                           isChecked
                             ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
-                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-300'
+                            : isUnavailable
+                              ? 'bg-slate-50 text-slate-300 border-slate-100 cursor-not-allowed opacity-60'
+                              : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-300'
                         }`}
                       >
                         {dur}
+                        <span className="block mt-0.5 text-[9px] font-medium opacity-75">
+                          {courseCount} {courseCount === 1 ? 'course' : 'courses'}
+                        </span>
                       </button>
                     );
                   })}
