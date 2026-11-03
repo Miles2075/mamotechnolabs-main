@@ -11,7 +11,8 @@ export type RouteType =
   | 'visit'
   | 'reviews'
   | 'blog'
-  | 'nios';
+  | 'nios'
+  | 'college-partners';
 
 export interface CourseModule {
   title: string;
