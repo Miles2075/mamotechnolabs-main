@@ -60,13 +60,22 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
 
   const categories = [
     'Trending',
+    'Development & Engineering',
+    'Design',
     'AI & Machine Learning',
-    'Analytics & BI',
-    'Web Development',
-    'Software Testing & QA',
-    'Digital Marketing',
-    'Design'
+    'QA & Testing',
+    'Infrastructure & Emerging Tech',
+    'Business & Digital Growth'
   ];
+
+  const categoryGroupTerms: Record<string, string[]> = {
+    'Development & Engineering': ['Programing Development', 'Web Development', 'Mobile App Development'],
+    'Design': ['Design'],
+    'AI & Machine Learning': ['AI & Machine Learning'],
+    'QA & Testing': ['Software Testing & QA'],
+    'Infrastructure & Emerging Tech': ['Infrastructure', 'DevOps'],
+    'Business & Digital Growth': ['Digital Marketing', 'SEO', 'Analytics']
+  };
 
   const filteredCourses = catalogCourses.filter(c => {
     // Search match
@@ -80,12 +89,8 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
     }
 
     if (selectedFilter === 'Trending') return c.badges.includes('Trending');
-    if (selectedFilter === 'Analytics & BI') return c.category.includes('Analytics');
-    if (selectedFilter === 'AI & Machine Learning') return c.category.includes('AI') || c.category.includes('Machine');
-    if (selectedFilter === 'Software Testing & QA') return c.category.includes('Testing');
-    if (selectedFilter === 'Digital Marketing') return c.category.includes('Marketing');
-    if (selectedFilter === 'Web Development') return c.category.includes('Web') || c.category.includes('Programing');
-    if (selectedFilter === 'Design') return c.category.includes('Design');
+    const terms = categoryGroupTerms[selectedFilter];
+    if (terms) return terms.some(term => c.category.toLowerCase().includes(term.toLowerCase()));
     return true;
   });
 
@@ -533,7 +538,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
               onClick={() => navigateTo('courses')}
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-800 font-bold text-xs hover:border-brand-500 hover:text-brand-600 shadow-sm transition-all self-start md:self-auto"
             >
-              <span>View All 16 Courses</span>
+              <span>View All {catalogCourses.length} Courses</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -577,9 +582,14 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
 
                   {/* Title & Desc */}
                   <div>
-                    <h3 className="text-lg font-black text-slate-900 group-hover:text-brand-600 transition-colors">
-                      {course.name}
-                    </h3>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-black text-slate-900 group-hover:text-brand-600 transition-colors">
+                        {course.name}
+                      </h3>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 px-2.5 py-1 text-[10px] font-extrabold">
+                        + FREE INTERNSHIP
+                      </span>
+                    </div>
                     <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
                       {course.description}
                     </p>
