@@ -127,7 +127,8 @@ export const HomePage: React.FC<HomePageProps> = ({ navigateTo, openCounseling }
   const marqueeRow2 = [
     { name: 'Parul University', img: 'https://mamotechnolabs.com/images/logo1.webp', type: 'university', badge: 'Interns from' },
     { name: 'Sigma University', img: 'https://mamotechnolabs.com/images/logo2.webp', type: 'university', badge: 'Interns from' },
-    { name: 'GSFC University', img: 'https://mamotechnolabs.com/images/logo4.webp', type: 'university', badge: 'Interns from' }
+    { name: 'GSFC University', img: 'https://mamotechnolabs.com/images/logo4.webp', type: 'university', badge: 'Interns from' },
+    { name: 'Navrachana University (NUV)', type: 'university', badge: 'Academic partner' }
   ];
 
   const renderPartnerCard = (partner: { name: string; type?: string; logo?: string; img?: string; badge?: string }, key: string) => (
