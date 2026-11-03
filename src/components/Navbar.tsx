@@ -249,9 +249,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, navigateTo, openCo
                               <h4 className="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors">
                                 {course.name}
                               </h4>
-                              <span className="inline-flex items-center rounded-full bg-sky-50 text-sky-700 border border-sky-200 px-2.5 py-1 text-[10px] font-extrabold whitespace-nowrap">
-                                {course.duration}
-                              </span>
                               <span className="inline-flex items-center rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 text-[9px] font-extrabold whitespace-nowrap">
                                 + FREE INTERNSHIP
                               </span>
