@@ -72,7 +72,7 @@ export const learningFacilityImages = [
     title: 'Student High-Speed Computing Lab'
   },
   {
-    src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c4c4?auto=format&fit=crop&w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c66273c4fd55f?auto=format&fit=crop&w=800&q=80',
     title: 'Interactive Mentor-Led Discussions'
   },
   {
