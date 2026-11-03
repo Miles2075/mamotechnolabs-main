@@ -41,11 +41,6 @@ export const universityPartners: UniversityTieUp[] = [
     img: 'https://images.yourstory.com/cs/images/brandSpotlight/Sigma-Logo-1769685241994.jpg?format=auto&q=75&w=1200'
   },
   {
-    name: 'Sumandeep Vidyapeeth',
-    badge: 'Vadodara District',
-    img: 'https://akm-img-a-in.tosshub.com/sites/resources/campus/prod/img/logo/2023/8/28449997332613765674303041889761863274968455n1306448637483.jpg'
-  },
-  {
     name: 'Gati Shakti Vishwavidyalaya',
     badge: 'Vadodara District',
     img: 'https://gsv.ac.in/icitfm25/assets/gsvlogo.png'
