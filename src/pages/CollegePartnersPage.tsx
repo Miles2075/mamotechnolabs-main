@@ -8,9 +8,6 @@ interface CollegePartnersPageProps {
 }
 
 export const CollegePartnersPage: React.FC<CollegePartnersPageProps> = ({ navigateTo }) => {
-  const academicPartners = universityPartners.filter((college) => college.badge === 'Academic Partner');
-  const nearbyColleges = universityPartners.filter((college) => college.badge !== 'Academic Partner');
-
   const collegeCard = (college: (typeof universityPartners)[number], isPartner: boolean) => (
     <article key={college.name} className="group flex min-h-64 flex-col items-center justify-center rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
       <div className="mb-5 flex h-28 w-full items-center justify-center rounded-2xl bg-slate-50 p-4">
@@ -55,27 +52,13 @@ export const CollegePartnersPage: React.FC<CollegePartnersPageProps> = ({ naviga
             <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-emerald-700">Our Academic Network</p>
             <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Our College & University Partners</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-500">
-              Institutions listed as academic partners in our current partner directory.
+              All institutions in our college directory, including academic partners and colleges across Vadodara and nearby areas.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {academicPartners.map((college) => collegeCard(college, true))}
+            {universityPartners.map((college) => collegeCard(college, college.badge === 'Academic Partner'))}
           </div>
 
-          {nearbyColleges.length > 0 && (
-            <div className="mt-16">
-              <div className="mb-9 text-center">
-                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-emerald-700">Regional Institutions</p>
-                <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Colleges in Vadodara & Nearby Areas</h2>
-                <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-500">
-                  A directory of colleges and universities in the surrounding region. These listings indicate location, not a confirmed formal partnership.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {nearbyColleges.map((college) => collegeCard(college, false))}
-              </div>
-            </div>
-          )}
 
           <div className="mt-12 rounded-3xl bg-slate-900 px-6 py-8 text-center text-white sm:px-10">
             <h2 className="text-xl font-black sm:text-2xl">Interested in an academic collaboration?</h2>
